@@ -5,7 +5,14 @@
     android:id="@+id/profileFragment"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:icon="@drawable/icon_settings"
+    android:icon="@drawable/baseline_account_box_24"
     android:title="Profile" />
+
+    <item
+        android:id="@+id/homeFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_hub_24"
+        android:title="Home" />
 
 </menu>

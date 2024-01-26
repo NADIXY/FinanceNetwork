@@ -2,6 +2,7 @@ package com.example.abschlussprojektmyapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -54,12 +55,15 @@ class MainActivity : AppCompatActivity() {
 
         Verknüpft die bottomNavigationView mit dem NavController des gefundenen NavHostFragments.
          */
+
         binding.bottomNavigationView.setupWithNavController(navHost.navController)
 
-       /*
-
-        */
-
+        navHost.navController.addOnDestinationChangedListener { _, destination, _ -> //Fügt einen Listener hinzu, um Änderungen im Navigationsziel zu überwachen
+            when (destination.id) { //Überprüft das Ziel und passt die Sichtbarkeit der unteren Navigationsleiste entsprechend an
+                R.id.loginFragment -> binding.bottomNavigationView.visibility = View.GONE //Wenn das Ziel das loginFragment ist, wird die untere Navigationsleiste ausgeblendet
+                else -> binding.bottomNavigationView.visibility = View.VISIBLE //In allen anderen Fällen wird die untere Navigationsleiste sichtbar gemacht
+            }
+        }
 
         /**
 

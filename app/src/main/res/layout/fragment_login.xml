@@ -32,21 +32,25 @@ tools:context=".ui.LoginFragment">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
-<Button
-    android:id="@+id/loginBTN"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="32dp"
-    android:text="Login"
-    app:layout_constraintEnd_toEndOf="@+id/passwordET"
-    app:layout_constraintStart_toStartOf="@+id/passwordET"
-    app:layout_constraintTop_toBottomOf="@+id/passwordET" />
+    <Button
+        android:id="@+id/loginBTN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#050505"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="@+id/passwordET"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/passwordET"
+        app:layout_constraintTop_toBottomOf="@+id/passwordET" />
 
-<Button
+    <Button
     android:id="@+id/registerBTN"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="32dp"
+        android:background="#13102F"
+        android:backgroundTint="#800080"
     android:text="Registrieren"
     app:layout_constraintEnd_toEndOf="@+id/loginBTN"
     app:layout_constraintStart_toStartOf="@+id/loginBTN"

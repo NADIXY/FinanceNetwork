@@ -26,15 +26,11 @@ class MainViewmodel : ViewModel() {
         setupUserEnv()
     }
 
-    //region FirebaseUserManagement
-
-    //Richtet die Variablen ein die erst eingerichtet werden können
-    //wenn der User eingeloggt ist
     fun setupUserEnv(){
 
         _user.value = auth.currentUser
 
-        //Alternative Schreibweise um auf null Werte zu überprüfen
+
         auth.currentUser?.let {firebaseUser ->
 
             profileRef = firestore.collection("user").document(firebaseUser.uid)
@@ -47,14 +43,14 @@ class MainViewmodel : ViewModel() {
 
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
-                //User wurde erstellt
+
                 setupUserEnv()
 
                 val newProfile = Profile()
                 profileRef.set(newProfile)
 
             } else {
-                //Fehler aufgetreten
+
             }
         }
 
@@ -64,10 +60,10 @@ class MainViewmodel : ViewModel() {
 
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
-                //User wurde eingeloggt
+
                 setupUserEnv()
             } else {
-                //Fehler aufgetreten
+
             }
         }
     }
@@ -79,5 +75,4 @@ class MainViewmodel : ViewModel() {
 
     }
 
-    //endregion
 }

@@ -1,10 +1,14 @@
 package com.example.abschlussprojektmyapp.ui
 
+import android.app.AlertDialog
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewmodel
@@ -16,6 +20,13 @@ class ProfileFragment : Fragment() {
 
     private val viewmodel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentProfileBinding
+
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) {uri: Uri? ->
+        if (uri != null) {
+            //Uri bezieht sich auf das Bild
+        }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +40,16 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.logoutBTN.setOnClickListener {
-            viewmodel.logout()
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Ausloggen")
+            builder.setMessage("Möchten Sie sich wirklich ausloggen?")
+            builder.setPositiveButton("Ja") { dialog, which ->
+                viewmodel.logout()
+                Toast.makeText(requireContext(), "Du bist ausgeloggt", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Nein") { dialog, which -> }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
 
         viewmodel.user.observe(viewLifecycleOwner){
@@ -44,6 +64,9 @@ class ProfileFragment : Fragment() {
 
             val profile = snapshot?.toObject(Profile::class.java)
             binding.userTV.text = profile?.isPremium.toString()
+        }
+        binding.userProfile.setOnClickListener {
+            getContent.launch("")
         }
 
     }
