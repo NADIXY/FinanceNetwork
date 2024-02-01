@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.example.abschlussprojektmyapp.MainViewmodel
 import com.example.abschlussprojektmyapp.Profile
 import com.example.abschlussprojektmyapp.R
@@ -18,12 +19,13 @@ import com.example.abschlussprojektmyapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
-    private val viewmodel: MainViewmodel by activityViewModels()
+    private val viewModel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentProfileBinding
 
     private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) {uri: Uri? ->
         if (uri != null) {
             //Uri bezieht sich auf das Bild
+            viewModel.uploadProfilePicture(uri)
         }
 
     }
@@ -44,7 +46,7 @@ class ProfileFragment : Fragment() {
             builder.setTitle("Ausloggen")
             builder.setMessage("Möchten Sie sich wirklich ausloggen?")
             builder.setPositiveButton("Ja") { dialog, which ->
-                viewmodel.logout()
+                viewModel.logout()
                 Toast.makeText(requireContext(), "Du bist ausgeloggt", Toast.LENGTH_SHORT).show()
             }
             builder.setNegativeButton("Nein") { dialog, which -> }
@@ -52,21 +54,24 @@ class ProfileFragment : Fragment() {
             dialog.show()
         }
 
-        viewmodel.user.observe(viewLifecycleOwner){
+        viewModel.user.observe(viewLifecycleOwner){
             if(it != null){
-                //binding.userTV.text = it.uid
+                binding.userTV.text = it.uid
             } else {
                 findNavController().navigate(R.id.loginFragment)
             }
         }
 
-        viewmodel.profileRef.addSnapshotListener{    snapshot, error ->
+        viewModel.profileRef.addSnapshotListener{    snapshot, error ->
 
-            val profile = snapshot?.toObject(Profile::class.java)
-            binding.userTV.text = profile?.isPremium.toString()
+            val profile = snapshot?.toObject(Profile::class.java)!!
+            binding.userTV.text = profile.isPremium.toString()
+            if(profile.profilePicture != ""){
+                binding.imageView.load(profile.profilePicture)
+            }
         }
-        binding.userProfile.setOnClickListener {
-            getContent.launch("")
+        binding.imageView.setOnClickListener {
+            getContent.launch("image/*")
         }
 
     }

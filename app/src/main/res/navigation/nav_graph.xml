@@ -19,5 +19,37 @@
         android:id="@+id/homeFragment"
         android:name="com.example.abschlussprojektmyapp.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/top_Gain_LoseFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.TopLossGainFragment"
+        android:label="fragment_top_loss_gain"
+        tools:layout="@layout/fragment_top_loss_gain" />
+    <fragment
+        android:id="@+id/marketFragment2"
+        android:name="com.example.abschlussprojektmyapp.ui.MarketFragment"
+        android:label="fragment_market"
+        tools:layout="@layout/fragment_market" />
+    <fragment
+        android:id="@+id/watchlistFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.WatchlistFragment"
+        android:label="WatchlistFragment" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.DetailsFragment"
+        android:label="DetailsFragment" />
+    <fragment
+        android:id="@+id/newsFragment2"
+        android:name="com.example.abschlussprojektmyapp.ui.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/currency_ConverterFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.Currency_ConverterFragment"
+        android:label="fragment_currency__converter"
+        tools:layout="@layout/fragment_currency__converter" />
 </navigation>

@@ -28,17 +28,31 @@ class LoginFragment : Fragment() {
 
         binding.loginBTN.setOnClickListener {
             if (binding.emailET.text.isEmpty() || binding.passwordET.text.isEmpty()) {
-                Toast.makeText(requireContext(), "Failed input must not be empty!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Failed input must not be empty!",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
-                viewmodel.login(binding.emailET.text.toString(), binding.passwordET.text.toString())
+                viewmodel.login(
+                    binding.emailET.text.toString(),
+                    binding.passwordET.text.toString()
+                )
             }
         }
 
         binding.registerBTN.setOnClickListener {
             if (binding.emailET.text.isEmpty() || binding.passwordET.text.isEmpty()) {
-                Toast.makeText(requireContext(), "Failed input must not be empty!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Failed input must not be empty!",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
-                viewmodel.register(binding.emailET.text.toString(), binding.passwordET.text.toString())
+                viewmodel.register(
+                    binding.emailET.text.toString(),
+                    binding.passwordET.text.toString()
+                )
             }
         }
 
@@ -50,6 +64,8 @@ class LoginFragment : Fragment() {
     }
 
 }
+
+
 
 
 

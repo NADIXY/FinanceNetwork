@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-<item
-    android:id="@+id/profileFragment"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:icon="@drawable/baseline_account_box_24"
-    android:title="Profile" />
+    <item
+        android:id="@+id/profileFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_account_box_24"
+        android:title="Profile" />
 
     <item
         android:id="@+id/homeFragment"
@@ -14,5 +14,26 @@
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_hub_24"
         android:title="Home" />
+
+    <item
+        android:id="@+id/watchlistFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_stats"
+        android:title="Watchlist" />
+
+    <item
+        android:id="@+id/newsFragment2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_public_24"
+        android:title="News" />
+
+    <item
+        android:id="@+id/currency_ConverterFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_sync_alt_24"
+        android:title="$Change" />
 
 </menu>
