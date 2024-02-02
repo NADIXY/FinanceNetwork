@@ -49,7 +49,7 @@
         tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/currency_ConverterFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.Currency_ConverterFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.CurrencyConverterFragment"
         android:label="fragment_currency__converter"
-        tools:layout="@layout/fragment_currency__converter" />
+        tools:layout="@layout/fragment_currency_converter" />
 </navigation>
