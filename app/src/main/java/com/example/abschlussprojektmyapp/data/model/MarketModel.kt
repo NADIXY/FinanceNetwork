@@ -10,5 +10,5 @@ import android.net.http.UrlRequest
  */
 data class MarketModel(
     val data: Data,
-    val status: UrlRequest.Status
+    //val status: UrlRequest.Status
 )
