@@ -27,7 +27,4 @@ class CurrencyConverterFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_currency_converter, container, false)
     }
 
-
-
-
 }

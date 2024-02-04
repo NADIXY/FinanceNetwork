@@ -32,7 +32,5 @@ interface AbschlussprojektMyAppDatabaseDao {
      */
     @Delete
     suspend fun deleteNote(note: Note)
-
 }
-
  */

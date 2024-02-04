@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:backgroundTint="@color/SI_DeepPurple"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:contentPadding="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvSetup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            tools:text="Was fängt mit 'Z' an und kann schwimmen?"
+            android:textAlignment="center"
+            android:textColor="@color/SI_Grey2"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/tvDelivery"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDelivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bubblegum_sans"
+            tools:text="Zwei Enten!"
+            android:textAlignment="center"
+            android:textColor="@color/SI_Yellow"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSetup" />
+
+        <Button
+            android:id="@+id/btnShowDelivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/SI_Grey2"
+            android:padding="8dp"
+            android:text="&#129318;"
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tvDelivery"
+            app:layout_constraintEnd_toEndOf="@id/tvDelivery"
+            app:layout_constraintStart_toStartOf="@id/tvDelivery"
+            app:layout_constraintTop_toTopOf="@id/tvDelivery" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

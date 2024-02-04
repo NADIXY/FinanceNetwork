@@ -1,24 +1,15 @@
 package com.example.abschlussprojektmyapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import com.example.abschlussprojektmyapp.MainViewmodel
 import com.example.abschlussprojektmyapp.adapter.MarketAdapter
-import com.example.abschlussprojektmyapp.data.Repository
-import com.example.abschlussprojektmyapp.data.model.CryptoCurrency
-import com.example.abschlussprojektmyapp.data.remote.Api
+import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentTopLossGainBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.util.Collections
-
 
 class TopLossGainFragment : Fragment() {
 
@@ -37,46 +28,24 @@ class TopLossGainFragment : Fragment() {
         return binding.root
     }
 
-    /*private fun getMarketData() {
-        val position = requireArguments().getInt("position")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                val response = Repository(Api).getMarketData()
+        viewModel.getMarketData()
 
-                if (response.isSuccessful) {
-                    val dataItem = response.body()?.data?.cryptoCurrencyList ?: emptyList()
+        viewModel.crypto.observe(viewLifecycleOwner) {
 
-                    withContext(Dispatchers.Main) {
-                        dataItem.sortedByDescending { it.quotes[0].percentChange24h.toInt() }
+            binding.topGainLoseRecyclerView.adapter =
+                TopMarketAdapter(requireContext(), it)
 
-                        val list = ArrayList<CryptoCurrency>()
-                        if (position == 0) {
-                            list.addAll(dataItem.take(10))
-                        } else {
-                            list.addAll(dataItem.takeLast(10))
-                        }
+            binding.topGainLoseRecyclerView.adapter =
+                MarketAdapter(requireContext(), it)
 
-                        binding.topGainLoseRecyclerView.adapter = MarketAdapter(requireContext(), list)
-                    }
-                } else {
-                    // Handle error
-                    Log.e("TopLossGainFragment", "Failed to get market data: ${response.message()}")
-                }
-            } catch (e: Exception) {
-                // Handle exception
-                Log.e("TopLossGainFragment", "Error getting market data: $e")
-            }
+            val position = requireArguments().getInt("position")
         }
     }
+    /*
 
-     */
-}
-
-/*
-
-
-    //Diese Funktion ruft Marktdaten ab
     private fun getMarketData() {
         val position = requireArguments().getInt("position")
         lifecycleScope.launch(Dispatchers.IO) {
@@ -119,36 +88,11 @@ class TopLossGainFragment : Fragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+     */
+}
 
-        viewModel.getMarketData()
-
-    }
-
- */
-
-
-
-
-
+//Option:
 /*
-
-class TopLossGainFragment : Fragment() {
-    private val viewModel: MainViewModel by activityViewModels()
-    lateinit var binding: FragmentTopLossGainBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentTopLossGainBinding.inflate(inflater)
-
-        getMarketData()
-
-        return binding.root
-    }
-
     // Diese Funktion ruft Marktdaten ab
     private fun getMarketData() {
         val position = requireArguments().getInt("position")
@@ -183,7 +127,6 @@ class TopLossGainFragment : Fragment() {
         }
     }
 }
-
  */
 
 

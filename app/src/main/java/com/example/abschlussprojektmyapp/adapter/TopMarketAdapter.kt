@@ -54,6 +54,7 @@ class TopMarketAdapter(
      */
     override fun onBindViewHolder(holder: TopMarketViewHolder, position: Int) {
         val item = list[position] //Holt das Element aus der Liste an der angegebenen Position.
+
         holder.binding.topCurrencyNameTextView.text =
             item.name //Setzt den Text des topCurrencyNameTextView im Binding auf den Namen des Elements.
 

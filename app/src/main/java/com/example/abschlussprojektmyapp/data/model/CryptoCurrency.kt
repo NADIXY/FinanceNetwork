@@ -1,7 +1,5 @@
 package com.example.abschlussprojektmyapp.data.model
 
-//import io.grpc.okhttp.internal.Platform
-
 /**
 
  *Eine Datenklasse, die Informationen über eine Kryptowährung enthält.

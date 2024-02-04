@@ -7,6 +7,19 @@
         <item name="colorPrimaryVariant">#121B4C</item>
         <item name="android:statusBarColor">#121B4C</item>
     </style>
-
     <style name="Theme.AbschlussprojektMyApp" parent="Base.Theme.AbschlussprojektMyApp" />
+
+    <style name="Theme.FunAppVorlage" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/SI_DeepPurple</item>
+        <item name="colorPrimaryVariant">@color/backgroundD1</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/SI_DeepPurple</item>
+        <item name="colorSecondaryVariant">@color/SI_Purple</item>
+        <item name="colorOnSecondary">@color/SI_Grey</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

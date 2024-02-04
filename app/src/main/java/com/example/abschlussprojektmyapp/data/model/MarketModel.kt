@@ -1,7 +1,5 @@
 package com.example.abschlussprojektmyapp.data.model
 
-import android.net.http.UrlRequest
-
 /**
 
  *Diese Klasse repräsentiert ein MarketModel Objekt.

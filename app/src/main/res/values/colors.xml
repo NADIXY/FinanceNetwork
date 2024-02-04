@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- SI colors -->
+    <color name="SI_DeepPurple">#FF060F38</color>
+    <color name="SI_Purple">#FF7656FD</color>
+    <color name="SI_Yellow">#FFFFF250</color>
+    <color name="SI_Grey">#FFF2F2F2</color>
+    <color name="SI_Grey2">#9C9C9C</color>
+    <color name="SI_Grey3">#5E5E5E</color>
+
+    <!-- more colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- background dark -->
+    <color name="backgroundD1">#FF121212</color>
+    <color name="backgroundD2">#FF1D1D1D</color>
+    <color name="backgroundD3">#FF282828</color>
+
+    <!-- background light -->
+    <color name="backgroundL1">#FFF2F2F2</color>
+    <color name="backgroundL2">#FFCACACA</color>
+    <color name="backgroundL3">#FFA2A2A2</color>
+
+
+
     <color name="red">#D00C0C</color>
     <color name="green">#123814</color>
 </resources>

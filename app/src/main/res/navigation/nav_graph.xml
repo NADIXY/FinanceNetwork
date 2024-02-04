@@ -52,4 +52,9 @@
         android:name="com.example.abschlussprojektmyapp.ui.CurrencyConverterFragment"
         android:label="fragment_currency__converter"
         tools:layout="@layout/fragment_currency_converter" />
+    <fragment
+        android:id="@+id/jokesFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.JokesFragment"
+        android:label="fragment_jokes"
+        tools:layout="@layout/fragment_jokes" />
 </navigation>

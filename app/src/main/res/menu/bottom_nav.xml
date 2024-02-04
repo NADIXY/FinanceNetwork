@@ -30,10 +30,10 @@
         android:title="News" />
 
     <item
-        android:id="@+id/currency_ConverterFragment"
+        android:id="@+id/jokesFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_sync_alt_24"
-        android:title="$Change" />
+        android:title="Joke" />
 
 </menu>

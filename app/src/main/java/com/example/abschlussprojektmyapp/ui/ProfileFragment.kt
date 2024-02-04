@@ -27,7 +27,6 @@ class ProfileFragment : Fragment() {
             //Uri bezieht sich auf das Bild
             viewModel.uploadProfilePicture(uri)
         }
-
     }
 
     override fun onCreateView(
@@ -43,13 +42,13 @@ class ProfileFragment : Fragment() {
 
         binding.logoutBTN.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Ausloggen")
-            builder.setMessage("Möchten Sie sich wirklich ausloggen?")
-            builder.setPositiveButton("Ja") { dialog, which ->
+            builder.setTitle("Log out")
+            builder.setMessage("Do you really want to log out?")
+            builder.setPositiveButton("Yes") { dialog, which ->
                 viewModel.logout()
-                Toast.makeText(requireContext(), "Du bist ausgeloggt", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "You are logged out", Toast.LENGTH_SHORT).show()
             }
-            builder.setNegativeButton("Nein") { dialog, which -> }
+            builder.setNegativeButton("Don't") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }

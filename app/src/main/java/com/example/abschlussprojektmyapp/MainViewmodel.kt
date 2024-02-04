@@ -2,16 +2,13 @@ package com.example.abschlussprojektmyapp
 
 import android.app.Application
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.abschlussprojektmyapp.data.Repository
-import com.example.abschlussprojektmyapp.data.TAG
+import com.example.abschlussprojektmyapp.data.AppRepository
 import com.example.abschlussprojektmyapp.data.model.CryptoCurrency
-import com.example.abschlussprojektmyapp.data.model.MarketModel
-import com.example.abschlussprojektmyapp.data.remote.Api
+import com.example.abschlussprojektmyapp.data.remote.JokeApi
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
@@ -27,13 +24,6 @@ ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwend
 @param application Die Anwendung, auf die zugegriffen werden soll.
  */
 class MainViewmodel(application: Application) : AndroidViewModel(application) {
-
-    /**
-
-    Private Variable, das die Repository-Klasse initialisiert.
-    @property repository Die Instanz der Repository-Klasse.
-     */
-    private val repository = Repository(Api) //getDatabase(application)
 
     val auth = Firebase.auth
     val firestore = Firebase.firestore
@@ -56,9 +46,7 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
         auth.currentUser?.let {firebaseUser ->
 
             profileRef = firestore.collection("user").document(firebaseUser.uid)
-
         }
-
     }
 
     fun register(email: String, password: String) {
@@ -75,7 +63,6 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
 
             }
         }
-
     }
 
     fun login(email: String, password: String) {
@@ -109,29 +96,40 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
 
     }
 
+    private val appRepository = AppRepository(JokeApi) //Api, getDatabase(application)
+    val data = appRepository.joke
+
+    init {
+        loadData()
+    }
+
+    fun loadData() {
+        viewModelScope.launch {
+            appRepository.getJokes()
+        }
+    }
+
     /**
 
     Variable, die das market-Objekt aus der Repository-Klasse holt.
     @property market Das market-Objekt aus der Repository-Klasse.
      */
-    val market = repository.market
+    val market = appRepository.market
     //val market: LiveData<List<MarketModel>> = repository.market
 
-    val crypto: LiveData<List<CryptoCurrency>> = repository.crypto
+    val crypto: LiveData<List<CryptoCurrency>> = appRepository.crypto
     //val crypto = repository.crypto //Variable, die das CryptoCurrency-Objekt aus der Repository-Klasse holt.
 
 
     fun getMarketData() {
         //val position = requireArguments().getInt("position")
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getMarketData()
-
+            appRepository.getMarketData()
         }
     }
 
-
-
-    /*fun getMarketData(position: Int) {
+    /*
+    fun getMarketData(position: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 repository.getMarketData()
@@ -140,9 +138,7 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-
      */
-
 }
 
 

@@ -38,5 +38,8 @@ data class Quote(
     val turnover: Double,
     val tvl: Double,
     val volume24h: Double,
-    val ytdPriceChangePercentage: Double
+    val ytdPriceChangePercentage: Double,
+    val percentChange1y: Double
+
 )
+

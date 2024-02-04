@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">AbschlussprojektMyApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- <string name="app_name">Lach dich kaputt!</string>-->
+   <string name="reload_jokes">Witze neu laden</string>
+   <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="not_found">Not Found any data</string>
     <string name="empty_watchlist">Watchlist is empty</string>
