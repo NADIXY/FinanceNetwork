@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scaleType="centerCrop"
-    android:background="@drawable/bitcoin"
+    android:background="@drawable/silver"
     android:alpha="0.2"
     tools:context=".ui.JokesFragment">
 

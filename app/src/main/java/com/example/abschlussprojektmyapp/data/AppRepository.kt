@@ -37,7 +37,6 @@ class AppRepository(private val api: JokeApi) { //private val api: Api, private 
         }
     }
 
-
     private val _market = MutableLiveData<MarketModel>() //Private Variable, die eine Liste von MarketModel als MutableLiveData hält
     val market: LiveData<MarketModel> //Öffentliche Variable, die eine Liste von MarketModel als LiveData zurückgibt
         get() = _market
