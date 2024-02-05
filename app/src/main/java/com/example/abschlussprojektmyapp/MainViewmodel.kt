@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
 import com.example.abschlussprojektmyapp.data.model.CryptoCurrency
+import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.JokeApi
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseUser
@@ -96,7 +97,10 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    private val appRepository = AppRepository(JokeApi) //Api, getDatabase(application)
+
+
+
+    private val appRepository = AppRepository(JokeApi, Api ) //Api, getDatabase(application)
     val data = appRepository.joke
 
     init {
@@ -128,17 +132,7 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /*
-    fun getMarketData(position: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                repository.getMarketData()
-            } catch (e: Exception) {
-                Log.e("ERROR", "Error getting market data: $e")
-            }
-        }
-    }
-     */
+
 }
 
 

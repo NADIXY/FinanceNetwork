@@ -9,27 +9,23 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-/*
+//Die Basis-URL für die Verbindung mit dem Server.
 
-/**
-
- * Die Basis-URL für die Verbindung mit dem Server.
- */
-const val BASE_URL = "https://api.coinmarketcap.com/"
+const val BASE_URL2 = "https://api.coinmarketcap.com/"
 
 //First Build Moshi Object
 // Moshi konvertiert Serverantworten in Kotlin Objekte
-private val moshi =
+private val moshi2 =
     Moshi.Builder() //Eine Instanz von Moshi, die zum Konvertieren von JSON in Kotlin-Objekte verwendet wird.
         .add(KotlinJsonAdapterFactory()) //Fügt den KotlinJsonAdapterFactory zur Moshi-Instanz hinzu, um die Verwendung von Kotlin-spezifischen Typen zu ermöglichen.
         .build() //Erstellt die Moshi-Instanz mit den hinzugefügten Adaptern und Konfigurationen.
 
 //Then Build Retrofit Object and passing in moshi object created above
-val retrofit =
+val retrofit2 =
     Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create(moshi)) //for parsing KotlinObjects i.e.
+        .addConverterFactory(MoshiConverterFactory.create(moshi2)) //for parsing KotlinObjects i.e.
         // picture of the day
-        .baseUrl(BASE_URL)
+        .baseUrl(BASE_URL2)
         .build()
 
 // Das Interface definiert unsere API Calls, Schnittstelle die die API-Endpunkteiniert.
@@ -41,12 +37,14 @@ interface ApiInterface {
 
 object Api { //Singleton-Objekt, das die API-Schnittstelle für die Apiüberprüfung bereitstellt.
     //Lazy initialisierter Retrofit-Service für die Kommunikation mit der API.
-    val retrofitService: ApiInterface by lazy { retrofit.create(ApiInterface::class.java) }.apply {
+    val retrofitService: ApiInterface by lazy { retrofit2.create(ApiInterface::class.java) }.apply {
         Log.d("Api_Call_Test", "Making API call to getMarketData")
     }
 }
 
- */
+
+
+
 
 
 

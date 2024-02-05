@@ -79,5 +79,4 @@ class MarketAdapter(
              placeholder(R.drawable.ic_launcher_background)
              transformations(RoundedCornersTransformation(50f))
          }
-
          */

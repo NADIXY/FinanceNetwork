@@ -24,7 +24,7 @@ package com.example.abschlussprojektmyapp.data.model
 data class Quote(
     val dominance: Double,
     val fullyDilluttedMarketCap: Double,
-    val lastUpdate: String,
+    val lastUpdate: String?,
     val marketCap: Double,
     val marketCapByTotalSupply: Double,
     val name: String,
@@ -36,7 +36,7 @@ data class Quote(
     val percentChange90d: Double,
     val price: Double,
     val turnover: Double,
-    val tvl: Double,
+    val tvl: Double?,
     val volume24h: Double,
     val ytdPriceChangePercentage: Double,
     val percentChange1y: Double

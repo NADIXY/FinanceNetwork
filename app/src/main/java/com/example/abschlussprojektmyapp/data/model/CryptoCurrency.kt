@@ -23,16 +23,16 @@ package com.example.abschlussprojektmyapp.data.model
  *@param totalSupply Die Gesamtversorgungsmenge der Kryptowährung
  */
 data class CryptoCurrency(
-    val auditInfoList: List<AuditInfo>,
+    val auditInfoList: List<AuditInfo>?,
     val circulatingSupply: Double,
     val cmcRank: Double,
     val dateAdded: String,
     val id: Int,
     val isActive: Double,
     val isAudited: Boolean,
-    val lastUpdate: String,
+    val lastUpdate: String?,
     val marketPairCount: Double,
-    val maxSupply: Double,
+    val maxSupply: Double?,
     val name: String,
     //val platform: Platform,
     val quotes: List<Quote>,
