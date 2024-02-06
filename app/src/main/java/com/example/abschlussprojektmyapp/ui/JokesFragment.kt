@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.abschlussprojektmyapp.MainViewmodel
-import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.adapter.JokeAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentJokesBinding
-import com.squareup.moshi.JsonAdapter
 
 class JokesFragment : Fragment() {
 

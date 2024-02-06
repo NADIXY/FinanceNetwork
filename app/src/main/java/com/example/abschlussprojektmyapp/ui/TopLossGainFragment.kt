@@ -33,63 +33,77 @@ class TopLossGainFragment : Fragment() {
 
         viewModel.getMarketData()
 
-        viewModel.crypto.observe(viewLifecycleOwner) {
+        viewModel.market.observe(viewLifecycleOwner) {
 
             binding.topGainLoseRecyclerView.adapter =
-                TopMarketAdapter(requireContext(), it)
+                TopMarketAdapter(requireContext(), it.data.cryptoCurrencyList)
 
             binding.topGainLoseRecyclerView.adapter =
-                MarketAdapter(requireContext(), it)
+                MarketAdapter(requireContext(), it.data.cryptoCurrencyList)
 
             val position = requireArguments().getInt("position")
         }
     }
-    /*
+}
 
-    private fun getMarketData() {
-        val position = requireArguments().getInt("position")
-        lifecycleScope.launch(Dispatchers.IO) {
 
-            val res = ApiUtilities.getInstance().create(ApiUtilities.ApiInterface::class.java).getMarketData()
 
-            if (res.body() != null) {
 
-                withContext(Dispatchers.Main) {
-                    val dataItem = res.body()!!.data.cryptoCurrencyList
 
-                    Collections.sort(dataItem) { o1, o2 ->
-                        (o2.quotes[0].percentChange24h.toInt())
-                            .compareTo(o1.quotes[0].percentChange24h.toInt())
 
+
+
+
+
+
+
+
+/*
+
+private fun getMarketData() {
+    val position = requireArguments().getInt("position")
+    lifecycleScope.launch(Dispatchers.IO) {
+
+        val res = ApiUtilities.getInstance().create(ApiUtilities.ApiInterface::class.java).getMarketData()
+
+        if (res.body() != null) {
+
+            withContext(Dispatchers.Main) {
+                val dataItem = res.body()!!.data.cryptoCurrencyList
+
+                Collections.sort(dataItem) { o1, o2 ->
+                    (o2.quotes[0].percentChange24h.toInt())
+                        .compareTo(o1.quotes[0].percentChange24h.toInt())
+
+                }
+                val list = ArrayList<CryptoCurrency>()
+
+                if (position == 0) {
+                    list.clear()
+                    for (i in 0..9) {
+                        list.add(dataItem[i])
                     }
-                    val list = ArrayList<CryptoCurrency>()
 
-                    if (position == 0) {
-                        list.clear()
-                        for (i in 0..9) {
-                            list.add(dataItem[i])
-                        }
+                    binding.topGainLoseRecyclerView.adapter =
+                        MarketAdapter(requireContext(), list)
 
-                        binding.topGainLoseRecyclerView.adapter =
-                            MarketAdapter(requireContext(), list)
-
-                    } else {
-                        list.clear()
-                        for (i in 0..9) {
-                            list.add(dataItem[dataItem.size - 1 - i])
-                        }
-
-                        binding.topGainLoseRecyclerView.adapter =
-                            MarketAdapter(requireContext(), list)
+                } else {
+                    list.clear()
+                    for (i in 0..9) {
+                        list.add(dataItem[dataItem.size - 1 - i])
                     }
+
+                    binding.topGainLoseRecyclerView.adapter =
+                        MarketAdapter(requireContext(), list)
                 }
             }
         }
-
     }
 
-     */
 }
+
+ */
+
 
 //Option:
 /*

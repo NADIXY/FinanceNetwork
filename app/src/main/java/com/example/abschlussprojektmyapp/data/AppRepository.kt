@@ -21,7 +21,7 @@ const val TAG = "Repository"
  * @param api Die Schnittstelle zur Kommunikation mit der API.
  * @param database Die Datenbank, in der die Daten gespeichert werden.
  */
-class AppRepository(private val api: JokeApi, private val api2: Api) { //private val api: Api, private val AbschlussprojektMyAppdatabase: Database
+class AppRepository(private val api: JokeApi, private val api2: Api) { //private val AbschlussprojektMyAppdatabase: Database
 
     //private val number = ""
     //private val key = ""
@@ -51,8 +51,8 @@ class AppRepository(private val api: JokeApi, private val api2: Api) { //private
         }
     }
 
-    private val _crypto = MutableLiveData<List<CryptoCurrency>>() //Private Variable, die eine Liste von Cryptocurrency als MutableLiveData hält
-    val crypto: LiveData<List<CryptoCurrency>> //Öffentliche Variable, die eine Liste von Cryptocurrency als LiveData zurückgibt
+    private val _crypto = MutableLiveData<List<CryptoCurrency>>()
+    val crypto: LiveData<List<CryptoCurrency>>
         get() = _crypto
 
 }

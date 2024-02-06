@@ -1,7 +1,6 @@
 package com.example.abschlussprojektmyapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -70,7 +69,22 @@ class HomeFragment : Fragment() {
 
     }
 
-    /*
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     private fun getTopCurrencyList() {
         lifecycleScope.launch(Dispatchers.IO) {
             val res = ApiUtilities.getInstance().create(ApiUtilities.ApiInterface::class.java).getMarketData()
@@ -83,8 +97,6 @@ class HomeFragment : Fragment() {
 
     }
      */
-
-}
 
 
 

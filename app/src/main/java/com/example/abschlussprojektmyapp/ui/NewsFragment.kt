@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import com.example.abschlussprojektmyapp.MainViewmodel
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.databinding.FragmentNewsBinding
-import com.example.abschlussprojektmyapp.databinding.FragmentWatchlistBinding
 
 class NewsFragment : Fragment() {
 

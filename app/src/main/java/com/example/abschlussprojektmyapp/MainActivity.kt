@@ -2,23 +2,17 @@ package com.example.abschlussprojektmyapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 /**
  * Main Activity, dient als Einstiegspunkt für die App
  */
 class MainActivity : AppCompatActivity() {
-
 
     /**
 
@@ -93,6 +87,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
+
+
+
+
+
+
 
 
 /*

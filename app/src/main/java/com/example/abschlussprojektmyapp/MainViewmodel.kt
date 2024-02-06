@@ -7,7 +7,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
-import com.example.abschlussprojektmyapp.data.model.CryptoCurrency
 import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.JokeApi
 import com.google.firebase.Firebase
@@ -98,32 +97,17 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
     }
 
 
+    private val appRepository = AppRepository(JokeApi, Api ) //getDatabase(application)
 
-
-    private val appRepository = AppRepository(JokeApi, Api ) //Api, getDatabase(application)
     val data = appRepository.joke
-
-    init {
-        loadData()
-    }
+    val market = appRepository.market //Variable, die das market-Objekt aus der Repository-Klasse holt.
+    val crypto = appRepository.crypto //Variable, die das crypto-Objekt aus der Repository-Klasse holt.
 
     fun loadData() {
         viewModelScope.launch {
             appRepository.getJokes()
         }
     }
-
-    /**
-
-    Variable, die das market-Objekt aus der Repository-Klasse holt.
-    @property market Das market-Objekt aus der Repository-Klasse.
-     */
-    val market = appRepository.market
-    //val market: LiveData<List<MarketModel>> = repository.market
-
-    val crypto: LiveData<List<CryptoCurrency>> = appRepository.crypto
-    //val crypto = repository.crypto //Variable, die das CryptoCurrency-Objekt aus der Repository-Klasse holt.
-
 
     fun getMarketData() {
         //val position = requireArguments().getInt("position")
