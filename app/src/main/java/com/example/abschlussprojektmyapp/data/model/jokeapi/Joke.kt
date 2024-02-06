@@ -1,4 +1,4 @@
-package com.example.abschlussprojektmyapp.data
+package com.example.abschlussprojektmyapp.data.model.jokeapi
 
 class Joke(
     val setup: String,

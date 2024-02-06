@@ -1,6 +1,6 @@
 package com.example.abschlussprojektmyapp.data.remote
 
-import com.example.abschlussprojektmyapp.data.ServerResponse
+import com.example.abschlussprojektmyapp.data.model.jokeapi.ServerResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

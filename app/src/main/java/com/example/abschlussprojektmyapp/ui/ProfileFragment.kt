@@ -13,7 +13,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.abschlussprojektmyapp.MainViewmodel
-import com.example.abschlussprojektmyapp.Profile
+import com.example.abschlussprojektmyapp.data.model.Profile
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.databinding.FragmentProfileBinding
 

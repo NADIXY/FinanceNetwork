@@ -3,10 +3,12 @@ package com.example.abschlussprojektmyapp.data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.abschlussprojektmyapp.data.model.CryptoCurrency
-import com.example.abschlussprojektmyapp.data.model.MarketModel
+import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
+import com.example.abschlussprojektmyapp.data.model.jokeapi.Joke
+import com.example.abschlussprojektmyapp.data.model.cryptoapi.MarketModel
 import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.JokeApi
+import com.example.abschlussprojektmyapp.data.remote.NewsApi
 import java.lang.Exception
 
 /**
@@ -21,7 +23,8 @@ const val TAG = "Repository"
  * @param api Die Schnittstelle zur Kommunikation mit der API.
  * @param database Die Datenbank, in der die Daten gespeichert werden.
  */
-class AppRepository(private val api: JokeApi, private val api2: Api) { //private val AbschlussprojektMyAppdatabase: Database
+class AppRepository(private val api: JokeApi, private val api2: Api, private val api3: NewsApi) { //private val AbschlussprojektMyAppdatabase: Database
+
 
     //private val number = ""
     //private val key = ""

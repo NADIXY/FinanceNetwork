@@ -1,4 +1,6 @@
-package com.example.abschlussprojektmyapp.data.model
+package com.example.abschlussprojektmyapp.data.model.cryptoapi
+
+import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 
 /**
 

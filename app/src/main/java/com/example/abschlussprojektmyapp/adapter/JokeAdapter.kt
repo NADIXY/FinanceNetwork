@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.abschlussprojektmyapp.data.Joke
+import com.example.abschlussprojektmyapp.data.model.jokeapi.Joke
 import com.example.abschlussprojektmyapp.databinding.ListItemJokeBinding
 
 class JokeAdapter(

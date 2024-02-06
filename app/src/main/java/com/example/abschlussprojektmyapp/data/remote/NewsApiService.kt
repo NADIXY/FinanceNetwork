@@ -1,7 +1,6 @@
 package com.example.abschlussprojektmyapp.data.remote
 
-import android.util.Log
-import com.example.abschlussprojektmyapp.data.model.NewsResponse
+import com.example.abschlussprojektmyapp.data.model.newsapi.NewsResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Response

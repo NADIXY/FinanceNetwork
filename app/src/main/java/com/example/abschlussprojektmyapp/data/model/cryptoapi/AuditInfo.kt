@@ -1,4 +1,4 @@
-package com.example.abschlussprojektmyapp.data.model
+package com.example.abschlussprojektmyapp.data.model.cryptoapi
 
 /**
 

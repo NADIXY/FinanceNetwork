@@ -7,8 +7,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
+import com.example.abschlussprojektmyapp.data.model.Profile
 import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.JokeApi
+import com.example.abschlussprojektmyapp.data.remote.NewsApi
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
@@ -97,7 +99,7 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    private val appRepository = AppRepository(JokeApi, Api ) //getDatabase(application)
+    private val appRepository = AppRepository(JokeApi, Api, NewsApi) //getDatabase(application)
 
     val data = appRepository.joke
     val market = appRepository.market //Variable, die das market-Objekt aus der Repository-Klasse holt.
