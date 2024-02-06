@@ -73,6 +73,33 @@ class MarketAdapter(
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* holder.binding.currencyImageView.load(
              "https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/" + item.id + ".png") {
              error(R.drawable.ic_launcher_foreground)
