@@ -1,9 +1,6 @@
 package com.example.abschlussprojektmyapp.data.model.cryptoapi
 
-import com.example.abschlussprojektmyapp.data.model.cryptoapi.Data
-
 //import android.net.http.UrlRequest
-
 /**
 
  *Diese Klasse repräsentiert ein MarketModel Objekt.

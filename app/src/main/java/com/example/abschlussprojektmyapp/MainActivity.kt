@@ -14,6 +14,8 @@ import com.example.abschlussprojektmyapp.databinding.ActivityMainBinding
  */
 class MainActivity : AppCompatActivity() {
 
+    private val key = "b3499f61db0b40649d0b3aed4238bef2"
+
     /**
 
     Deklariert eine private lateinit Variable namens binding vom Typ ActivityMainBinding.
@@ -41,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         @param binding.root Die Wurzelansicht des Binding-Objekts.
          */
         setContentView(binding.root)
-        //setContentView(R.layout.activity_main)
 
         /**
 
@@ -86,37 +87,9 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
+
 }
-
-
-
-
-
-
-
-
-
-/*
-//Api Test:
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-
-    // Überprüfen, ob die API funktioniert
-    checkApi()
-}
-private fun checkApi() {
-    GlobalScope.launch(Dispatchers.IO) {
-        try {
-            val response = Api.retrofitService.getMarketData()
-            Log.d("Response",response.toString())
-        } catch (e: Exception) {
-            Log.e("API_TEST", "Exception: ${e.message}")
-        }
-    }
-}
-}
- */
 
 
 

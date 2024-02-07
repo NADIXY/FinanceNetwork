@@ -13,7 +13,7 @@ import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
-    private val viewmodel: MainViewmodel by activityViewModels()
+    private val viewModel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                viewmodel.login(
+                viewModel.login(
                     binding.emailET.text.toString(),
                     binding.passwordET.text.toString()
                 )
@@ -49,14 +49,14 @@ class LoginFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                viewmodel.register(
+                viewModel.register(
                     binding.emailET.text.toString(),
                     binding.passwordET.text.toString()
                 )
             }
         }
 
-        viewmodel.user.observe(viewLifecycleOwner) { user ->
+        viewModel.user.observe(viewLifecycleOwner) { user ->
             if (user != null) {
                 findNavController().navigate(R.id.profileFragment)
             }

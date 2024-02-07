@@ -104,6 +104,9 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
     val data = appRepository.joke
     val market = appRepository.market //Variable, die das market-Objekt aus der Repository-Klasse holt.
     val crypto = appRepository.crypto //Variable, die das crypto-Objekt aus der Repository-Klasse holt.
+    val newsList = appRepository.newsList //Variable, die das newsList-Objekt aus der Repository-Klasse holt.
+
+
 
     fun loadData() {
         viewModelScope.launch {
@@ -118,6 +121,13 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+
+    fun getBusinessNews() {
+        viewModelScope.launch(Dispatchers.IO) {
+            appRepository.getBusinessNews()
+        }
+
+    }
 
 }
 

@@ -1,7 +1,5 @@
 package com.example.abschlussprojektmyapp.data.model.cryptoapi
 
-import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
-
 /**
 
  *Eine Datenklasse, die eine Liste von Kryptowährungen und die Gesamtanzahl der Kryptowährungen enthält.

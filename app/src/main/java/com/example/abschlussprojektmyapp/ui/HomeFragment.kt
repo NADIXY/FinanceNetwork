@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.example.abschlussprojektmyapp.MainViewmodel
+import com.example.abschlussprojektmyapp.adapter.NewsAdapter
 import com.example.abschlussprojektmyapp.adapter.TopLossGainPagerAdapter
 import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentHomeBinding
@@ -30,6 +31,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getBusinessNews()
+
+        viewModel.newsList.observe(viewLifecycleOwner) {
+
+            binding.topNewsRecyclerView.adapter = NewsAdapter(it.articles)
+
+        }
 
         viewModel.getMarketData()
 
@@ -66,6 +75,7 @@ class HomeFragment : Fragment() {
             }
             tab.text = title
         }.attach()
+
 
     }
 
