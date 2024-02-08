@@ -53,6 +53,11 @@ class ProfileFragment : Fragment() {
             dialog.show()
         }
 
+        binding.continueBTN.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
+
+        }
+
         viewModel.user.observe(viewLifecycleOwner){
             if(it != null){
                 binding.userTV.text = it.uid

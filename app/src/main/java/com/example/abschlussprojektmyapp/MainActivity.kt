@@ -13,7 +13,10 @@ import com.example.abschlussprojektmyapp.databinding.ActivityMainBinding
 /**
  * Main Activity, dient als Einstiegspunkt für die App
  */
+
 class MainActivity : AppCompatActivity() {
+
+    //private var isLoggedIn = false
 
     /**
 
@@ -54,14 +57,35 @@ class MainActivity : AppCompatActivity() {
 
         Verknüpft die bottomNavigationView mit dem NavController des gefundenen NavHostFragments.
          */
-
-        binding.bottomNavigationView.setupWithNavController(navHost.navController)
-
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            NavigationUI.onNavDestinationSelected(it, navHost.navController )
-            navHost.navController.popBackStack(it.itemId,false)
-            true
+           /* if (isLoggedIn) {
+                binding.bottomNavigationView.visibility = View.VISIBLE
+                binding.bottomNavigationView.setupWithNavController(navHost.navController)
+                binding.bottomNavigationView.setOnItemSelectedListener {
+                    NavigationUI.onNavDestinationSelected(it, navHost.navController)
+                    navHost.navController.popBackStack(it.itemId, false)
+                    true
+                }
+            } else {
+                binding.bottomNavigationView.visibility = View.GONE
+            }
         }
+
+            */
+
+        navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.homeFragment || destination.id == R.id.newsFragment2 ) {
+                binding.bottomNavigationView.visibility = View.VISIBLE
+                binding.bottomNavigationView.setupWithNavController(navHost.navController)
+                binding.bottomNavigationView.setOnItemSelectedListener {
+                    NavigationUI.onNavDestinationSelected(it, navHost.navController)
+                    navHost.navController.popBackStack(it.itemId, false)
+                    true
+                }
+            } else {
+                binding.bottomNavigationView.visibility = View.GONE
+            }
+        }
+
 
         /*navHost.navController.addOnDestinationChangedListener { _, destination, _ -> //Fügt einen Listener hinzu, um Änderungen im Navigationsziel zu überwachen
             when (destination.id) { //Überprüft das Ziel und passt die Sichtbarkeit der unteren Navigationsleiste entsprechend an
@@ -90,6 +114,9 @@ class MainActivity : AppCompatActivity() {
                 Navigiert zur übergeordneten Destination im aktuellen Navigationsgraphen.
                  */
                 binding.fragmentContainerView.findNavController().navigateUp()
+
+                //if (!navHost.navController.navigateUp()) {
+                    //finish()
             }
         })
 
@@ -97,7 +124,6 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-
 
 
 /*
@@ -121,7 +147,6 @@ private val key = "b3499f61db0b40649d0b3aed4238bef2"
         }
     }
  */
-
 
 
 /*

@@ -15,6 +15,7 @@ import com.example.abschlussprojektmyapp.databinding.FragmentLoginBinding
 class LoginFragment : Fragment() {
     private val viewModel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentLoginBinding
+    private var isLoggedIn = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -58,6 +59,7 @@ class LoginFragment : Fragment() {
 
         viewModel.user.observe(viewLifecycleOwner) { user ->
             if (user != null) {
+                isLoggedIn = true
                 findNavController().navigate(R.id.profileFragment)
             }
         }

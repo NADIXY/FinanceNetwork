@@ -20,6 +20,20 @@ tools:context=".ui.ProfileFragment">
         app:layout_constraintVertical_bias="0.433" />
 
     <Button
+        android:id="@+id/continueBTN"
+        android:layout_width="210dp"
+        android:layout_height="42dp"
+        android:background="#13102F"
+        android:backgroundTint="#030304"
+        android:text="continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.608" />
+
+    <Button
         android:id="@+id/logoutBTN"
         android:layout_width="210dp"
         android:layout_height="42dp"
