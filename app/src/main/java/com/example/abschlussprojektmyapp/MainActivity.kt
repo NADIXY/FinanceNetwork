@@ -6,6 +6,7 @@ import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.abschlussprojektmyapp.databinding.ActivityMainBinding
 
@@ -56,7 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setupWithNavController(navHost.navController)
 
-        navHost.navController.addOnDestinationChangedListener { _, destination, _ -> //Fügt einen Listener hinzu, um Änderungen im Navigationsziel zu überwachen
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            NavigationUI.onNavDestinationSelected(it, navHost.navController )
+            navHost.navController.popBackStack(it.itemId,false)
+            true
+        }
+
+        /*navHost.navController.addOnDestinationChangedListener { _, destination, _ -> //Fügt einen Listener hinzu, um Änderungen im Navigationsziel zu überwachen
             when (destination.id) { //Überprüft das Ziel und passt die Sichtbarkeit der unteren Navigationsleiste entsprechend an
                 R.id.loginFragment -> binding.bottomNavigationView.visibility =
                     View.GONE //Wenn das Ziel das loginFragment ist, wird die untere Navigationsleiste ausgeblendet
@@ -64,6 +71,8 @@ class MainActivity : AppCompatActivity() {
                     View.VISIBLE //In allen anderen Fällen wird die untere Navigationsleiste sichtbar gemacht
             }
         }
+
+         */
 
         /**
 
