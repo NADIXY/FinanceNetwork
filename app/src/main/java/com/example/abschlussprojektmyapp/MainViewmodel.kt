@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
 import com.example.abschlussprojektmyapp.data.model.Profile
+import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.JokeApi
 import com.example.abschlussprojektmyapp.data.remote.NewsApi
@@ -26,6 +27,7 @@ ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwend
 @param application Die Anwendung, auf die zugegriffen werden soll.
  */
 class MainViewmodel(application: Application) : AndroidViewModel(application) {
+
 
     val auth = Firebase.auth
     val firestore = Firebase.firestore
@@ -126,6 +128,17 @@ class MainViewmodel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.getBusinessNews()
         }
+
+    }
+
+    private var _selectedItem = MutableLiveData<Article>()
+    val selectedItem: LiveData<Article>
+        get() = _selectedItem
+
+    //Funktion um das aktuell ausgewählte Animal zu setzen
+
+    fun setSelectedItem(item: Article) {
+        _selectedItem.value = item
 
     }
 

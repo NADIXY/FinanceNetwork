@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.abschlussprojektmyapp.MainViewmodel
 import com.example.abschlussprojektmyapp.adapter.NewsAdapter
@@ -34,9 +35,10 @@ class HomeFragment : Fragment() {
 
         viewModel.getBusinessNews()
 
+
         viewModel.newsList.observe(viewLifecycleOwner) {
 
-            binding.topNewsRecyclerView.adapter = NewsAdapter(it.articles)
+            binding.topNewsRecyclerView.adapter = NewsAdapter(it.articles, viewModel)
 
         }
 
@@ -81,17 +83,6 @@ class HomeFragment : Fragment() {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*

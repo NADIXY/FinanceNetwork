@@ -2,14 +2,17 @@ package com.example.abschlussprojektmyapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.abschlussprojektmyapp.MainViewmodel
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.databinding.TopNewsLayoutBinding
 
 class NewsAdapter(
     private val dataset: List<Article>,
+    private val viewModel: MainViewmodel
 ) : RecyclerView.Adapter<NewsAdapter.ItemViewHolder>() {
 
     /**
@@ -35,9 +38,11 @@ class NewsAdapter(
 
         val item = dataset[position]
 
+        
+
         holder.binding.topNewsImageView.load(item.urlToImage) {
 
-            error(android.R.drawable.ic_menu_info_details)
+            error(R.drawable.baseline_hide_image_24)
             placeholder(R.drawable.ic_launcher_background)
             //transformations(RoundedCornersTransformation(50f))
 
@@ -49,6 +54,14 @@ class NewsAdapter(
         holder.binding.topNewsDataView.text = item.url
         holder.binding.topNewsDataView.text = item.content
         holder.binding.topNewsDataView.text = item.urlToImage
+
+        //Hier setzen wir per Click auf die CardView um ins
+        //navigieren newsFragment2 navigieren zu können
+
+        holder.binding.topNewsCardView.setOnClickListener {
+            viewModel.setSelectedItem(item)
+            holder.itemView.findNavController().navigate(R.id.newsFragment2)
+        }
 
     }
 
