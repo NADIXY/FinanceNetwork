@@ -16,8 +16,6 @@ import com.example.abschlussprojektmyapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //private var isLoggedIn = false
-
     /**
 
     Deklariert eine private lateinit Variable namens binding vom Typ ActivityMainBinding.
@@ -53,27 +51,10 @@ class MainActivity : AppCompatActivity() {
         val navHost =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
-        /**
-
-        Verknüpft die bottomNavigationView mit dem NavController des gefundenen NavHostFragments.
-         */
-           /* if (isLoggedIn) {
-                binding.bottomNavigationView.visibility = View.VISIBLE
-                binding.bottomNavigationView.setupWithNavController(navHost.navController)
-                binding.bottomNavigationView.setOnItemSelectedListener {
-                    NavigationUI.onNavDestinationSelected(it, navHost.navController)
-                    navHost.navController.popBackStack(it.itemId, false)
-                    true
-                }
-            } else {
-                binding.bottomNavigationView.visibility = View.GONE
-            }
-        }
-
-            */
-
         navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.homeFragment || destination.id == R.id.newsFragment2 ) {
+            if (destination.id == R.id.homeFragment || destination.id == R.id.newsFragment2 ||
+            destination.id == R.id.jokesFragment || destination.id == R.id.chatFragment ||
+            destination.id == R.id.currency_ConverterFragment) {
                 binding.bottomNavigationView.visibility = View.VISIBLE
                 binding.bottomNavigationView.setupWithNavController(navHost.navController)
                 binding.bottomNavigationView.setOnItemSelectedListener {
@@ -85,18 +66,6 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNavigationView.visibility = View.GONE
             }
         }
-
-
-        /*navHost.navController.addOnDestinationChangedListener { _, destination, _ -> //Fügt einen Listener hinzu, um Änderungen im Navigationsziel zu überwachen
-            when (destination.id) { //Überprüft das Ziel und passt die Sichtbarkeit der unteren Navigationsleiste entsprechend an
-                R.id.loginFragment -> binding.bottomNavigationView.visibility =
-                    View.GONE //Wenn das Ziel das loginFragment ist, wird die untere Navigationsleiste ausgeblendet
-                else -> binding.bottomNavigationView.visibility =
-                    View.VISIBLE //In allen anderen Fällen wird die untere Navigationsleiste sichtbar gemacht
-            }
-        }
-
-         */
 
         /**
 
@@ -115,8 +84,6 @@ class MainActivity : AppCompatActivity() {
                  */
                 binding.fragmentContainerView.findNavController().navigateUp()
 
-                //if (!navHost.navController.navigateUp()) {
-                    //finish()
             }
         })
 
@@ -125,51 +92,6 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-
-/*
-private val key = "b3499f61db0b40649d0b3aed4238bef2"
-
- override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        // Überprüfen, ob die API funktioniert
-        checkApi()
-    }
-    private fun checkApi() {
-        GlobalScope.launch(Dispatchers.IO) {
-            try {
-                val response = NewsApi.retrofitService.getBusinessNews("us", "business",key)
-                Log.d("Response",response.toString())
-            } catch (e: Exception) {
-                Log.e("API_TEST", "Exception: ${e.message}")
-            }
-        }
-    }
- */
-
-
-/*
-//Api Test:
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-
-    // Überprüfen, ob die API funktioniert
-    checkApi()
-}
-private fun checkApi() {
-    GlobalScope.launch(Dispatchers.IO) {
-        try {
-            val response = Api.retrofitService.getMarketData()
-            Log.d("Response",response.toString())
-        } catch (e: Exception) {
-            Log.e("API_TEST", "Exception: ${e.message}")
-        }
-    }
-}
-}
- */
 
 
 

@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/jokesFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_account_box_24"
-        android:title="Profile" />
+        android:icon="@drawable/baseline_tag_faces_24"
+        android:title="Joke" />
 
     <item
         android:id="@+id/homeFragment"
@@ -16,11 +16,11 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/watchlistFragment"
+        android:id="@+id/chatFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/ic_stats"
-        android:title="Watchlist" />
+        android:icon="@drawable/baseline_chat_24"
+        android:title="Chat" />
 
     <item
         android:id="@+id/newsFragment2"
@@ -30,10 +30,10 @@
         android:title="News" />
 
     <item
-        android:id="@+id/jokesFragment"
+        android:id="@+id/currency_ConverterFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_sync_alt_24"
-        android:title="Joke" />
+        android:title="$Change" />
 
 </menu>

@@ -73,7 +73,7 @@ class AppRepository(
 
     suspend fun getBusinessNews(){
         try {
-            _newsList.postValue(api3.retrofitService.getBusinessNews("de", "business",key).body())
+            _newsList.postValue(api3.retrofitService.getBusinessNews("de", "business", key).body())
         } catch (e: Exception) {
             Log.d("Repo2", "$e")
         }

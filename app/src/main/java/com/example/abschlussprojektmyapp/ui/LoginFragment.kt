@@ -60,7 +60,7 @@ class LoginFragment : Fragment() {
         viewModel.user.observe(viewLifecycleOwner) { user ->
             if (user != null) {
                 isLoggedIn = true
-                findNavController().navigate(R.id.profileFragment)
+                findNavController().navigate(R.id.homeFragment)
             }
         }
     }

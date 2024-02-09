@@ -41,11 +41,11 @@ val retrofit3 =
 interface Service {
     @GET("v2/top-headlines")
     suspend fun getBusinessNews(
-        @Query("contry") contry: String,
+        @Query("country") contry: String,
         @Query("category") category: String,
         @Query("apiKey") apiToken: String,
 
-    ): Response<News>
+        ): Response<News>
 }
 
 object NewsApi {

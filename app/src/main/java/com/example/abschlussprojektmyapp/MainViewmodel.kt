@@ -28,7 +28,6 @@ ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwend
  */
 class MainViewmodel(application: Application) : AndroidViewModel(application) {
 
-
     val auth = Firebase.auth
     val firestore = Firebase.firestore
     val storage = Firebase.storage

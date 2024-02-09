@@ -8,18 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.abschlussprojektmyapp.MainViewmodel
-import com.example.abschlussprojektmyapp.R
+import com.example.abschlussprojektmyapp.adapter.BusinessNewsAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentNewsBinding
-import com.example.abschlussprojektmyapp.databinding.FragmentProfileBinding
 
 class NewsFragment : Fragment() {
 
     private val viewModel: MainViewmodel by activityViewModels()
     private lateinit var binding: FragmentNewsBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +29,16 @@ class NewsFragment : Fragment() {
 
         viewModel.getBusinessNews()
 
-        viewModel.newsList.observe(viewLifecycleOwner) {
+
+        viewModel.newsList.observe(viewLifecycleOwner){
             Log.d("Test_Api","$it")
+
+            binding.rvstatus.adapter = BusinessNewsAdapter(it.articles, viewModel)
+
+
         }
+
+
     }
 }
 
