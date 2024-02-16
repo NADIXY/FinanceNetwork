@@ -8,8 +8,37 @@
     android:background="#170B54"
     tools:context=".ui.HomeFragment">
 
+    <ImageView
+        android:id="@+id/homeImage"
+        android:layout_width="203dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="6dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/silver"
+        app:layout_constraintBottom_toTopOf="@+id/topCurrencyRecyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topNewsRecyclerView"
+        app:layout_constraintVertical_bias="0.978" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/currencyCheckRecyclerView"
+        android:layout_width="411dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="140dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/currency_check" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/detailAppbar"
+        android:id="@+id/homeDetailAppbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="12dp"
@@ -21,8 +50,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <ImageButton
-            android:id="@+id/menu"
+            android:id="@+id/homeMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -32,7 +62,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/titleLayoutTV2"
+            android:id="@+id/homeTitleLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome!"
@@ -191,26 +221,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="182dp"
+        android:id="@+id/imageView8"
+        android:layout_width="206dp"
+        android:layout_height="87dp"
         android:layout_marginTop="9dp"
+        android:layout_marginEnd="202dp"
         android:layout_marginBottom="6dp"
         android:scaleType="centerCrop"
         android:src="@drawable/bitcoin"
         app:layout_constraintBottom_toTopOf="@+id/topCurrencyRecyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topNewsRecyclerView"
-        tools:layout_editor_absoluteX="8dp" />
-
-    <Button
-        android:id="@+id/logoutBTN"
-        android:layout_width="93dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="352dp"
-        android:background="#13102F"
-        android:backgroundTint="#030304"
-        android:text="Logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.978" />
 
     <TextView
         android:id="@+id/userTV"
@@ -222,5 +245,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="128dp"
+        android:text="Crypto markets refresh"
+        android:backgroundTint="#170B54"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

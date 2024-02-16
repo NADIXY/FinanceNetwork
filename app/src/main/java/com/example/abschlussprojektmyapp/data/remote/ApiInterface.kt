@@ -32,7 +32,6 @@ val retrofit2 =
 interface ApiInterface {
     @GET("data-api/v3/cryptocurrency/listing?start=1&limit=500")
     suspend fun getMarketData(): Response<MarketModel>
-
 }
 
 object Api { //Singleton-Objekt, das die API-Schnittstelle für die Apiüberprüfung bereitstellt.

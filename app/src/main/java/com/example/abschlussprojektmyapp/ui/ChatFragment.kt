@@ -10,14 +10,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
-import com.example.abschlussprojektmyapp.MainViewmodel
+import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.data.model.Profile
 import com.example.abschlussprojektmyapp.databinding.FragmentChatBinding
 
 class ChatFragment : Fragment() {
 
-    private val viewModel: MainViewmodel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentChatBinding
 
     private val getContent =
@@ -27,11 +27,6 @@ class ChatFragment : Fragment() {
                 viewModel.uploadProfilePicture(uri)
             }
         }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +42,7 @@ class ChatFragment : Fragment() {
 
         viewModel.user.observe(viewLifecycleOwner) {
             if (it != null) {
-                binding.userTV.text = "Hello Nadia" //it.uid
+                binding.userTV.text = it.uid
             } else {
                 findNavController().navigate(R.id.loginFragment)
             }

@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_newsFragment2"
             app:destination="@id/newsFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/top_Gain_LoseFragment"
@@ -28,20 +31,29 @@
         android:id="@+id/newsFragment2"
         android:name="com.example.abschlussprojektmyapp.ui.NewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
-    <fragment
-        android:id="@+id/currency_ConverterFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.CurrencyConverterFragment"
-        android:label="fragment_currency__converter"
-        tools:layout="@layout/fragment_currency_converter" />
-    <fragment
-        android:id="@+id/jokesFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.JokesFragment"
-        android:label="fragment_jokes"
-        tools:layout="@layout/fragment_jokes" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment2_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.abschlussprojektmyapp.ui.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.NewsDetailFragment"
+        android:label="fragment_news_detail"
+        tools:layout="@layout/fragment_news_detail" />
+    <fragment
+        android:id="@+id/currencyConverterFragment2"
+        android:name="com.example.abschlussprojektmyapp.ui.CurrencyConverterFragment"
+        android:label="fragment_currency_converter"
+        tools:layout="@layout/fragment_currency_converter" />
 </navigation>

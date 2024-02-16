@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeFragment"
+    android:id="@+id/currencyConverterFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#170B54"
-    tools:context=".ui.HomeFragment">
+    tools:context=".ui.CurrencyConverterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/detailAppbar"
+        android:id="@+id/converterDetailAppbar"
+        android:background="#170B54"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="12dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/menu"
+            android:id="@+id/converterMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -31,9 +31,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <TextView
-            android:id="@+id/titleLayoutTV"
+            android:id="@+id/converterTitleLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CURRENCY CONVERTER"
@@ -45,9 +44,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.432" />
 
-
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/itemConverterImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -57,22 +55,46 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:layout_width="387dp"
+        android:layout_height="196dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/converterDetailAppbar"
+        app:layout_constraintVertical_bias="0.0">
 
+        <EditText
+            android:id="@+id/baseCurrencyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/base_currency_hint" />
 
+        <Spinner
+            android:id="@+id/fromCurrencySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <Spinner
+            android:id="@+id/toCurrencySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/convertButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/convert_button_text" />
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,11 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
-import com.example.abschlussprojektmyapp.data.model.jokeapi.Joke
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.MarketModel
+import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRates
 import com.example.abschlussprojektmyapp.data.model.newsapi.News
 import com.example.abschlussprojektmyapp.data.remote.Api
-import com.example.abschlussprojektmyapp.data.remote.JokeApi
+import com.example.abschlussprojektmyapp.data.remote.CurrencyApi
 import com.example.abschlussprojektmyapp.data.remote.NewsApi
 import java.lang.Exception
 
@@ -25,25 +25,15 @@ const val TAG = "Repository"
  * @param database Die Datenbank, in der die Daten gespeichert werden.
  */
 class AppRepository(
-    private val api: JokeApi,
     private val api2: Api,
-    private val api3: NewsApi
+    private val api3: NewsApi,
+    private val api4: CurrencyApi
+
 ) { //private val AbschlussprojektMyAppdatabase: Database
 
-    //private val number = ""
-    //private val key = ""
-
-    private val _joke = MutableLiveData<List<Joke>>()
-    val joke: LiveData<List<Joke>>
-        get() = _joke
-
-    suspend fun getJokes() {
-        try {
-            _joke.value = api.retrofitService.getJokes().jokes
-        } catch (e: Exception) {
-            Log.d("Repo", "$e")
-        }
-    }
+    private val _crypto = MutableLiveData<List<CryptoCurrency>>()
+    val crypto: LiveData<List<CryptoCurrency>>
+        get() = _crypto
 
     private val _market =
         MutableLiveData<MarketModel>() //Private Variable, die eine Liste von MarketModel als MutableLiveData hält
@@ -59,11 +49,6 @@ class AppRepository(
         }
     }
 
-    private val _crypto = MutableLiveData<List<CryptoCurrency>>()
-    val crypto: LiveData<List<CryptoCurrency>>
-        get() = _crypto
-
-
     private val _newsList = MutableLiveData<News>()
     val newsList: LiveData<News>
         get() = _newsList
@@ -71,14 +56,35 @@ class AppRepository(
 
     private val key = "b3499f61db0b40649d0b3aed4238bef2"
 
-    suspend fun getBusinessNews(){
+    suspend fun getBusinessNews() {
         try {
-            _newsList.postValue(api3.retrofitService.getBusinessNews("de", "business", key).body())
+            _newsList.postValue(api3.retrofitService.getBusinessNews("us", "business", key).body())
         } catch (e: Exception) {
             Log.d("Repo2", "$e")
         }
     }
+
+    private val _exchangeRates = MutableLiveData<ExchangeRates>()
+    val exchangeRates: LiveData<ExchangeRates>
+        get() = _exchangeRates
+
+    suspend fun getExchangeRates(baseCurrency: String): ExchangeRates {
+        return api4.retrofitService.getExchangeRates(baseCurrency)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

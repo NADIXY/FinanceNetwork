@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeFragment"
+    android:id="@+id/chatFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#170B54"
-    tools:context=".ui.HomeFragment">
+    tools:context=".ui.ChatFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/detailAppbar"
+        android:id="@+id/chatDetailAppbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="12dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/menu"
+            android:id="@+id/chatMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/titleLayoutTV2"
+            android:id="@+id/chatTitleLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CHAT"
@@ -58,7 +58,7 @@
             tools:src="@drawable/baseline_account_box_24" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/itemChatImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"

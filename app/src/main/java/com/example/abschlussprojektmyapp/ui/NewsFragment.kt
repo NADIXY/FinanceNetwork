@@ -7,13 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.abschlussprojektmyapp.MainViewmodel
+import androidx.navigation.fragment.findNavController
+import com.example.abschlussprojektmyapp.MainViewModel
+import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.adapter.BusinessNewsAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentNewsBinding
 
 class NewsFragment : Fragment() {
 
-    private val viewModel: MainViewmodel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentNewsBinding
 
     override fun onCreateView(
@@ -29,15 +31,16 @@ class NewsFragment : Fragment() {
 
         viewModel.getBusinessNews()
 
-
+        binding.rvBusinessNews.setOnClickListener {
+            viewModel.getBusinessNews()
+        findNavController().navigate(R.id.newsDetailFragment)
+    }
         viewModel.newsList.observe(viewLifecycleOwner){
             Log.d("Test_Api","$it")
 
-            binding.rvstatus.adapter = BusinessNewsAdapter(it.articles, viewModel)
-
+            binding.rvBusinessNews.adapter = BusinessNewsAdapter(it.articles, viewModel)
 
         }
-
 
     }
 }

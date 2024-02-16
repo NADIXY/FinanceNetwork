@@ -13,4 +13,44 @@
     <string name="_1d">1 Day</string>
     <string name="_1w">1 Week</string>
     <string name="_1m">1 Min</string>
+    <string name="base_currency">AUD: 1.00</string>
+    <string name="nzd">NZD:</string>
+    <string name="usd">USD:</string>
+    <string name="gbp">GBP:</string>
+    <string name="base_currency_hint">Enter base currency</string>
+    <string name="convert_button_text">Convert</string>
+    <string-array name="currency_array">
+        <item>CAD</item>
+        <item>EUR</item>
+        <item>HKD</item>
+        <item>ISK</item>
+        <item>PHP</item>
+        <item>DKK</item>
+        <item>HUF</item>
+        <item>CZK</item>
+        <item>AUD</item>
+        <item>RON</item>
+        <item>SEK</item>
+        <item>IDR</item>
+        <item>INR</item>
+        <item>BRL</item>
+        <item>RUB</item>
+        <item>HRK</item>
+        <item>JPY</item>
+        <item>THB</item>
+        <item>CHF</item>
+        <item>SGD</item>
+        <item>PLN</item>
+        <item>BGN</item>
+        <item>CNY</item>
+        <item>NOK</item>
+        <item>NZD</item>
+        <item>ZAR</item>
+        <item>USD</item>
+        <item>MXN</item>
+        <item>ILS</item>
+        <item>GBP</item>
+        <item>KRW</item>
+        <item>MYR</item>
+    </string-array>
 </resources>

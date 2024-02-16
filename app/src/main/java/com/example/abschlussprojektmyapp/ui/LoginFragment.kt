@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.abschlussprojektmyapp.MainViewmodel
+import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
-    private val viewModel: MainViewmodel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentLoginBinding
     private var isLoggedIn = false
 

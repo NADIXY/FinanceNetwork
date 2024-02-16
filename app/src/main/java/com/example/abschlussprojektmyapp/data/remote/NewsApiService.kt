@@ -44,7 +44,6 @@ interface Service {
         @Query("country") contry: String,
         @Query("category") category: String,
         @Query("apiKey") apiToken: String,
-
         ): Response<News>
 }
 

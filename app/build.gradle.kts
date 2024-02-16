@@ -39,6 +39,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+
+
 }
 
 dependencies {
@@ -74,6 +77,8 @@ dependencies {
     implementation ("com.squareup.moshi:moshi-adapters:1.12.0")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
 
     // Coil
     implementation("io.coil-kt:coil:2.5.0")
