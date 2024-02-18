@@ -18,11 +18,16 @@ class CurrencyConverterFragment : Fragment() {
     ): View? {
         binding = FragmentCurrencyConverterBinding.inflate(layoutInflater)
 
+
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //viewModel.getExchangeRates(baseCurrency) // API-Anfrage für Wechselkurse
+
 
     }
 
