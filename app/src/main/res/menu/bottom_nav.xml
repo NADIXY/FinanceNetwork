@@ -9,6 +9,13 @@
         android:title="Home" />
 
     <item
+        android:id="@+id/top_Gain_LoseFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_currency_bitcoin_24"
+        android:title="Crypto Currency" />
+
+    <item
         android:id="@+id/chatFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +33,7 @@
         android:id="@+id/currencyConverterFragment2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_sync_alt_24"
+        android:icon="@drawable/baseline_currency_exchange_24"
         android:title="$Change" />
 
 </menu>

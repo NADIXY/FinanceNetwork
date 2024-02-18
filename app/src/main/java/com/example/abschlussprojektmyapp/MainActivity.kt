@@ -54,7 +54,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
         if (destination.id == R.id.homeFragment || destination.id == R.id.newsFragment2 || destination.id == R.id.chatFragment ||
-        destination.id == R.id.currencyConverterFragment2) {
+        destination.id == R.id.currencyConverterFragment2 || destination.id == R.id.top_Gain_LoseFragment) {
             binding.bottomNavigationView.visibility = View.VISIBLE
             binding.bottomNavigationView.setupWithNavController(navHost.navController)
             binding.bottomNavigationView.setOnItemSelectedListener {

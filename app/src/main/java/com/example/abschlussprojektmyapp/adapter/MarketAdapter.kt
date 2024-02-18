@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.abschlussprojektmyapp.R
@@ -34,6 +35,10 @@ class MarketAdapter(
 
         holder.binding.currencyNameTextView.text = item.name
         holder.binding.currencySymbolTextView.text = item.symbol
+
+        holder.binding.currencyCardView.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.top_Gain_LoseFragment)
+        }
 
         Glide.with(holder.binding.root).load(
             "https://s2.coinmarketcap.com/static/img/coins/64x64/" + item.id + ".png"

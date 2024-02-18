@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.abschlussprojektmyapp.R
@@ -57,6 +58,12 @@ class TopMarketAdapter(
 
         holder.binding.topCurrencyNameTextView.text =
             item.name //Setzt den Text des topCurrencyNameTextView im Binding auf den Namen des Elements.
+
+        //Hier setzen wir per Click auf die CardView um ins
+        //newsFragment navigieren zu können
+        holder.binding.topCurrencyCardView.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.top_Gain_LoseFragment)
+        }
 
         /**
 

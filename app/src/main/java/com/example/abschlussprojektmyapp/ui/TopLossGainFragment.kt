@@ -38,6 +38,11 @@ class TopLossGainFragment : Fragment() {
             binding.topGainLoseRecyclerView.adapter =
                 MarketAdapter(requireContext(), it.data.cryptoCurrencyList)
 
+            binding.button3.setOnClickListener {
+                viewModel.getMarketData()
+
+            }
+
         }
     }
 }

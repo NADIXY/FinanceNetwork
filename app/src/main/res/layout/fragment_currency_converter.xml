@@ -22,12 +22,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/converterMenu"
+            android:id="@+id/back_stack_currency_converter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
             android:padding="8dp"
-            android:src="@drawable/baseline_menu_24"
+            android:src="@drawable/ic_back_stack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,12 +45,12 @@
             app:layout_constraintVertical_bias="0.432" />
 
         <ImageView
-            android:id="@+id/itemConverterImage"
+            android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
             android:padding="8dp"
-            android:src="@drawable/baseline_more_horiz_24"
+            android:src="@drawable/baseline_logout_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

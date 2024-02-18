@@ -31,6 +31,10 @@ class NewsFragment : Fragment() {
 
         viewModel.getBusinessNews()
 
+        binding.backStackNews.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
+        }
+
         binding.rvBusinessNews.setOnClickListener {
             viewModel.getBusinessNews()
         findNavController().navigate(R.id.newsDetailFragment)

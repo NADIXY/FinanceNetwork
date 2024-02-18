@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_top_Gain_LoseFragment"
+            app:destination="@id/top_Gain_LoseFragment" />
     </fragment>
     <fragment
         android:id="@+id/top_Gain_LoseFragment"

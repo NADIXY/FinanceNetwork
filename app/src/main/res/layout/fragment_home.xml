@@ -8,22 +8,6 @@
     android:background="#170B54"
     tools:context=".ui.HomeFragment">
 
-    <ImageView
-        android:id="@+id/homeImage"
-        android:layout_width="203dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="208dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="6dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/silver"
-        app:layout_constraintBottom_toTopOf="@+id/topCurrencyRecyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topNewsRecyclerView"
-        app:layout_constraintVertical_bias="0.978" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/currencyCheckRecyclerView"
         android:layout_width="411dp"
@@ -224,11 +208,12 @@
         android:id="@+id/imageView8"
         android:layout_width="206dp"
         android:layout_height="87dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="202dp"
         android:layout_marginBottom="6dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/bitcoin"
+        android:src="@drawable/silver"
         app:layout_constraintBottom_toTopOf="@+id/topCurrencyRecyclerView"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
