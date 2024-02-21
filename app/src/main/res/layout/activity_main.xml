@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -30,8 +31,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav"/>
 
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <!-- Navigationsschublade -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:menu="@menu/nav_drawer_menu"/>
 
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+<!--
+
+ Hauptinhalt des Layouts
+<FrameLayout
+android:id="@+id/fragmentContainerView"
+android:layout_width="match_parent"
+android:layout_height="match_parent" />
+
+-->
 

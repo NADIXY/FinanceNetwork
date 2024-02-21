@@ -56,6 +56,7 @@ class ChatFragment : Fragment() {
                 binding.imageView.load(profile.profilePicture)
             }
         }
+
         binding.imageView.setOnClickListener {
             getContent.launch("image/*")
         }

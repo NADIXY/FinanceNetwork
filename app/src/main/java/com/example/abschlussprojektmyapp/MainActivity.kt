@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -45,6 +47,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     setContentView(binding.root)
 
 
+
     /**
 
     Sucht das NavHostFragment mit der ID fragmentContainerView im supportFragmentManager.
@@ -65,6 +68,34 @@ override fun onCreate(savedInstanceState: Bundle?) {
         } else {
             binding.bottomNavigationView.visibility = View.GONE
         }
+    }
+
+    //val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+    val drawerLayout = binding.drawerLayout
+    //val navController = navHostFragment.navController //findNavController(R.id.fragmentContainerView)
+
+    // Set up navigation drawer toggle button
+    val toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open_drawer, R.string.close_drawer)
+
+    drawerLayout.addDrawerListener(toggle)
+    toggle.syncState()
+
+    binding.navigationView.setNavigationItemSelectedListener { menuItem ->
+        when (menuItem.itemId) {
+            R.id.nav_item1 -> {
+                // Handle item 1 click
+                true
+            }
+            R.id.nav_item2 -> {
+                // Handle item 2 click
+                true
+            }
+            else -> false
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START)
+        true
     }
 
     /**

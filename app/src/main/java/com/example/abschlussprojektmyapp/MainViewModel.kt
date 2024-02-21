@@ -9,7 +9,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
 import com.example.abschlussprojektmyapp.data.model.Profile
-import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRates
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.CurrencyApi
@@ -112,9 +111,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val newsList =
         appRepository.newsList //Variable, die das newsList-Objekt aus der Repository-Klasse holt.
 
+    val exchangeRates = appRepository.exchangeRates //Variable, die das exchangeRates-Objekt aus der Repository-Klasse holt.
 
     fun getMarketData() {
-        //val position = requireArguments().getInt("position")
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.getMarketData()
         }
@@ -142,15 +141,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _selectedItem.postValue(item)
     }
 
-    private val _exchangeRates = MutableLiveData<ExchangeRates>()
-    val exchangeRates: LiveData<ExchangeRates>
-        get() = _exchangeRates
 
-
-    fun getExchangeRates(baseCurrency: String) {
+    fun getExchangeRates() { //Fragment
         viewModelScope.launch(Dispatchers.IO) {
-            val result = appRepository.getExchangeRates(baseCurrency)
-            _exchangeRates.value = result
+            appRepository.getExchangeRates() //Repo
+
         }
     }
 

@@ -68,7 +68,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:text="Title"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -78,7 +78,7 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:text="Description"
             android:textAlignment="center"
             android:textColor="#0929A0"
@@ -88,7 +88,7 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:text="content"
             android:textAlignment="center"
             android:textColor="@color/backgroundD1"
@@ -98,11 +98,11 @@
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:text="url"
             android:textAlignment="center"
             android:textColor="@color/red"
-            android:textSize="15dp"
+            android:textSize="10dp"
             android:textStyle="bold" />
 
     </LinearLayout>

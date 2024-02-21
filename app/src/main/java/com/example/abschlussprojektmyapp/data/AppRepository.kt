@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.MarketModel
-import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRates
+import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRatesX
 import com.example.abschlussprojektmyapp.data.model.newsapi.News
 import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.CurrencyApi
@@ -64,13 +64,19 @@ class AppRepository(
         }
     }
 
-    private val _exchangeRates = MutableLiveData<ExchangeRates>()
-    val exchangeRates: LiveData<ExchangeRates>
+    private val _exchangeRates = MutableLiveData<ExchangeRatesX>()
+    val exchangeRates: LiveData<ExchangeRatesX>
         get() = _exchangeRates
 
-    suspend fun getExchangeRates(baseCurrency: String): ExchangeRates {
-        return api4.retrofitService.getExchangeRates(baseCurrency)
+    suspend fun getExchangeRates() {
+        try {
+            _exchangeRates.postValue(api4.retrofitService.getExchangeRates())
+            Log.d(TAG,api4.retrofitService.getExchangeRates().toString())
+        } catch (e: Exception) {
+            Log.d("Repo3", "$e")
+        }
     }
+
 }
 
 

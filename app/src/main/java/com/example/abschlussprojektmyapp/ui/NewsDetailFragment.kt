@@ -17,20 +17,13 @@ class NewsDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsDetailBinding
     private val viewModel: MainViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNewsDetailBinding.inflate(layoutInflater) //(inflater, container, false)
-
-        binding.textView5.setOnClickListener {
-            //val url = "https://www.deine-internetseite.com"
-            val intent = Intent(Intent.ACTION_VIEW)
-            //intent.data = Uri.parse(url)
-            startActivity(intent)
-        }
-
 
         return binding.root
     }
@@ -39,6 +32,11 @@ class NewsDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getBusinessNews()
+
+        binding.textView5.setOnClickListener {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com"))
+        startActivity(intent)
+        }
 
         //Die Business News Details werden beobachtet
         viewModel.selectedItem.observe(viewLifecycleOwner) {
@@ -58,7 +56,7 @@ class NewsDetailFragment : Fragment() {
             binding.nameTV2.text = date2
             binding.ivsettingsperson.load(it.urlToImage)
 
-            if(it.isLiked) {
+            if (it.isLiked) {
                 binding.thumpsLikedImage.visibility = View.VISIBLE
                 binding.thumpsImage.visibility = View.GONE
             } else {
@@ -73,13 +71,23 @@ class NewsDetailFragment : Fragment() {
         binding.thumpsImage.setOnClickListener {
             viewModel.changeLikedStatus(viewModel.selectedItem.value!!)
         }
+
         binding.thumpsLikedImage.setOnClickListener {
             viewModel.changeLikedStatus(viewModel.selectedItem.value!!)
         }
-
-
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

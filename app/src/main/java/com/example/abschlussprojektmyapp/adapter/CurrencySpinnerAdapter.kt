@@ -13,15 +13,17 @@ class CurrencySpinnerAdapter(context: Context, private val currencies: Array<Str
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = super.getDropDownView(position, convertView, parent)
-
         if (position == 0) {
             // Set the first item as hint
             (view as TextView).setTextColor(ContextCompat.getColor(context, R.color.gray))
         } else {
             (view as TextView).setTextColor(ContextCompat.getColor(context, R.color.black))
         }
-
         return view
     }
 }
+
+
+
+
 
