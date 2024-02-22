@@ -100,7 +100,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-
     private val appRepository =
         AppRepository(Api, NewsApi,CurrencyApi) //getDatabase(application)
 

@@ -25,9 +25,9 @@ const val TAG = "Repository"
  * @param database Die Datenbank, in der die Daten gespeichert werden.
  */
 class AppRepository(
-    private val api2: Api,
-    private val api3: NewsApi,
-    private val api4: CurrencyApi
+    private val apiCrypto: Api,
+    private val apiNews: NewsApi,
+    private val apiCurrency: CurrencyApi
 
 ) { //private val AbschlussprojektMyAppdatabase: Database
 
@@ -42,7 +42,7 @@ class AppRepository(
 
     suspend fun getMarketData() {
         try {
-            _market.postValue(api2.retrofitService.getMarketData().body())
+            _market.postValue(apiCrypto.retrofitService.getMarketData().body())
             Log.d(TAG, "${_market.value}")
         } catch (e: Exception) {
             Log.e(TAG, "$e")
@@ -58,7 +58,7 @@ class AppRepository(
 
     suspend fun getBusinessNews() {
         try {
-            _newsList.postValue(api3.retrofitService.getBusinessNews("us", "business", key).body())
+            _newsList.postValue(apiNews.retrofitService.getBusinessNews("us", "business", key).body())
         } catch (e: Exception) {
             Log.d("Repo2", "$e")
         }
@@ -70,8 +70,8 @@ class AppRepository(
 
     suspend fun getExchangeRates() {
         try {
-            _exchangeRates.postValue(api4.retrofitService.getExchangeRates())
-            Log.d(TAG,api4.retrofitService.getExchangeRates().toString())
+            _exchangeRates.postValue(apiCurrency.retrofitService.getExchangeRates())
+            Log.d(TAG,apiCurrency.retrofitService.getExchangeRates().toString())
         } catch (e: Exception) {
             Log.d("Repo3", "$e")
         }
