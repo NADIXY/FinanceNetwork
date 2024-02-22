@@ -54,7 +54,7 @@ class NewsDetailFragment : Fragment() {
             binding.textView5.text = it.url
             binding.textView7.text = it.author
             binding.nameTV2.text = date2
-            binding.ivsettingsperson.load(it.urlToImage)
+            binding.detailImageNews.load(it.urlToImage)
 
             if (it.isLiked) {
                 binding.thumpsLikedImage.visibility = View.VISIBLE
@@ -63,6 +63,7 @@ class NewsDetailFragment : Fragment() {
                 binding.thumpsLikedImage.visibility = View.GONE
                 binding.thumpsImage.visibility = View.VISIBLE
             }
+
 
         }
 

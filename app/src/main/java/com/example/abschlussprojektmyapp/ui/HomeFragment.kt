@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
@@ -54,15 +53,6 @@ class HomeFragment : Fragment() {
 
         val adapter = TopLossGainPagerAdapter(this)
         binding.contentViewPager.adapter = adapter
-        binding.contentViewPager.registerOnPageChangeCallback(
-            object :
-                ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-
-                }
-            })
-
 
     }
 }

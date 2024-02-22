@@ -141,14 +141,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _selectedItem.postValue(item)
     }
 
-
     fun getExchangeRates() { //Fragment
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.getExchangeRates() //Repo
 
         }
     }
-
 }
 
 

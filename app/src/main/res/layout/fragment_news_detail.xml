@@ -7,7 +7,7 @@
         tools:context=".ui.NewsDetailFragment">
 
     <ImageView
-        android:id="@+id/ivsettingsperson"
+        android:id="@+id/detailImageNews"
         android:layout_width="411dp"
         android:layout_height="731dp"
         android:alpha="0.5"
@@ -24,16 +24,16 @@
         android:layout_width="363dp"
         android:layout_height="677dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/ivsettingsperson"
-        app:layout_constraintEnd_toEndOf="@+id/ivsettingsperson"
-        app:layout_constraintStart_toStartOf="@+id/ivsettingsperson"
-        app:layout_constraintTop_toTopOf="@+id/ivsettingsperson"
+        app:layout_constraintBottom_toBottomOf="@+id/detailImageNews"
+        app:layout_constraintEnd_toEndOf="@+id/detailImageNews"
+        app:layout_constraintStart_toStartOf="@+id/detailImageNews"
+        app:layout_constraintTop_toTopOf="@+id/detailImageNews"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/nameTV2"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="publishedAt"
             android:textAlignment="center"
             android:textColor="#0E31B2"
@@ -55,8 +55,8 @@
 
         <ImageView
             android:id="@+id/thumps_liked_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="47dp"
+            android:layout_height="46dp"
             android:src="@drawable/baseline_thumb_up_24_test2"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/nameTV2"
@@ -68,7 +68,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:text="Title"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -78,7 +78,7 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:text="Description"
             android:textAlignment="center"
             android:textColor="#0929A0"
@@ -88,7 +88,7 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:text="content"
             android:textAlignment="center"
             android:textColor="@color/backgroundD1"
@@ -98,7 +98,7 @@
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:text="url"
             android:textAlignment="center"
             android:textColor="@color/red"
