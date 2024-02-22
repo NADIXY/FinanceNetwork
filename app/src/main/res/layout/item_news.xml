@@ -18,8 +18,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="326dp"
-            android:layout_height="201dp"
+            android:layout_width="323dp"
+            android:layout_height="196dp"
             android:layout_marginTop="7dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/imageView4"

@@ -23,6 +23,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="363dp"
         android:layout_height="677dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/detailImageNews"
         app:layout_constraintEnd_toEndOf="@+id/detailImageNews"

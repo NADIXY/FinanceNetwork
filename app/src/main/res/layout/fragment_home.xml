@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/currency_check" />
+        tools:listitem="@layout/user_check" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/homeDetailAppbar"
