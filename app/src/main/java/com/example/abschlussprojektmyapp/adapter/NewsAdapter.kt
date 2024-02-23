@@ -10,7 +10,6 @@ import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.databinding.TopNewsLayoutBinding
-import java.text.SimpleDateFormat
 
 class NewsAdapter(
     private val dataset: List<Article>,
@@ -49,14 +48,8 @@ class NewsAdapter(
             holder.binding.topNewsCardView.layoutParams = layoutParams
         }
 
-        var dateFormatParse = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
-        var date = dateFormatParse.parse(item.publishedAt)
-
-        var dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        var date2 = dateFormat.format(date)
-
         holder.binding.topNewsTitelTextView.text = item.title
-        holder.binding.topNewsDataView.text = date2.toString()
+        holder.binding.topNewsDataView.text = item.author
 
 
         //Hier setzen wir per Click auf die CardView um ins

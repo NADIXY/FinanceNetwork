@@ -47,7 +47,7 @@ android {
 dependencies {
 
     val retrofitVersion = "2.9.0"
-    //val roomVersion = "2.6.0"
+    val roomVersion = "2.6.0"
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -87,9 +87,9 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
     //Room
-    //implementation("androidx.room:room-runtime:$roomVersion")
-    //ksp("androidx.room:room-compiler:$roomVersion")
-    //implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 

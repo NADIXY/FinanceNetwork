@@ -75,6 +75,12 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/saveArticle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/baseline_save_alt_24" />
+
 </com.google.android.material.card.MaterialCardView>
 
 

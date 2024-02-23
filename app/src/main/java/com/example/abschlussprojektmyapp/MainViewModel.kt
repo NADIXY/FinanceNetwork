@@ -8,6 +8,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
+import com.example.abschlussprojektmyapp.data.local.BusinessNewsDatabase
+import com.example.abschlussprojektmyapp.data.local.getDatabase
+import com.example.abschlussprojektmyapp.data.model.Note
 import com.example.abschlussprojektmyapp.data.model.Profile
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.data.remote.Api
@@ -101,7 +104,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private val appRepository =
-        AppRepository(Api, NewsApi,CurrencyApi) //getDatabase(application)
+        AppRepository(Api, NewsApi,CurrencyApi,getDatabase(application))
 
     val market =
         appRepository.market //Variable, die das market-Objekt aus der Repository-Klasse holt.
@@ -111,6 +114,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         appRepository.newsList //Variable, die das newsList-Objekt aus der Repository-Klasse holt.
 
     val exchangeRates = appRepository.exchangeRates //Variable, die das exchangeRates-Objekt aus der Repository-Klasse holt.
+
+    val notes = appRepository.notes //Variable, die die Notiz-Objekte aus der Repository-Klasse holt.
 
     fun getMarketData() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -140,12 +145,37 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _selectedItem.postValue(item)
     }
 
+
     fun getExchangeRates() { //Fragment
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.getExchangeRates() //Repo
-
         }
     }
+
+    /**
+
+    Speichert eine Notiz zu einer Nachricht.
+    @param message Die Nachricht, zu der die Notiz gespeichert werden soll.
+     */
+    fun saveNote(article: Article) {
+        val newNote = Note(null, article.publishedAt, article.title,article.author.toString())
+        viewModelScope.launch(Dispatchers.IO) {
+            appRepository.saveNote(newNote)
+        }
+    }
+
+    /**
+
+    Löscht eine Notiz.
+    @param note Die zu löschende Notiz.
+     */
+    fun deleteNote(note: Note) {
+        viewModelScope.launch(Dispatchers.IO) {
+            appRepository.deleteNote(note)
+        }
+    }
+
+
 }
 
 

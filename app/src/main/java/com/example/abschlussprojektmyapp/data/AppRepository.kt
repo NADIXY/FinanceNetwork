@@ -3,6 +3,8 @@ package com.example.abschlussprojektmyapp.data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.abschlussprojektmyapp.data.local.BusinessNewsDatabase
+import com.example.abschlussprojektmyapp.data.model.Note
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.MarketModel
 import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRatesX
@@ -27,7 +29,8 @@ const val TAG = "Repository"
 class AppRepository(
     private val apiCrypto: Api,
     private val apiNews: NewsApi,
-    private val apiCurrency: CurrencyApi
+    private val apiCurrency: CurrencyApi,
+    private val database: BusinessNewsDatabase
 
 ) { //private val AbschlussprojektMyAppdatabase: Database
 
@@ -76,6 +79,34 @@ class AppRepository(
             Log.d("Repo3", "$e")
         }
     }
+
+    /**
+
+     * Liest Notizen aus der Datenbank
+     */
+    val notes = database.dao.getNotes()
+
+    /**
+
+     * Diese Funktion speichert eine Notiz in der Datenbank.
+     * @param note Die zu speichernde Notiz
+     */
+    suspend fun saveNote(article: Note) {
+        database.dao.insertNote(article)
+    }
+
+    /**
+
+     * Diese Funktion löscht eine Notiz aus der Datenbank.
+     * @param note Die zu löschende Notiz
+     */
+    suspend fun deleteNote(article: Note) {
+        database.dao.deleteNote(article)
+    }
+
+
+
+
 
 }
 

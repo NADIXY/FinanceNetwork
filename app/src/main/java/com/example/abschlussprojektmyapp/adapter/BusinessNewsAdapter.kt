@@ -67,6 +67,24 @@ class BusinessNewsAdapter(
             viewModel.setSelectedItem(item)
             holder.itemView.findNavController().navigate(R.id.action_newsFragment2_to_newsDetailFragment)
         }
+
+        if (holder is ItemViewHolder) {
+
+            var dateFormatParse = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+            var date = dateFormatParse.parse(item.publishedAt)
+
+            var dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            var date2 = dateFormat.format(date)
+
+            holder.binding.titleText.text = item.title
+            holder.binding.publishedAt.text = date2.toString()
+            holder.binding.author.text = item.author
+
+            holder.binding.saveArticle.setOnClickListener {
+                viewModel.saveNote(item)
+            }
+
+        }
     }
 
     /**

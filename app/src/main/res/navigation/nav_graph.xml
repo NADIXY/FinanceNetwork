@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_homeFragment_to_top_Gain_LoseFragment"
             app:destination="@id/top_Gain_LoseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
     </fragment>
     <fragment
         android:id="@+id/top_Gain_LoseFragment"
@@ -59,4 +62,8 @@
         android:name="com.example.abschlussprojektmyapp.ui.CurrencyConverterFragment"
         android:label="fragment_currency_converter"
         tools:layout="@layout/fragment_currency_converter" />
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.NotesFragment"
+        android:label="NotesFragment" />
 </navigation>

@@ -1,0 +1,57 @@
+package com.example.abschlussprojektmyapp.ui
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.SnapHelper
+import com.example.abschlussprojektmyapp.MainViewModel
+import com.example.abschlussprojektmyapp.R
+import com.example.abschlussprojektmyapp.adapter.NewsAdapter
+import com.example.abschlussprojektmyapp.adapter.NoteAdapter
+import com.example.abschlussprojektmyapp.data.model.newsapi.Article
+import com.example.abschlussprojektmyapp.databinding.FragmentNotesBinding
+
+class NotesFragment : Fragment() {
+    private lateinit var binding: FragmentNotesBinding
+    private val viewModel: MainViewModel by activityViewModels()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentNotesBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getBusinessNews()
+
+        /**
+
+         * Beobachtet die Notizen im ViewModel und aktualisiert die RecyclerView, wenn sich die Daten ändern.
+         * @param viewLifecycleOwner Der LifecycleOwner der aktuellen Ansicht
+         * @param binding Das Binding-Objekt für die RecyclerView
+         * @param rvNotes Die RecyclerView, die die Notizen anzeigt
+         * @param NoteAdapter Der Adapter für die RecyclerView
+         * @param it Die Liste der aktualisierten Notizen
+         * @param viewModel Das ViewModel, das die Notizen verwaltet
+         */
+
+        viewModel.notes.observe(viewLifecycleOwner) {
+            binding.rvNotes.adapter = NoteAdapter(it,viewModel)
+        }
+
+        // Der SnapHelper sorgt dafür, dass die RecyclerView immer auf das aktuelle List Item springt
+        val helper: SnapHelper = PagerSnapHelper()
+        helper.attachToRecyclerView(binding.rvNotes)
+
+    }
+
+}

@@ -51,6 +51,12 @@ class HomeFragment : Fragment() {
             viewModel.getMarketData()
         }
 
+
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.notesFragment)
+        }
+
+
         val adapter = TopLossGainPagerAdapter(this)
         binding.contentViewPager.adapter = adapter
 

@@ -193,190 +193,21 @@
         android:backgroundTint="#170B54"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
 
-
-<!--
-und das ist die XML Code von HomeFragment: <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#170B54"
-    tools:context=".ui.HomeFragment">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/userCheckRecyclerView"
-        android:layout_width="411dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="140dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/currency_check" />
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/homeDetailAppbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="12dp"
-        android:paddingTop="8dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <ImageButton
-            android:id="@+id/homeMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:padding="8dp"
-            android:src="@drawable/baseline_menu_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/homeTitleLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome!"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.432" />
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:padding="8dp"
-            android:src="@drawable/baseline_account_circle_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/topNewsRecyclerView"
-        android:layout_width="411dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="52dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/top_news_layout" />
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44">
-    </androidx.cardview.widget.CardView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/topCurrencyRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:listitem="@layout/top_currency_layout" />
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topCurrencyRecyclerView">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/contentViewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/contentViewPager"
-            app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <View
-            android:id="@+id/tabLayout"
-            android:layout_width="411dp"
-            android:layout_height="2dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toTopOf="@id/contentViewPager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tabIndicator="@null"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="#7AFFFFFF" />
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/contentViewPager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="208dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginBottom="6dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bitcoin"
-        app:layout_constraintBottom_toTopOf="@+id/topCurrencyRecyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topNewsRecyclerView"
-        app:layout_constraintVertical_bias="0.978" />
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="128dp"
-        android:text="Refresh"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#170B54"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Notes"
+        app:layout_constraintBottom_toTopOf="@+id/topCurrencyRecyclerView"
         app:layout_constraintEnd_toEndOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-Erstelle mir die XML Code für das Home Fragment mit der bestehende XML Code
 
--->
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
