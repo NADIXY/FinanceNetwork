@@ -17,7 +17,7 @@ abstract class BusinessNewsDatabase : RoomDatabase() {
 
 /**
 
- * Deklariert eine statische, private und späte Initialisierung einer Instanz der WhatsSyntaxDatabase-Klasse
+ * Deklariert eine statische, private und späte Initialisierung einer Instanz der Database-Klasse
  */
 private lateinit var INSTANCE: BusinessNewsDatabase
 
@@ -25,7 +25,7 @@ private lateinit var INSTANCE: BusinessNewsDatabase
 
  * Diese Funktion gibt eine Instanz der Datenbank zurück.
  * @param context Der Kontext der Anwendung
- * @return Die Instanz der WhatsSyntaxDatabase
+ * @return Die Instanz der database
  */
 fun getDatabase(context: Context): BusinessNewsDatabase {
     synchronized(BusinessNewsDatabase::class.java) {

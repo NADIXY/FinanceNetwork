@@ -1,5 +1,7 @@
 package com.example.abschlussprojektmyapp.adapter
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -35,6 +37,25 @@ class MarketAdapter(
 
         holder.binding.currencyNameTextView.text = item.name
         holder.binding.currencySymbolTextView.text = item.symbol
+
+        val hCard = holder.binding.currencyCardView
+
+        // ScaleY = Stretchen oben unten           AnimationsTyp, Start, Ende
+        val animator = ObjectAnimator.ofFloat(hCard, View.SCALE_Y, 0f, 1f)
+        animator.duration = 800
+        animator.start()
+
+        holder.binding.currencyCardView.setOnClickListener {
+
+            // RotationY = object horizontal rotieren                  Start, Ende
+            val rotator = ObjectAnimator.ofFloat(hCard, View.ROTATION_Y, 0f, 360f)
+            rotator.duration = 600
+
+            // Animationen abspielen.
+            val set = AnimatorSet()
+            set.playTogether(rotator)
+            set.start()
+        }
 
         holder.binding.currencyCardView.setOnClickListener {
             holder.itemView.findNavController().navigate(R.id.top_Gain_LoseFragment)

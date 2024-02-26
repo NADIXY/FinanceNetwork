@@ -1,15 +1,14 @@
 package com.example.abschlussprojektmyapp.ui
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import coil.load
+import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewModel
+import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.databinding.FragmentNewsDetailBinding
 import java.text.SimpleDateFormat
 
@@ -23,7 +22,7 @@ class NewsDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNewsDetailBinding.inflate(layoutInflater) //(inflater, container, false)
+        binding = FragmentNewsDetailBinding.inflate(layoutInflater)
 
         return binding.root
     }
@@ -32,11 +31,6 @@ class NewsDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getBusinessNews()
-
-        binding.textView5.setOnClickListener {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com"))
-        startActivity(intent)
-        }
 
         //Die Business News Details werden beobachtet
         viewModel.selectedItem.observe(viewLifecycleOwner) {
@@ -47,35 +41,17 @@ class NewsDetailFragment : Fragment() {
             var dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
             var date2 = dateFormat.format(date)
 
-
-            binding.textView2.text = it.title
-            binding.textView3.text = it.description
-            binding.textView4.text = it.content
-            binding.textView5.text = it.url
-            binding.textView7.text = it.author
-            binding.nameTV2.text = date2
-            binding.detailImageNews.load(it.urlToImage)
-
-            if (it.isLiked) {
-                binding.thumpsLikedImage.visibility = View.VISIBLE
-                binding.thumpsImage.visibility = View.GONE
-            } else {
-                binding.thumpsLikedImage.visibility = View.GONE
-                binding.thumpsImage.visibility = View.VISIBLE
-            }
-
+            binding.detailNewsAuthor.text = it.author
+            binding.detailNewsTitle.text = it.title
+            binding.detailNewsDate.text = date2
+            binding.detailNewsDescription.text = it.description
 
         }
 
-        //Die beiden OnClickListener um für beide Images zu gewährleisten, dass per Click der
-        //Status geändert wird
-        binding.thumpsImage.setOnClickListener {
-            viewModel.changeLikedStatus(viewModel.selectedItem.value!!)
+        binding.backStackNewsDetail.setOnClickListener {
+            findNavController().navigate(R.id.newsFragment2)
         }
 
-        binding.thumpsLikedImage.setOnClickListener {
-            viewModel.changeLikedStatus(viewModel.selectedItem.value!!)
-        }
         
     }
 }

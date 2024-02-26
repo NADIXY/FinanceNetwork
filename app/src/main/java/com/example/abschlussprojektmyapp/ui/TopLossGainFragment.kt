@@ -27,10 +27,13 @@ class TopLossGainFragment : Fragment() {
         viewModel.getMarketData()
 
         viewModel.market.observe(viewLifecycleOwner) {
+
             binding.topGainLoseRecyclerView.adapter =
                 TopMarketAdapter(requireContext(), it.data.cryptoCurrencyList)
+
             binding.topGainLoseRecyclerView.adapter =
                 MarketAdapter(requireContext(), it.data.cryptoCurrencyList)
+
             binding.button3.setOnClickListener {
                 viewModel.getMarketData()
             }

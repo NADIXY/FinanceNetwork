@@ -47,15 +47,9 @@ class HomeFragment : Fragment() {
                 TopMarketAdapter(requireContext(), it.data.cryptoCurrencyList)
         }
 
-        binding.button2.setOnClickListener {
-            viewModel.getMarketData()
-        }
-
-
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.notesFragment)
         }
-
 
         val adapter = TopLossGainPagerAdapter(this)
         binding.contentViewPager.adapter = adapter

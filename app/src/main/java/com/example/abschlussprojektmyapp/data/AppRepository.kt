@@ -32,7 +32,7 @@ class AppRepository(
     private val apiCurrency: CurrencyApi,
     private val database: BusinessNewsDatabase
 
-) { //private val AbschlussprojektMyAppdatabase: Database
+) {
 
     private val _crypto = MutableLiveData<List<CryptoCurrency>>()
     val crypto: LiveData<List<CryptoCurrency>>
@@ -103,10 +103,6 @@ class AppRepository(
     suspend fun deleteNote(article: Note) {
         database.dao.deleteNote(article)
     }
-
-
-
-
 
 }
 

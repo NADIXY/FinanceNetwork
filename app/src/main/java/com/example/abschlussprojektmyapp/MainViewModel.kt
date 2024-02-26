@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
-import com.example.abschlussprojektmyapp.data.local.BusinessNewsDatabase
 import com.example.abschlussprojektmyapp.data.local.getDatabase
 import com.example.abschlussprojektmyapp.data.model.Note
 import com.example.abschlussprojektmyapp.data.model.Profile

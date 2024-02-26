@@ -10,7 +10,7 @@ import com.example.abschlussprojektmyapp.data.model.Note
 
 /**
 
- * Data Access Object für die WhatsSyntax-Datenbank.
+ * Data Access Object für die Datenbank.
  */
 @Dao
 interface BusinessNewsDatabaseDao {
@@ -21,7 +21,6 @@ interface BusinessNewsDatabaseDao {
      * @return LiveData-Objekt, das eine Liste von Notizen enthält
      */
     @Query("SELECT * FROM Note ORDER BY id DESC")
-    //SELECT * FROM note_table ORDER BY id DESC
     fun getNotes() : LiveData<List<Note>>
 
     /**

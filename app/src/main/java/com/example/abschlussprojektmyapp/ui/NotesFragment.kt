@@ -6,13 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
-import com.example.abschlussprojektmyapp.adapter.NewsAdapter
 import com.example.abschlussprojektmyapp.adapter.NoteAdapter
-import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.databinding.FragmentNotesBinding
 
 class NotesFragment : Fragment() {
@@ -45,12 +44,16 @@ class NotesFragment : Fragment() {
          */
 
         viewModel.notes.observe(viewLifecycleOwner) {
-            binding.rvNotes.adapter = NoteAdapter(it,viewModel)
+            binding.rvSavedNews.adapter = NoteAdapter(it,viewModel)
+        }
+
+        binding.backStackSavedNews.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
         }
 
         // Der SnapHelper sorgt dafür, dass die RecyclerView immer auf das aktuelle List Item springt
         val helper: SnapHelper = PagerSnapHelper()
-        helper.attachToRecyclerView(binding.rvNotes)
+        helper.attachToRecyclerView(binding.rvSavedNews)
 
     }
 

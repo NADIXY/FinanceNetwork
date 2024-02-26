@@ -1,5 +1,7 @@
 package com.example.abschlussprojektmyapp.adapter
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +40,25 @@ class BusinessNewsAdapter(
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
+
+        val hCard = holder.binding.itemNews
+
+        // ScaleY = Stretchen oben unten           AnimationsTyp, Start, Ende
+        val animator = ObjectAnimator.ofFloat(hCard, View.SCALE_Y, 0f, 1f)
+        animator.duration = 800
+        animator.start()
+
+        holder.binding.itemNews.setOnClickListener {
+
+            // RotationY = object horizontal rotieren                  Start, Ende
+            val rotator = ObjectAnimator.ofFloat(hCard, View.ROTATION_Y, 0f, 360f)
+            rotator.duration = 600
+
+            // Animationen abspielen.
+            val set = AnimatorSet()
+            set.playTogether(rotator)
+            set.start()
+        }
 
         if (item.urlToImage != null && item.urlToImage.isNotEmpty()) {
             holder.binding.imageView4.visibility = View.VISIBLE

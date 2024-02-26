@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.abschlussprojektmyapp.ui.TopLossGainFragment
 
-
 /**
 
 Ein PagerAdapter für die TopLossGainFragmente.

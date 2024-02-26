@@ -45,6 +45,8 @@ class NoteAdapter(
         holder.binding.tvNoteText.text = item.title
         holder.binding.tvNoteText3.text = item.author
 
+
+
         val hCard = holder.binding.cvNote
 
         // ScaleY = Stretchen oben unten           AnimationsTyp, Start, Ende
