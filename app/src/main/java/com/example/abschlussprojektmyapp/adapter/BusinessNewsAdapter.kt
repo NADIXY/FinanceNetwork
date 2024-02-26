@@ -86,7 +86,7 @@ class BusinessNewsAdapter(
         holder.binding.itemNews.setOnClickListener {
             viewModel.getBusinessNews()
             viewModel.setSelectedItem(item)
-            holder.itemView.findNavController().navigate(R.id.action_newsFragment2_to_newsDetailFragment)
+            holder.itemView.findNavController().navigate(R.id.newsDetailFragment)
         }
 
         if (holder is ItemViewHolder) {

@@ -1,5 +1,6 @@
 package com.example.abschlussprojektmyapp.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,8 +30,20 @@ class CurrencyConverterFragment : Fragment() {
             findNavController().navigate(R.id.homeFragment)
         }
 
-        binding.logout.setOnClickListener {
-            activity?.finish()
+        binding.close.setOnClickListener {
+
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Close")
+            builder.setMessage("Do you really want to close?")
+            builder.setPositiveButton("Yes") { dialog, which ->
+                activity?.finish()
+                Toast.makeText(requireContext(), "closed", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Cancel") { dialog, which -> }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            true
         }
 
         val currencies = arrayOf(
@@ -96,7 +109,6 @@ class CurrencyConverterFragment : Fragment() {
         binding.toCurrencySpinner.adapter = adapter
 
         binding.convertButton.setOnClickListener {
-            //val baseCurrency = binding.baseCurrencyEditText.text.toString()
             val fromCurrency = binding.fromCurrencySpinner.selectedItem.toString()
             val toCurrency = binding.toCurrencySpinner.selectedItem.toString()
             val amountToConvert = binding.amountToConvertEditText.text.toString().toDouble()

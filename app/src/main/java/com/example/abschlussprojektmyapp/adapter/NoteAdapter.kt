@@ -77,19 +77,19 @@ class NoteAdapter(
      */
     private fun showDeleteAlertDialog(note: Note, context: Context) {
         val builder = AlertDialog.Builder(context)
-        builder.setTitle("Löschen")
-        builder.setMessage("Möchten Sie diese Notiz wirklich löschen?")
+        builder.setTitle("Delete")
+        builder.setMessage("Do you really want to delete this note?")
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
-        builder.setPositiveButton("Ja") { dialogInterface, which ->
+        builder.setPositiveButton("Yes") { dialogInterface, which ->
             viewModel.deleteNote(note)
-            Toast.makeText(context, "Die Notiz wurde gelöscht", Toast.LENGTH_LONG)
+            Toast.makeText(context, "The note has been deleted", Toast.LENGTH_LONG)
                 .show()
             dialogInterface.dismiss()
         }
 
-        builder.setNeutralButton("Abbrechen") { dialogInterface, which ->
-            Toast.makeText(context, "Löschvorgang abgebrochen", Toast.LENGTH_LONG)
+        builder.setNeutralButton("Cancel") { dialogInterface, which ->
+            Toast.makeText(context, "Deletion process aborted", Toast.LENGTH_LONG)
                 .show()
             dialogInterface.dismiss()
         }

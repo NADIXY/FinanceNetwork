@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.imageView2.setOnClickListener {
@@ -45,10 +46,6 @@ class HomeFragment : Fragment() {
         viewModel.market.observe(viewLifecycleOwner) {
             binding.topCurrencyRecyclerView.adapter =
                 TopMarketAdapter(requireContext(), it.data.cryptoCurrencyList)
-        }
-
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.notesFragment)
         }
 
         val adapter = TopLossGainPagerAdapter(this)

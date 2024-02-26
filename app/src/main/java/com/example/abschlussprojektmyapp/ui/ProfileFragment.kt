@@ -48,7 +48,7 @@ class ProfileFragment : Fragment() {
                 viewModel.logout()
                 Toast.makeText(requireContext(), "You are logged out", Toast.LENGTH_SHORT).show()
             }
-            builder.setNegativeButton("Don't") { dialog, which -> }
+            builder.setNegativeButton("Cancel") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }

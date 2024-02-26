@@ -14,20 +14,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.abschlussprojektmyapp.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_newsFragment2"
-            app:destination="@id/newsFragment2" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_top_Gain_LoseFragment"
-            app:destination="@id/top_Gain_LoseFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_notesFragment"
-            app:destination="@id/notesFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/top_Gain_LoseFragment"
         android:name="com.example.abschlussprojektmyapp.ui.TopLossGainFragment"
@@ -37,11 +24,7 @@
         android:id="@+id/newsFragment2"
         android:name="com.example.abschlussprojektmyapp.ui.NewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" >
-        <action
-            android:id="@+id/action_newsFragment2_to_newsDetailFragment"
-            app:destination="@id/newsDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.abschlussprojektmyapp.ui.ChatFragment"
@@ -66,4 +49,5 @@
         android:id="@+id/notesFragment"
         android:name="com.example.abschlussprojektmyapp.ui.NotesFragment"
         android:label="NotesFragment" />
+
 </navigation>

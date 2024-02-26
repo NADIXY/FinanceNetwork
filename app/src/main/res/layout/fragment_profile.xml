@@ -58,5 +58,4 @@
         app:layout_constraintVertical_bias="0.208"
         tools:src="@drawable/baseline_account_box_24" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
