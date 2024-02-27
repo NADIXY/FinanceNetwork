@@ -19,11 +19,14 @@ import com.example.abschlussprojektmyapp.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentHomeBinding
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
         return binding.root
     }
 
@@ -34,9 +37,6 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.getBusinessNews()
-        viewModel.selectedItem.observe(viewLifecycleOwner) {
-            binding.imageView8.load(it.urlToImage)
-        }
 
         viewModel.newsList.observe(viewLifecycleOwner) {
             binding.topNewsRecyclerView.adapter = NewsAdapter(it.articles, viewModel)

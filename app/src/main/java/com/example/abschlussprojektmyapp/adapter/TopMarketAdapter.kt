@@ -77,7 +77,6 @@ class TopMarketAdapter(
             set.start()
         }
 
-
         holder.binding.topCurrencyNameTextView.text =
             item.name //Setzt den Text des topCurrencyNameTextView im Binding auf den Namen des Elements.
 

@@ -12,6 +12,7 @@ import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentTopLossGainBinding
 
 class TopLossGainFragment : Fragment() {
+
     private val viewModel: MainViewModel by activityViewModels()
     lateinit var binding: FragmentTopLossGainBinding
     override fun onCreateView(

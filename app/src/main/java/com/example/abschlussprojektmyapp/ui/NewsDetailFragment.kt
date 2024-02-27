@@ -52,19 +52,6 @@ class NewsDetailFragment : Fragment() {
             findNavController().navigate(R.id.newsFragment2)
         }
 
-        
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

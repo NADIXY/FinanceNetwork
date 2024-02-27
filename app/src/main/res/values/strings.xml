@@ -9,6 +9,8 @@
     <string name="search_hint">Search Crypto currency</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+    <string name="nav_open">Nav Open</string>
+    <string name="nav_close">Nav Close</string>
     <string name="_15m">15 min</string>
     <string name="_1h">1 Hour</string>
     <string name="_4h">4 Hour</string>

@@ -59,7 +59,6 @@ class NewsAdapter(
             set.start()
         }
 
-
         if (item.urlToImage != null && item.urlToImage.isNotEmpty()) {
             holder.binding.topNewsImageView.visibility = View.VISIBLE
             holder.binding.topNewsImageView.load(item.urlToImage)

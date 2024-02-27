@@ -138,13 +138,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    fun changeLikedStatus(item: Article) {
-        item.isLiked = !item.isLiked
-        Log.d("ViewModel", "${item.isLiked}")
-        _selectedItem.postValue(item)
-    }
-
-
     fun getExchangeRates() { //Fragment
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.getExchangeRates() //Repo
