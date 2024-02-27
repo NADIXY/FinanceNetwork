@@ -69,6 +69,7 @@ class NoteAdapter(
 
     }
 
+
     /**
 
      * Zeigt einen Lösch-AlertDialog für die übergebene Notiz an.
