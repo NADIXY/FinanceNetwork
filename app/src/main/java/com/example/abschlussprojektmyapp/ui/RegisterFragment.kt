@@ -9,45 +9,43 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
-import com.example.abschlussprojektmyapp.databinding.FragmentLoginBinding
+import com.example.abschlussprojektmyapp.databinding.FragmentRegisterBinding
 
-class LoginFragment : Fragment() {
+class RegisterFragment: Fragment() {
+
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentRegisterBinding
     private var isLoggedIn = false
 
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentRegisterBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Button um User einzuloggen
+        // Button um zurück zum LoginFragment zu navigieren
+        binding.backBt.setOnClickListener {
+            findNavController().navigate(R.id.loginFragment)
+        }
+
+        // Button um User zu registrieren
         // Erst werden email und passwort aus den Eingabefeldern geholt
-        // Wenn beide nicht leer sind rufen wir die login Funktion im ViewModel auf
-        binding.loginBTN.setOnClickListener {
-            val email = binding.emailET.text.toString()
-            val password = binding.passwordET.text.toString()
+        // Wenn beide nicht leer sind rufen wir die register Funktion im ViewModel auf
+        binding.registerBt.setOnClickListener {
+            val email = binding.emailRegister.text.toString()
+            val password = binding.passwordRegister.text.toString()
 
             if (email != "" && password != "") {
-                viewModel.login(email, password)
+                viewModel.register(email, password)
             }
         }
-
-        // Button um zum RegisterFragment zu navigieren
-        binding.registerBTN.setOnClickListener {
-            findNavController().navigate(R.id.registerFragment)
-        }
-
-        // Button um zum PasswordResetFragment zu navigieren
-        binding.btSendPasswordReset.setOnClickListener {
-           findNavController().navigate(R.id.passwordResetFragment)
-        }
-
 
         // User LiveData aus dem ViewModel wird beobachtet
         // Wenn User nicht gleich null (also der User eingeloggt ist) wird zum HomeFragment navigiert
@@ -57,12 +55,8 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(R.id.homeFragment)
             }
         }
+
+
     }
 
 }
-
-
-
-
-
-

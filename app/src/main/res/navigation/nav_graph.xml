@@ -14,7 +14,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.abschlussprojektmyapp.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/top_Gain_LoseFragment"
         android:name="com.example.abschlussprojektmyapp.ui.TopLossGainFragment"
@@ -49,5 +53,13 @@
         android:id="@+id/notesFragment"
         android:name="com.example.abschlussprojektmyapp.ui.NotesFragment"
         android:label="NotesFragment" />
+    <fragment
+        android:id="@+id/passwordResetFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.PasswordResetFragment"
+        android:label="PasswordResetFragment" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.RegisterFragment"
+        android:label="RegisterFragment" />
 
 </navigation>

@@ -8,8 +8,13 @@ package com.example.abschlussprojektmyapp.data.model
  *@property profilePicture Der Dateipfad zum Profilbild des Benutzers. Standardmäßig ist es ein leerer String.
  */
 data class Profile(
-    val isPremium: Boolean = false,
+    //val isPremium: String = false,
     val username: String = "",
+    val firstName: String = "",
+    val lastName: String = "",
     val profilePicture: String = ""
-)
+
+) {
+
+}
 

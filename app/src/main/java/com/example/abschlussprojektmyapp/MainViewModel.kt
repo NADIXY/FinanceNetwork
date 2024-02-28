@@ -2,7 +2,6 @@ package com.example.abschlussprojektmyapp
 
 import android.app.Application
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -31,14 +30,23 @@ ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwend
  */
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
+    // Instanz von Firebase Authentication
+    // Ersetzt in diesem Fall ein Repository
     val auth = Firebase.auth
+
+    // Instanz von Firebase Firestore
     val firestore = Firebase.firestore
+
+    // Instanz und Referenz von Firebase Storage
     val storage = Firebase.storage
+    private val storageRef = storage.reference
 
     private val _user: MutableLiveData<FirebaseUser?> = MutableLiveData()
     val user: LiveData<FirebaseUser?>
         get() = _user
 
+    //Das profile Document enthält ein einzelnes Profil(das des eingeloggten Users)
+    //Document ist wie ein Objekt
     lateinit var profileRef: DocumentReference
 
     init {
@@ -83,6 +91,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun sendPasswordReset(email: String) {
+        auth.sendPasswordResetEmail(email)
+
+    }
+
     fun logout() {
 
         auth.signOut()
@@ -101,6 +114,36 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     }
+
+
+
+    // Funktion um Bild in den Firebase Storage hochzuladen
+    fun uploadImage(uri: Uri) {
+        // Erstellen einer Referenz und des Upload Tasks
+        val imageRef = storageRef.child("images/${auth.currentUser!!.uid}/profilePic")
+        val uploadTask = imageRef.putFile(uri)
+
+        // Wenn UploadTask ausgeführt und erfolgreich ist, wird die Download-Url des Bildes an die setUserImage Funktion weitergegeben
+        uploadTask.addOnCompleteListener {
+            imageRef.downloadUrl.addOnCompleteListener {
+                if (it.isSuccessful) {
+                    setUserImage(it.result)
+                }
+            }
+        }
+    }
+
+    // Funktion um Url zu neue hochgeladenem Bild im Firestore dem aktuellen Userprofil hinzuzufügen
+    private fun setUserImage(uri: Uri) {
+        profileRef.update("profilePicture", uri.toString())
+    }
+
+    // Funktion um das Profil eines Users zu updaten
+    fun updateProfile(profile: Profile) {
+        profileRef.set(profile)
+    }
+
+
 
     private val appRepository =
         AppRepository(Api, NewsApi,CurrencyApi,getDatabase(application))
@@ -166,6 +209,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             appRepository.deleteNote(note)
         }
     }
+
+
 
 
 }

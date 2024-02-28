@@ -40,7 +40,27 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.logoutBTN.setOnClickListener {
+        // Funktion um Bild vom Gerät auszuwählen
+        // Startet den Ressource-Picker und zeigt uns alle Bilder auf dem Gerät an
+        binding.ivProfilePic.setOnClickListener {
+            getContent.launch("image/*")
+        }
+
+        // Snapshot Listener: Hört auf Änderungen in dem Firestore Document, das beobachtet wird
+        // Hier: Referenz auf Profil wird beobachtet
+        viewModel.profileRef.addSnapshotListener { value, error ->
+            if (error == null && value != null) {
+                // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Profil und setzen der Felder
+                val myProfile = value.toObject(Profile::class.java)
+                binding.tietFirstName.setText(myProfile!!.firstName)
+                binding.tietLastName.setText(myProfile.lastName)
+                binding.ivProfilePic.load(myProfile.profilePicture)
+            }
+        }
+
+
+        // Beim Klick auf Logout, wird die Logout Funktion im ViewModel aufgerufen
+        binding.btLogout.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Log out")
             builder.setMessage("Do you really want to log out?")
@@ -53,30 +73,32 @@ class ProfileFragment : Fragment() {
             dialog.show()
         }
 
+
         binding.continueBTN.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)
 
         }
 
-        viewModel.user.observe(viewLifecycleOwner){
-            if(it != null){
-                binding.userTV.text = it.uid
-            } else {
+        // User LiveData aus dem ViewModel wird beobachtet
+        // Wenn User gleich null (also der User nicht mehr eingeloggt ist) wird zum LoginFragment navigiert
+        viewModel.user.observe(viewLifecycleOwner) {
+            if (it == null) {
                 findNavController().navigate(R.id.loginFragment)
             }
         }
 
-        viewModel.profileRef.addSnapshotListener{    snapshot, error ->
+        // Neue Profil-Daten in Firestore speichern
+        binding.btSave.setOnClickListener {
+            val firstName = binding.tietFirstName.text.toString()
+            val lastName = binding.tietLastName.text.toString()
 
-            val profile = snapshot?.toObject(Profile::class.java)!!
-            binding.userTV.text = profile.isPremium.toString()
-            if(profile.profilePicture != ""){
-                binding.imageView.load(profile.profilePicture)
+            if (firstName != "" && lastName != "") {
+                val newProfile = Profile(firstName, lastName)
+                viewModel.updateProfile(newProfile)
             }
+
         }
-        binding.imageView.setOnClickListener {
-            getContent.launch("image/*")
-        }
+
 
     }
 
