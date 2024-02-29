@@ -51,13 +51,15 @@
         android:id="@+id/topNewsRecyclerView"
         android:layout_width="411dp"
         android:layout_height="81dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeDetailAppbar"
         tools:listitem="@layout/top_news_layout" />
 
     <androidx.cardview.widget.CardView
@@ -149,10 +151,10 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="387dp"
-        android:layout_height="185dp"
+        android:layout_width="389dp"
+        android:layout_height="172dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="6dp"
         android:scaleType="centerCrop"
@@ -164,51 +166,3 @@
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-    <!--
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/userCheckRecyclerView"
-            android:layout_width="411dp"
-            android:layout_height="81dp"
-            android:layout_marginTop="140dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/user_check" />
-    -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

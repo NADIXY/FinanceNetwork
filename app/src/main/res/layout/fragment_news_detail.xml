@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#170B54"
     tools:context=".ui.NewsDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -136,11 +137,3 @@
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-

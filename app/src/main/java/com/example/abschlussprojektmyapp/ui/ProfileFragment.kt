@@ -54,6 +54,7 @@ class ProfileFragment : Fragment() {
                 val myProfile = value.toObject(Profile::class.java)
                 binding.tietFirstName.setText(myProfile!!.firstName)
                 binding.tietLastName.setText(myProfile.lastName)
+                binding.tietNumberName.setText(myProfile.number)
                 binding.ivProfilePic.load(myProfile.profilePicture)
             }
         }
@@ -73,7 +74,6 @@ class ProfileFragment : Fragment() {
             dialog.show()
         }
 
-
         binding.continueBTN.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)
 
@@ -91,9 +91,10 @@ class ProfileFragment : Fragment() {
         binding.btSave.setOnClickListener {
             val firstName = binding.tietFirstName.text.toString()
             val lastName = binding.tietLastName.text.toString()
+            val numberName = binding.tietNumberName.text.toString()
 
-            if (firstName != "" && lastName != "") {
-                val newProfile = Profile(firstName, lastName)
+            if (firstName != "" && lastName != "" && numberName != "") {
+                val newProfile = Profile(firstName, lastName, numberName)
                 viewModel.updateProfile(newProfile)
             }
 

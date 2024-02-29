@@ -37,7 +37,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/topGainLoseRecyclerView"
         android:layout_width="0dp"
@@ -57,8 +56,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="86dp"
-        android:backgroundTint="#170B54"
         android:text="Refresh"
+        android:textColor="#170B54"
+        android:backgroundTint="#5B2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
