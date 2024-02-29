@@ -55,7 +55,9 @@ class ProfileFragment : Fragment() {
                 binding.tietFirstName.setText(myProfile!!.firstName)
                 binding.tietLastName.setText(myProfile.lastName)
                 binding.tietNumberName.setText(myProfile.number)
-                binding.ivProfilePic.load(myProfile.profilePicture)
+                binding.ivProfilePic.load(myProfile.profilePicture) {
+                    error(R.drawable.baseline_profile)
+                }
             }
         }
 
