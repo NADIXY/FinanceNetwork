@@ -97,7 +97,9 @@ class ProfileFragment : Fragment() {
             if (firstName != "" && lastName != "" && numberName != "") {
                 val newProfile = Profile(firstName, lastName, numberName)
                 viewModel.updateProfile(newProfile)
+
             }
+
 
         }
 

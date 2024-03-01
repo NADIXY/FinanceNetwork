@@ -68,7 +68,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
         auth.currentUser?.let { firebaseUser ->
 
-            profileRef = firestore.collection("user").document(firebaseUser.uid)
+            profileRef = firestore.collection("profiles").document(firebaseUser.uid)
         }
     }
 
@@ -137,7 +137,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         // Nach Logout ist dieser Wert null, also ist auch in der LiveData danach der Wert null gespeichert
         // Dies triggert die Navigation aus dem HomeFragment zurück zum LoginFragment
         _user.value = auth.currentUser
-        //setupUserEnv()
     }
 
     fun uploadProfilePicture(uri: Uri) {
@@ -153,14 +152,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    // Funktion um Url zu neue hochgeladenem Bild im Firestore dem aktuellen Userprofil hinzuzufügen
-    private fun setUserImage(uri: Uri) {
-        profileRef.update("profilePicture", uri.toString())
-    }
-
     // Funktion um das Profil eines Users zu updaten
     fun updateProfile(profile: Profile) {
-        profileRef.set(profile)
+        profileRef.update( mapOf(
+            "firstName" to profile.firstName,
+            "lastName" to profile.lastName,
+            "number" to profile.number,
+        )
+
+
+        )
     }
 
     val chatsRef = firestore.collection("chats")
@@ -227,9 +228,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    fun getExchangeRates() { //Fragment
+    fun getExchangeRates() {
         viewModelScope.launch(Dispatchers.IO) {
-            appRepository.getExchangeRates() //Repo
+            appRepository.getExchangeRates()
         }
     }
 
