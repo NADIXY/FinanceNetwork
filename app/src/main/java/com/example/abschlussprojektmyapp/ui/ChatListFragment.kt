@@ -45,9 +45,9 @@ class ChatListFragment : Fragment() {
 
         viewModel.chatsRef.addSnapshotListener { value, error ->
 
-            if(error == null) {
+            if (error == null) {
 
-                val chatList : List<Pair<String, Chat>> = value!!.documents.map {
+                val chatList: List<Pair<String, Chat>> = value!!.documents.map {
                     Pair(
                         it.id,
                         it.toObject(Chat::class.java)!!
@@ -63,7 +63,6 @@ class ChatListFragment : Fragment() {
             }
         }
 
-
         binding.createChatBTN.setOnClickListener {
 
             val dialogBuilder = AlertDialog.Builder(requireContext())
@@ -76,7 +75,7 @@ class ChatListFragment : Fragment() {
                 viewModel.createChat(id)
 
             }
-            dialogBuilder.setNegativeButton("Abbrechen") { _,_->
+            dialogBuilder.setNegativeButton("Abbrechen") { _, _ ->
 
             }
             dialogBuilder.show()

@@ -43,8 +43,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     // Instanz und Referenz von Firebase Storage
     val storage = Firebase.storage
-    //private val storageRef = storage.reference
-
 
     // LiveData um den aktuellen User zu halten
     // Initialwert ist in diesem Fall firebaseAuth.currentUser
@@ -72,7 +70,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-
     // Funktion um neuen User zu erstellen
     fun register(email: String, password: String) {
         // Firebase-Funktion um neuen User anzulegen
@@ -93,7 +90,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-
 
     fun login(email: String, password: String) {
         // Firebase-Funktion um User einzuloggen
@@ -152,15 +148,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    // Funktion um das Profil eines Users zu updaten
+    // Funktion um Eingabefelder des Profils eines Users zu updaten
     fun updateProfile(profile: Profile) {
-        profileRef.update( mapOf(
-            "firstName" to profile.firstName,
-            "lastName" to profile.lastName,
-            "number" to profile.number,
-        )
-
-
+        profileRef.update(
+            mapOf(
+                "firstName" to profile.firstName,
+                "lastName" to profile.lastName,
+                "number" to profile.number,
+            )
         )
     }
 
@@ -193,18 +188,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private val appRepository =
-        AppRepository(Api, NewsApi,CurrencyApi,getDatabase(application))
+        AppRepository(Api, NewsApi, CurrencyApi, getDatabase(application))
 
     val market =
         appRepository.market //Variable, die das market-Objekt aus der Repository-Klasse holt.
     val crypto =
-        appRepository.crypto //Variable, die das crypto-Objekt aus der Repository-Klasse holt.
+        appRepository.crypto
     val newsList =
-        appRepository.newsList //Variable, die das newsList-Objekt aus der Repository-Klasse holt.
+        appRepository.newsList
 
-    val exchangeRates = appRepository.exchangeRates //Variable, die das exchangeRates-Objekt aus der Repository-Klasse holt.
+    val exchangeRates =
+        appRepository.exchangeRates
 
-    val notes = appRepository.notes //Variable, die die Notiz-Objekte aus der Repository-Klasse holt.
+    val notes =
+        appRepository.notes //Variable, die die Notiz-Objekte aus der Repository-Klasse holt.
 
     fun getMarketData() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -240,7 +237,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     @param message Die Nachricht, zu der die Notiz gespeichert werden soll.
      */
     fun saveNote(article: Article) {
-        val newNote = Note(null, article.publishedAt, article.title,article.author.toString())
+        val newNote = Note(null, article.publishedAt, article.title, article.author.toString())
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.saveNote(newNote)
         }

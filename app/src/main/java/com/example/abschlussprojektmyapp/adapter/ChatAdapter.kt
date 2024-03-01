@@ -8,7 +8,8 @@ import com.example.abschlussprojektmyapp.data.model.Chat
 import com.example.abschlussprojektmyapp.databinding.ChatItemBinding
 import com.example.abschlussprojektmyapp.ui.ChatListFragmentDirections
 
-class ChatAdapter (val dataset: List<Pair<String, Chat>>) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
+class ChatAdapter(val dataset: List<Pair<String, Chat>>) :
+    RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
     inner class ChatViewHolder(val binding: ChatItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -31,7 +32,9 @@ class ChatAdapter (val dataset: List<Pair<String, Chat>>) : RecyclerView.Adapter
 
         holder.binding.chatCV.setOnClickListener {
 
-            holder.itemView.findNavController().navigate(ChatListFragmentDirections.actionChatListFragmentToChatDetailFragment(chatId))
+            holder.itemView.findNavController().navigate(
+                ChatListFragmentDirections.actionChatListFragmentToChatDetailFragment(chatId)
+            )
 
         }
 
