@@ -16,11 +16,11 @@
         android:title="Crypto" />
 
     <item
-        android:id="@+id/chatListFragment"
+        android:id="@+id/notesFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_3p_24"
-        android:title="Chat" />
+        android:icon="@drawable/ic_bookmark"
+        android:title="Saved News" />
 
     <item
         android:id="@+id/newsFragment2"
