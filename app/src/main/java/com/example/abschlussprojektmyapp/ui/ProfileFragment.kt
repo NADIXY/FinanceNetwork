@@ -61,7 +61,6 @@ class ProfileFragment : Fragment() {
             }
         }
 
-
         // Beim Klick auf Logout, wird die Logout Funktion im ViewModel aufgerufen
         binding.btLogout.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
@@ -101,7 +100,6 @@ class ProfileFragment : Fragment() {
             }
 
         }
-
 
     }
 

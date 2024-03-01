@@ -61,5 +61,23 @@
         android:id="@+id/registerFragment"
         android:name="com.example.abschlussprojektmyapp.ui.RegisterFragment"
         android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/chatListFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.ChatListFragment"
+        android:label="fragment_chat_list"
+        tools:layout="@layout/fragment_chat_list" >
+        <action
+            android:id="@+id/action_chatListFragment_to_chatDetailFragment"
+            app:destination="@id/chatDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatDetailFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.ChatDetailFragment"
+        android:label="fragment_chat_detail"
+        tools:layout="@layout/fragment_chat_detail" >
+        <argument
+            android:name="chatId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

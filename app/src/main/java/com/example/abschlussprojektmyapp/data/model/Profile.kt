@@ -13,7 +13,7 @@ data class Profile(
     val number: String = "",
     val profilePicture: String = ""
 
-) {
+)
 
-}
+
 

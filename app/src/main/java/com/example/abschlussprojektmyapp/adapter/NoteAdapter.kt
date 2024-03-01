@@ -40,12 +40,9 @@ class NoteAdapter(
         var dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         var date2 = dateFormat.format(date)
 
-
         holder.binding.tvNoteName.text = date2.toString()
         holder.binding.tvNoteText.text = item.title
         holder.binding.tvNoteText3.text = item.author
-
-
 
         val hCard = holder.binding.cvNote
 
@@ -66,9 +63,7 @@ class NoteAdapter(
             set.playTogether(rotator)
             set.start()
         }
-
     }
-
 
     /**
 

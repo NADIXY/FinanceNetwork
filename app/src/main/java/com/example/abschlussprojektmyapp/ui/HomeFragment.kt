@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.profileFragment)
         }
 
-
         viewModel.getBusinessNews()
 
         viewModel.newsList.observe(viewLifecycleOwner) {
