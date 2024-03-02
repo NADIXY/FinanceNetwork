@@ -102,7 +102,7 @@ class BusinessNewsAdapter(
             holder.binding.author.text = item.author
 
             holder.binding.saveArticle.setOnClickListener {
-                viewModel.saveNote(item)
+                viewModel.saveSavedNews(item)
             }
 
         }

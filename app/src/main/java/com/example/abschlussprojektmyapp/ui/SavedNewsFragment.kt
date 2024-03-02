@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
-import com.example.abschlussprojektmyapp.adapter.NoteAdapter
-import com.example.abschlussprojektmyapp.databinding.FragmentNotesBinding
+import com.example.abschlussprojektmyapp.adapter.SavedNewsAdapter
+import com.example.abschlussprojektmyapp.databinding.FragmentSavedNewsBinding
 
-class NotesFragment : Fragment() {
-    private lateinit var binding: FragmentNotesBinding
+class SavedNewsFragment : Fragment() {
+    private lateinit var binding: FragmentSavedNewsBinding
     private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ class NotesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNotesBinding.inflate(layoutInflater)
+        binding = FragmentSavedNewsBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -43,8 +43,8 @@ class NotesFragment : Fragment() {
          * @param viewModel Das ViewModel, das die Notizen verwaltet
          */
 
-        viewModel.notes.observe(viewLifecycleOwner) {
-            binding.rvSavedNews.adapter = NoteAdapter(it,viewModel)
+        viewModel.savedNews.observe(viewLifecycleOwner) {
+            binding.rvSavedNews.adapter = SavedNewsAdapter(it,viewModel)
         }
 
         binding.backStackSavedNews.setOnClickListener {

@@ -29,11 +29,7 @@
         android:name="com.example.abschlussprojektmyapp.ui.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
-    <fragment
-        android:id="@+id/chatFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.ChatFragment"
-        android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.abschlussprojektmyapp.ui.ProfileFragment"
@@ -49,10 +45,7 @@
         android:name="com.example.abschlussprojektmyapp.ui.CurrencyConverterFragment"
         android:label="fragment_currency_converter"
         tools:layout="@layout/fragment_currency_converter" />
-    <fragment
-        android:id="@+id/notesFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.NotesFragment"
-        android:label="NotesFragment" />
+
     <fragment
         android:id="@+id/passwordResetFragment"
         android:name="com.example.abschlussprojektmyapp.ui.PasswordResetFragment"
@@ -79,5 +72,10 @@
             android:name="chatId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/savedNewsFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.SavedNewsFragment"
+        android:label="SavedNewsFragment" />
+
 
 </navigation>

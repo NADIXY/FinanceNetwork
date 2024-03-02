@@ -11,7 +11,7 @@ import com.example.abschlussprojektmyapp.data.AppRepository
 import com.example.abschlussprojektmyapp.data.local.getDatabase
 import com.example.abschlussprojektmyapp.data.model.Chat
 import com.example.abschlussprojektmyapp.data.model.Message
-import com.example.abschlussprojektmyapp.data.model.Note
+import com.example.abschlussprojektmyapp.data.model.SavedNews
 import com.example.abschlussprojektmyapp.data.model.Profile
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.data.remote.Api
@@ -200,8 +200,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val exchangeRates =
         appRepository.exchangeRates
 
-    val notes =
-        appRepository.notes //Variable, die die Notiz-Objekte aus der Repository-Klasse holt.
+    val savedNews =
+        appRepository.savedNews //Variable, die die savedNews-Objekte aus der Repository-Klasse holt.
 
     fun getMarketData() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -231,26 +231,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /**
 
-    Speichert eine Notiz zu einer Nachricht.
-    @param message Die Nachricht, zu der die Notiz gespeichert werden soll.
-     */
-    fun saveNote(article: Article) {
-        val newNote = Note(null, article.publishedAt, article.title, article.author.toString())
+
+    fun saveSavedNews(article: Article) {
+        val newSavedNews = SavedNews(null, article.publishedAt, article.title, article.author.toString())
         viewModelScope.launch(Dispatchers.IO) {
-            appRepository.saveNote(newNote)
+            appRepository.saveSavedNews(newSavedNews)
         }
     }
 
-    /**
 
-    Löscht eine Notiz.
-    @param note Die zu löschende Notiz.
-     */
-    fun deleteNote(note: Note) {
+    fun deleteSavedNews(savedNews: SavedNews) {
         viewModelScope.launch(Dispatchers.IO) {
-            appRepository.deleteNote(note)
+            appRepository.deleteSavedNews(savedNews)
         }
     }
 

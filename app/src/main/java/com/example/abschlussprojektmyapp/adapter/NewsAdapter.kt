@@ -15,7 +15,7 @@ import com.example.abschlussprojektmyapp.databinding.TopNewsLayoutBinding
 
 class NewsAdapter(
     private val dataset: List<Article>,
-    private val viewModel: MainViewModel
+    viewModel: MainViewModel,
 ) : RecyclerView.Adapter<NewsAdapter.ItemViewHolder>() {
 
     /**

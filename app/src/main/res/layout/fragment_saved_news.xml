@@ -54,5 +54,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savedNewsAppbar"
-        tools:listitem="@layout/item_note" />
+        tools:listitem="@layout/item_saved_news" />
 </androidx.constraintlayout.widget.ConstraintLayout>

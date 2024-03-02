@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.abschlussprojektmyapp.data.model.Note
+import com.example.abschlussprojektmyapp.data.model.SavedNews
 
 /**
 
@@ -20,24 +20,24 @@ interface BusinessNewsDatabaseDao {
      * Gibt eine Liste von Notizen in absteigender Reihenfolge nach ID sortiert zurück.
      * @return LiveData-Objekt, das eine Liste von Notizen enthält
      */
-    @Query("SELECT * FROM Note ORDER BY id DESC")
-    fun getNotes() : LiveData<List<Note>>
+    @Query("SELECT * FROM SavedNews ORDER BY id DESC")
+    fun getSavedNews() : LiveData<List<SavedNews>>
 
     /**
 
      * Fügt eine neue Notiz zur Datenbank hinzu oder ersetzt eine vorhandene Notiz.
-     * @param note Die hinzuzufügende oder zu ersetzende Notiz
+     * @param savedNews Die hinzuzufügende oder zu ersetzende Notiz
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNote(note: Note)
+    suspend fun insertSavedNews(savedNews: SavedNews)
 
     /**
 
      * Löscht eine bestimmte Notiz aus der Datenbank.
-     * @param note Die zu löschende Notiz
+     * @param savedNews Die zu löschende Notiz
      */
     @Delete
-    suspend fun deleteNote(note: Note)
+    suspend fun deleteSavedNews(savedNews: SavedNews)
 
 }
 

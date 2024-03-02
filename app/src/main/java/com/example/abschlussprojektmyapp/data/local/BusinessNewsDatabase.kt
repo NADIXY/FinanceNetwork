@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.abschlussprojektmyapp.data.model.Note
+import com.example.abschlussprojektmyapp.data.model.SavedNews
 
 /**
 
 * Definiert eine Datenbankklasse mit einer Entitätsklasse und einer Versionsnummer
 */
-@Database(entities = [Note::class], version = 1)
+@Database(entities = [SavedNews::class], version = 1)
 abstract class BusinessNewsDatabase : RoomDatabase() {
     abstract val dao: BusinessNewsDatabaseDao
 }
@@ -34,7 +34,7 @@ fun getDatabase(context: Context): BusinessNewsDatabase {
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
                 BusinessNewsDatabase::class.java,
-                "db_business_news"
+                "db_saved_news"
             ).build()
         }
         return INSTANCE

@@ -49,9 +49,9 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
         navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.homeFragment || destination.id == R.id.newsFragment2 || destination.id == R.id.chatFragment ||
+            if (destination.id == R.id.homeFragment || destination.id == R.id.newsFragment2 ||
                 destination.id == R.id.currencyConverterFragment2 || destination.id == R.id.top_Gain_LoseFragment
-                || destination.id == R.id.notesFragment
+                || destination.id == R.id.savedNewsFragment
             ) {
                 binding.bottomNavigationView.visibility = View.VISIBLE
                 binding.bottomNavigationView.setupWithNavController(navHost.navController)

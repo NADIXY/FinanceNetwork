@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Note(
+data class SavedNews(
 
     @PrimaryKey(autoGenerate = true)
     val id: Int?,

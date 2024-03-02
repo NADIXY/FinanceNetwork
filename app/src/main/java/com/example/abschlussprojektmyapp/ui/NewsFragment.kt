@@ -67,7 +67,7 @@ class NewsFragment : Fragment() {
         popup.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.news_option -> {
-                    findNavController().navigate(R.id.notesFragment)
+                    findNavController().navigate(R.id.savedNewsFragment)
                     true
 
                 }
