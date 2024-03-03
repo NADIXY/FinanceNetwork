@@ -2,14 +2,19 @@ package com.example.abschlussprojektmyapp.adapter
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.app.AlertDialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
+import com.example.abschlussprojektmyapp.data.model.SavedNews
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.databinding.ItemNewsBinding
 import java.text.SimpleDateFormat
@@ -102,11 +107,38 @@ class BusinessNewsAdapter(
             holder.binding.author.text = item.author
 
             holder.binding.saveArticle.setOnClickListener {
-                viewModel.saveSavedNews(item)
+                showSavedAlertDialog(item,holder.itemView.context )
+                //viewModel.saveSavedNews(item)
+
             }
 
         }
     }
+
+    private fun showSavedAlertDialog(article: Article, context: Context) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Save")
+        builder.setMessage("Do you really want to save this news?")
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+        builder.setPositiveButton("Yes") { dialogInterface, which ->
+            viewModel.saveSavedNews(article)
+            Toast.makeText(context, "The news has been saved", Toast.LENGTH_LONG)
+                .show()
+            dialogInterface.dismiss()
+        }
+
+        builder.setNeutralButton("Cancel") { dialogInterface, which ->
+            Toast.makeText(context, "Memory aborted", Toast.LENGTH_LONG)
+                .show()
+            dialogInterface.dismiss()
+        }
+
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
+
 
     /**
      * damit der LayoutManager weiß, wie lang die Liste ist

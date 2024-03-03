@@ -47,12 +47,10 @@ class NewsFragment : Fragment() {
             viewModel.getBusinessNews()
             findNavController().navigate(R.id.newsDetailFragment)
         }
-        viewModel.newsList.observe(viewLifecycleOwner)
-        {
+
+        viewModel.newsList.observe(viewLifecycleOwner) {
             Log.d("Test_Api", "$it")
-
             binding.rvBusinessNews.adapter = BusinessNewsAdapter(it.articles, viewModel)
-
         }
 
     }
