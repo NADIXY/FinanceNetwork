@@ -65,7 +65,6 @@ class SavedNewsAdapter(
         }
     }
 
-
     private fun showDeleteAlertDialog(savedNews: SavedNews, context: Context) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Delete")

@@ -103,6 +103,7 @@ class CurrencyConverterFragment : Fragment() {
             "XOF", "XPF", "YER",
             "ZAR", "ZMW", "ZWL"
         )
+
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, currencies)
         binding.fromCurrencySpinner.adapter = adapter

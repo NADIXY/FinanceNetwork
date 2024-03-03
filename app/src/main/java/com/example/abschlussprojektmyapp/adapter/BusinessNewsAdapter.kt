@@ -8,13 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
-import com.example.abschlussprojektmyapp.data.model.SavedNews
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.databinding.ItemNewsBinding
 import java.text.SimpleDateFormat

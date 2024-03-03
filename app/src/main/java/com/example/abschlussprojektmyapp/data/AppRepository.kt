@@ -14,18 +14,12 @@ import com.example.abschlussprojektmyapp.data.remote.CurrencyApi
 import com.example.abschlussprojektmyapp.data.remote.NewsApi
 import java.lang.Exception
 
-/**
-
- * Konstante, die den Tag für das Repository definiert.
- */
+//Konstante, die den Tag für das Repository definiert.
 const val TAG = "Repository"
 
-/**
-
- * Diese Klasse repräsentiert ein Repository, das Daten von der API und der Datenbank abruft und verwaltet.
- * @param api Die Schnittstelle zur Kommunikation mit der API.
- * @param database Die Datenbank, in der die Daten gespeichert werden.
- */
+//Diese Klasse repräsentiert ein Repository, das Daten von der API und der Datenbank abruft und verwaltet.
+//apiCrypto, apiNews, apiCurrency, die Schnittstelle zur Kommunikation mit der API.
+//database Die Datenbank, in der die Daten gespeichert werden.
 class AppRepository(
     private val apiCrypto: Api,
     private val apiNews: NewsApi,
@@ -80,9 +74,7 @@ class AppRepository(
         }
     }
 
-
     val savedNews = database.dao.getSavedNews()
-
 
     suspend fun saveSavedNews(article: SavedNews) {
         database.dao.insertSavedNews(article)

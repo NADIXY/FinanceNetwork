@@ -70,7 +70,7 @@ class NewsAdapter(
         }
 
         holder.binding.topNewsTitelTextView.text = item.title
-        holder.binding.topNewsDataView.text = item.author
+        holder.binding.topNewsAuthorView.text = item.author
 
         //Hier setzen wir per Click auf die CardView um ins
         //newsFragment navigieren zu können

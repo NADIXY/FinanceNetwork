@@ -20,7 +20,7 @@
             android:id="@+id/topNewsImageView"
             android:layout_width="38dp"
             android:layout_height="38dp"
-            app:layout_constraintBottom_toBottomOf="@+id/topNewsDataView"
+            app:layout_constraintBottom_toBottomOf="@+id/topNewsAuthorView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/topNewsTitelTextView"
             tools:srcCompat="@tools:sample/avatars" />
@@ -37,7 +37,7 @@
             tools:text="NewsTitle" />
 
         <TextView
-            android:id="@+id/topNewsDataView"
+            android:id="@+id/topNewsAuthorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -47,7 +47,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/topNewsTitelTextView"
             app:layout_constraintTop_toBottomOf="@+id/topNewsTitelTextView"
-            tools:text="NewsData" />
+            tools:text="NewsAuthor" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

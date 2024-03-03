@@ -231,8 +231,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-
-
     fun saveSavedNews(article: Article) {
         val newSavedNews = SavedNews(null, article.publishedAt, article.title, article.author.toString())
         viewModelScope.launch(Dispatchers.IO) {

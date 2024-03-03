@@ -29,19 +29,14 @@ class ChatListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*
-
         //region testcode
 
         //Später noch über UI ausgewählt
         val userId = "qqShJpe2K6XNW6f9sMrDtlms5U72"
         viewModel.createChat(userId)
-
         viewModel.addMessageToChat("Hallo Firebase", "5EsAeuMmAJcchCghq6Mq")
 
         //endregion
-
-         */
 
         viewModel.chatsRef.addSnapshotListener { value, error ->
 
