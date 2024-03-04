@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:paddingTop="6dp">
 
-
     <TextView
         android:id="@+id/detailKeyTextView"
         android:layout_width="wrap_content"

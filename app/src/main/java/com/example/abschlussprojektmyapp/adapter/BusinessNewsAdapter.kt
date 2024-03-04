@@ -22,25 +22,19 @@ class BusinessNewsAdapter(
     private val viewModel: MainViewModel
 ) : RecyclerView.Adapter<BusinessNewsAdapter.ItemViewHolder>() {
 
-    /**
-     * der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
-     */
+    // Der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
     inner class ItemViewHolder(val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    /**
-     * hier werden neue ViewHolder erstellt
-     */
+    // Hier werden neue ViewHolder erstellt
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding =
             ItemNewsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
 
-    /**
-     * hier findet der Recyclingprozess statt
-     * die vom ViewHolder bereitgestellten Parameter erhalten die Information des Listeneintrags
-     */
+     // Hier findet der Recyclingprozess statt
+     // die vom ViewHolder bereitgestellten Parameter erhalten die Information des Listeneintrags
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
@@ -83,8 +77,8 @@ class BusinessNewsAdapter(
         holder.binding.publishedAt.text = date2.toString()
         holder.binding.author.text = item.author
 
-        //Hier setzen wir per Click auf die CardView um ins
-        //navigieren newsFragment2 navigieren zu können
+        // Hier setzen wir per Click auf die CardView um ins
+        // navigieren newsDetailFragment navigieren zu können
 
         holder.binding.itemNews.setOnClickListener {
             viewModel.getBusinessNews()
@@ -137,10 +131,7 @@ class BusinessNewsAdapter(
         alertDialog.show()
     }
 
-
-    /**
-     * damit der LayoutManager weiß, wie lang die Liste ist
-     */
+    // Damit der LayoutManager weiß, wie lang die Liste ist
     override fun getItemCount(): Int {
         return dataset.size
     }

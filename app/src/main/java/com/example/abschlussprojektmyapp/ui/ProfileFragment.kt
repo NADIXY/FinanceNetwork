@@ -100,8 +100,6 @@ class ProfileFragment : Fragment() {
                 viewModel.updateProfile(newProfile)
 
             }
-
-
         }
 
     }

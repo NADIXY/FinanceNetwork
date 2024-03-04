@@ -8,8 +8,6 @@
     android:background="#170B54"
     tools:context=".ui.HomeFragment">
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/homeDetailAppbar"
         android:layout_width="match_parent"

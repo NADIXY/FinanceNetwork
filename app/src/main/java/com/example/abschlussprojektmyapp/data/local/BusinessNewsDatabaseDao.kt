@@ -8,24 +8,23 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.abschlussprojektmyapp.data.model.SavedNews
 
-/**
 
- * Data Access Object für die Datenbank.
- */
+
+// Data Access Object für die Datenbank.
 @Dao
 interface BusinessNewsDatabaseDao {
 
     /**
 
-     * Gibt eine Liste von Notizen in absteigender Reihenfolge nach ID sortiert zurück.
-     * @return LiveData-Objekt, das eine Liste von Notizen enthält
+     * Gibt eine Liste von SavedNews in absteigender Reihenfolge nach ID sortiert zurück.
+     * @return LiveData-Objekt, das eine Liste von SavedNews enthält
      */
     @Query("SELECT * FROM SavedNews ORDER BY id DESC")
     fun getSavedNews() : LiveData<List<SavedNews>>
 
     /**
 
-     * Fügt eine neue Notiz zur Datenbank hinzu oder ersetzt eine vorhandene Notiz.
+     * Fügt eine neue SavedNews zur Datenbank hinzu oder ersetzt eine vorhandene SavedNews.
      * @param savedNews Die hinzuzufügende oder zu ersetzende Notiz
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -33,8 +32,8 @@ interface BusinessNewsDatabaseDao {
 
     /**
 
-     * Löscht eine bestimmte Notiz aus der Datenbank.
-     * @param savedNews Die zu löschende Notiz
+     * Löscht eine bestimmte SavedNews aus der Datenbank.
+     * @param savedNews Die zu löschende SavedNews
      */
     @Delete
     suspend fun deleteSavedNews(savedNews: SavedNews)

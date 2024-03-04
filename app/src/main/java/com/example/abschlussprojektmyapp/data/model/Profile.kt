@@ -12,7 +12,6 @@ data class Profile(
     val lastName: String = "",
     val number: String = "",
     val profilePicture: String = ""
-
 )
 
 

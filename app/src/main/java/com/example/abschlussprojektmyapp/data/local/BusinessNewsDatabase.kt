@@ -6,19 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.abschlussprojektmyapp.data.model.SavedNews
 
-/**
-
-* Definiert eine Datenbankklasse mit einer Entitätsklasse und einer Versionsnummer
-*/
+// Definiert eine Datenbankklasse mit einer Entitätsklasse und einer Versionsnummer
 @Database(entities = [SavedNews::class], version = 1)
 abstract class BusinessNewsDatabase : RoomDatabase() {
     abstract val dao: BusinessNewsDatabaseDao
 }
 
-/**
-
- * Deklariert eine statische, private und späte Initialisierung einer Instanz der Database-Klasse
- */
+// Deklariert eine statische, private und späte Initialisierung einer Instanz der Database-Klasse
 private lateinit var INSTANCE: BusinessNewsDatabase
 
 /**

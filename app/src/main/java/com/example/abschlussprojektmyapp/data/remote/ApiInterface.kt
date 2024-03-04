@@ -10,7 +10,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 //Die Basis-URL für die Verbindung mit dem Server.
-
 const val BASE_URL2 = "https://api.coinmarketcap.com/"
 
 //First Build Moshi Object

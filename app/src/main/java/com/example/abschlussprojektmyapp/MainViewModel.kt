@@ -169,7 +169,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 auth.currentUser!!.uid
             )
         )
-
         firestore.collection("chats").add(chat)
     }
 
@@ -237,7 +236,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             appRepository.saveSavedNews(newSavedNews)
         }
     }
-
 
     fun deleteSavedNews(savedNews: SavedNews) {
         viewModelScope.launch(Dispatchers.IO) {

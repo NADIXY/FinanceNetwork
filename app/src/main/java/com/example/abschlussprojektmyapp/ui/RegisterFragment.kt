@@ -17,7 +17,6 @@ class RegisterFragment: Fragment() {
     private lateinit var binding: FragmentRegisterBinding
     private var isLoggedIn = false
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,7 +54,6 @@ class RegisterFragment: Fragment() {
                 findNavController().navigate(R.id.homeFragment)
             }
         }
-
 
     }
 

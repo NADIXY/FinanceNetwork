@@ -18,25 +18,21 @@ class NewsAdapter(
     viewModel: MainViewModel,
 ) : RecyclerView.Adapter<NewsAdapter.ItemViewHolder>() {
 
-    /**
-     * der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
-     */
+
+     // Der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
     inner class ItemViewHolder(val binding: TopNewsLayoutBinding ) :
         RecyclerView.ViewHolder(binding.root)
 
-    /**
-     * hier werden neue ViewHolder erstellt
-     */
+
+     // Hier werden neue ViewHolder erstellt
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding =
             TopNewsLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
 
-    /**
-     * hier findet der Recyclingprozess statt
-     * die vom ViewHolder bereitgestellten Parameter erhalten die Information des Listeneintrags
-     */
+     // Hier findet der Recyclingprozess statt
+     // die vom ViewHolder bereitgestellten Parameter erhalten die Information des Listeneintrags
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 

@@ -67,7 +67,6 @@ class MarketAdapter(
             .thumbnail(Glide.with(context).load(R.drawable.spinner))
             .into(holder.binding.currencyImageView)
 
-
         Glide.with(holder.binding.root).load(
 
             "https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/" + item.id + ".png"

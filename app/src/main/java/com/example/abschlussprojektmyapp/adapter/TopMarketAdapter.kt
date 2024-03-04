@@ -98,6 +98,7 @@ class TopMarketAdapter(
             )
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.binding.topCurrencyImageView)
+
         /**
 
          *Gibt eine Debug-Nachricht aus, die die URL des geladenen Bildes enthält.

@@ -37,10 +37,10 @@ class SavedNewsFragment : Fragment() {
          * Beobachtet die Notizen im ViewModel und aktualisiert die RecyclerView, wenn sich die Daten ändern.
          * @param viewLifecycleOwner Der LifecycleOwner der aktuellen Ansicht
          * @param binding Das Binding-Objekt für die RecyclerView
-         * @param rvNotes Die RecyclerView, die die Notizen anzeigt
-         * @param NoteAdapter Der Adapter für die RecyclerView
+         * @param rvSavedNews Die RecyclerView, die die SavedNews anzeigt
+         * @param SavedNewsAdapter Der Adapter für die RecyclerView
          * @param it Die Liste der aktualisierten Notizen
-         * @param viewModel Das ViewModel, das die Notizen verwaltet
+         * @param viewModel Das ViewModel, das die SavedNews verwaltet
          */
 
         viewModel.savedNews.observe(viewLifecycleOwner) {

@@ -14,10 +14,7 @@ import com.example.abschlussprojektmyapp.data.model.SavedNews
 import com.example.abschlussprojektmyapp.databinding.ItemSavedNewsBinding
 import java.text.SimpleDateFormat
 
-/**
-
- * Der Adapter kümmert sich um das Erstellen der Listeneinträge
- */
+ // Der Adapter kümmert sich um das Erstellen der Listeneinträge
 class SavedNewsAdapter(
     private val dataset: List<SavedNews>,
     private val viewModel: MainViewModel
