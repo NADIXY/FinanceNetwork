@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#170B54"
+    android:background="#120846"
     tools:context=".ui.NewsDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,7 @@
             android:id="@+id/newsDetailTitleLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BUSINESS NEWS DETAILS"
+            android:text="NEWS DETAILS"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

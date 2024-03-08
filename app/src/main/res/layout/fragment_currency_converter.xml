@@ -5,7 +5,7 @@
     android:id="@+id/currencyConverterFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#170B54"
+    android:background="#120846"
     tools:context=".ui.CurrencyConverterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout

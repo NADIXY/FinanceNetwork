@@ -95,11 +95,21 @@ class ProfileFragment : Fragment() {
             val lastName = binding.tietLastName.text.toString()
             val numberName = binding.tietNumberName.text.toString()
 
-            if (firstName != "" && lastName != "" && numberName != "") {
-                val newProfile = Profile(firstName, lastName, numberName)
-                viewModel.updateProfile(newProfile)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Save")
+            builder.setMessage("Do you really want to save?")
+            builder.setPositiveButton("Yes") { dialog, which ->
 
+                if (firstName != "" && lastName != "" && numberName != "") {
+                    val newProfile = Profile(firstName, lastName, numberName)
+                    viewModel.updateProfile(newProfile)
+
+                }
+                Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
             }
+            builder.setNegativeButton("Cancel") { dialog, which -> }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
 
     }
