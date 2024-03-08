@@ -25,7 +25,7 @@ interface BusinessNewsDatabaseDao {
     /**
 
      * Fügt eine neue SavedNews zur Datenbank hinzu oder ersetzt eine vorhandene SavedNews.
-     * @param savedNews Die hinzuzufügende oder zu ersetzende Notiz
+     * @param savedNews Die hinzuzufügende oder zu ersetzende News
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSavedNews(savedNews: SavedNews)

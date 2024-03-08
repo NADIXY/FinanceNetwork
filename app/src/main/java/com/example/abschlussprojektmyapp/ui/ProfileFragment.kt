@@ -49,14 +49,14 @@ class ProfileFragment : Fragment() {
 
         // Snapshot Listener: Hört auf Änderungen in dem Firestore Document, das beobachtet wird
         // Hier: Referenz auf Profil wird beobachtet
-        viewModel.profileRef.addSnapshotListener { value, error ->
+        viewModel.profileRef?.addSnapshotListener { value, error ->
             if (error == null && value != null) {
                 // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Profil und setzen der Felder
                 val myProfile = value.toObject(Profile::class.java)
-                binding.tietFirstName.setText(myProfile!!.firstName)
-                binding.tietLastName.setText(myProfile.lastName)
-                binding.tietNumberName.setText(myProfile.number)
-                binding.ivProfilePic.load(myProfile.profilePicture) {
+                binding.tietFirstName.setText(myProfile?.firstName)
+                binding.tietLastName.setText(myProfile?.lastName)
+                binding.tietNumberName.setText(myProfile?.number)
+                binding.ivProfilePic.load(myProfile?.profilePicture) {
                     error(R.drawable.baseline_profile)
                 }
             }

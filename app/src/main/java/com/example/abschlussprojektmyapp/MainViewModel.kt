@@ -9,10 +9,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
 import com.example.abschlussprojektmyapp.data.local.getDatabase
+import com.example.abschlussprojektmyapp.data.local.getTopCurrencyDatabase
 import com.example.abschlussprojektmyapp.data.model.Chat
-import com.example.abschlussprojektmyapp.data.model.Message
 import com.example.abschlussprojektmyapp.data.model.SavedNews
 import com.example.abschlussprojektmyapp.data.model.Profile
+import com.example.abschlussprojektmyapp.data.model.SavedTopCurrency
+import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.data.remote.Api
 import com.example.abschlussprojektmyapp.data.remote.CurrencyApi
@@ -54,7 +56,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     //Das profile Document enthält ein einzelnes Profil(das des eingeloggten Users)
     //Document ist wie ein Objekt
-    lateinit var profileRef: DocumentReference
+    //lateinit var profileRef: DocumentReference
+
+    var profileRef: DocumentReference? = null
 
     init {
         setupUserEnv()
@@ -65,8 +69,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _user.value = auth.currentUser
 
         auth.currentUser?.let { firebaseUser ->
+            if (profileRef == null) {
 
-            profileRef = firestore.collection("profiles").document(firebaseUser.uid)
+                profileRef = firestore.collection("profiles").document(firebaseUser.uid)
+            }
         }
     }
 
@@ -81,7 +87,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                 profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
                 // Ein neues, leeres Profil wird für jeden User erstellt der zum ersten mal einen Account für die App anlegt
-                profileRef.set(Profile())
+                profileRef!!.set(Profile())
                 // Danach führen wir logout Funktion aus, da beim Erstellen eines Users dieser sofort eingeloggt wird
                 logout()
             } else {
@@ -141,7 +147,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         imageRef.putFile(uri).addOnCompleteListener {
             if (it.isSuccessful) {
                 imageRef.downloadUrl.addOnCompleteListener { finalImageUrl ->
-                    profileRef.update("profilePicture", finalImageUrl.result.toString())
+                    profileRef?.update("profilePicture", finalImageUrl.result.toString())
                 }
             }
         }
@@ -150,7 +156,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     // Funktion um Eingabefelder des Profils eines Users zu updaten
     fun updateProfile(profile: Profile) {
-        profileRef.update(
+        profileRef?.update(
             mapOf(
                 "firstName" to profile.firstName,
                 "lastName" to profile.lastName,
@@ -173,21 +179,28 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun addMessageToChat(message: String, chatId: String) {
-
+        /*
         val message = Message(
             content = message,
             senderId = auth.currentUser!!.uid
         )
-
         firestore.collection("chats").document(chatId).collection("messages").add(message)
+         */
     }
 
     fun getMessageRef(chatId: String): CollectionReference {
         return firestore.collection("chats").document(chatId).collection("messages")
     }
 
+
     private val appRepository =
-        AppRepository(Api, NewsApi, CurrencyApi, getDatabase(application))
+        AppRepository(
+            Api,
+            NewsApi,
+            CurrencyApi,
+            getDatabase(application),
+            getTopCurrencyDatabase(application)
+        )
 
     val market =
         appRepository.market //Variable, die das market-Objekt aus der Repository-Klasse holt.
@@ -201,6 +214,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val savedNews =
         appRepository.savedNews //Variable, die die savedNews-Objekte aus der Repository-Klasse holt.
+
+    val savedTopCurrency =
+        appRepository.savedTopCurrency
 
     fun getMarketData() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -231,7 +247,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun saveSavedNews(article: Article) {
-        val newSavedNews = SavedNews(null, article.publishedAt, article.title, article.author.toString())
+        val newSavedNews =
+            SavedNews(null, article.publishedAt, article.title, article.author.toString())
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.saveSavedNews(newSavedNews)
         }
@@ -241,6 +258,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.deleteSavedNews(savedNews)
         }
+    }
+    fun saveTopCurrency(cryptoCurrency: CryptoCurrency) {
+        val newSavedTopCurrency = SavedTopCurrency(cryptoCurrency.id,cryptoCurrency.name
+        )
+
+        viewModelScope.launch(Dispatchers.IO) {
+            appRepository.saveTopCurrency(newSavedTopCurrency)
+        }
+
+    }
+    fun deleteTopCurrency(savedTopCurrency: SavedTopCurrency) {
+        viewModelScope.launch(Dispatchers.IO) {
+            appRepository.deleteTopCurrency(savedTopCurrency)
+        }
+
     }
 
 }

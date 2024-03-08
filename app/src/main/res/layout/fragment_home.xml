@@ -120,7 +120,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="411dp"
             android:layout_height="2dp"

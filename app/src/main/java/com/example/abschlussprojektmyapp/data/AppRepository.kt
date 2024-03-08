@@ -4,7 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.abschlussprojektmyapp.data.local.BusinessNewsDatabase
+import com.example.abschlussprojektmyapp.data.local.TopCurrencyDatabase
 import com.example.abschlussprojektmyapp.data.model.SavedNews
+import com.example.abschlussprojektmyapp.data.model.SavedTopCurrency
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.MarketModel
 import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRatesX
@@ -24,9 +26,10 @@ class AppRepository(
     private val apiCrypto: Api,
     private val apiNews: NewsApi,
     private val apiCurrency: CurrencyApi,
-    private val database: BusinessNewsDatabase
+    private val database: BusinessNewsDatabase,
+    private val topCurrencyDatabase: TopCurrencyDatabase,
 
-) {
+    ) {
 
     private val _crypto = MutableLiveData<List<CryptoCurrency>>()
     val crypto: LiveData<List<CryptoCurrency>>
@@ -82,6 +85,16 @@ class AppRepository(
 
     suspend fun deleteSavedNews(article: SavedNews) {
         database.dao.deleteSavedNews(article)
+    }
+
+    val savedTopCurrency = topCurrencyDatabase.dao.getTopCurrency()
+
+    suspend fun saveTopCurrency(cryptoCurrency: SavedTopCurrency) {
+        topCurrencyDatabase.dao.insertTopCurrency(cryptoCurrency)
+    }
+
+    suspend fun deleteTopCurrency(cryptoCurrency: SavedTopCurrency) {
+        topCurrencyDatabase.dao.deleteTopCurrency(cryptoCurrency)
     }
 
 }

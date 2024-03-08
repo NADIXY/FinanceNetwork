@@ -73,7 +73,6 @@ class NewsAdapter(
         holder.binding.topNewsCardView.setOnClickListener {
             holder.itemView.findNavController().navigate(R.id.newsFragment2)
         }
-
     }
 
     /**

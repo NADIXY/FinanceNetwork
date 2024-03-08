@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
+import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter.TopMarketViewHolder
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 import com.example.abschlussprojektmyapp.databinding.TopCurrencyLayoutBinding
 
@@ -21,31 +23,27 @@ import com.example.abschlussprojektmyapp.databinding.TopCurrencyLayoutBinding
  *@param list Die Liste der Kryptowährungen, die angezeigt werden sollen
  */
 class TopMarketAdapter(
-    private val context: Context,
     private val list: List<CryptoCurrency>,
-) : RecyclerView.Adapter<TopMarketAdapter.TopMarketViewHolder>() {
+    private val viewModel: MainViewModel,
+    var context: Context,
+) : RecyclerView.Adapter<TopMarketViewHolder>() {
 
     /**
 
      *Eine innere Klasse, die von RecyclerView.ViewHolder erbt und eine Referenz auf die Ansicht hält.
      *@param view Die Ansicht, die in der inneren Klasse gehalten wird.
      */
-    inner class TopMarketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var binding =
-            TopCurrencyLayoutBinding.bind(view) //Eine Variable, die das Layout der obersten Währung bindet.
-    }
+    inner class TopMarketViewHolder(val binding: TopCurrencyLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-    /**
 
-     *Erstellt und gibt einen neuen TopMarketViewHolder zurück.
-     *@param parent Die übergeordnete Ansichtsgruppe, in der der neue View angezeigt werden soll.
-     *@param viewType Der Typ der Ansicht.
-     *@return Ein neuer TopMarketViewHolder, der mit dem aufgeblasenen Layout initialisiert ist.
-     */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopMarketViewHolder {
-        return TopMarketViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.top_currency_layout, parent, false)
-        )
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): TopMarketViewHolder {
+        val binding =
+            TopCurrencyLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return TopMarketViewHolder(binding)
     }
 
     /**
@@ -96,7 +94,7 @@ class TopMarketAdapter(
             .load(
                 "https://s2.coinmarketcap.com/static/img/coins/64x64/" + item.id + ".png"
             )
-            .placeholder(R.drawable.ic_launcher_background)
+            .placeholder(R.drawable.spinner)
             .into(holder.binding.topCurrencyImageView)
 
         /**
@@ -123,6 +121,7 @@ class TopMarketAdapter(
             holder.binding.topCurrencyChangeTextView.text =
                 "${String.format("%.02f", item.quotes[0].percentChange24h)} %"
         }
+
     }
 
     /**
@@ -133,5 +132,6 @@ class TopMarketAdapter(
     override fun getItemCount(): Int {
         return list.size
     }
-
 }
+
+

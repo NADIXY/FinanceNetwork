@@ -101,7 +101,6 @@ class BusinessNewsAdapter(
             holder.binding.saveArticle.setOnClickListener {
                 showSavedAlertDialog(item,holder.itemView.context )
                 //viewModel.saveSavedNews(item)
-
             }
 
         }

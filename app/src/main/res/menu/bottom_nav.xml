@@ -16,11 +16,11 @@
         android:title="Crypto" />
 
     <item
-        android:id="@+id/savedNewsFragment"
+        android:id="@+id/savedTopCurrencyFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/ic_bookmark"
-        android:title="Saved News" />
+        android:title="Saved TopCurrency" />
 
     <item
         android:id="@+id/newsFragment2"
@@ -37,3 +37,12 @@
         android:title="$Change" />
 
 </menu>
+
+    <!--
+    <item
+    android:id="@+id/savedNewsFragment"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:icon="@drawable/ic_bookmark"
+    android:title="Saved News" />
+    -->

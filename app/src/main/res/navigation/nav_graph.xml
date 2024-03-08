@@ -76,6 +76,10 @@
         android:id="@+id/savedNewsFragment"
         android:name="com.example.abschlussprojektmyapp.ui.SavedNewsFragment"
         android:label="SavedNewsFragment" />
+    <fragment
+        android:id="@+id/savedTopCurrencyFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.SavedTopCurrencyFragment"
+        android:label="SavedTopCurrencyFragment" />
 
 
 </navigation>
