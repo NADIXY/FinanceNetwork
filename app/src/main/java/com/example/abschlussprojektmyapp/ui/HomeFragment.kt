@@ -13,18 +13,22 @@ import com.example.abschlussprojektmyapp.adapter.NewsAdapter
 import com.example.abschlussprojektmyapp.adapter.TopLossGainPagerAdapter
 import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentHomeBinding
+import java.util.Timer
+import java.util.TimerTask
 
 class HomeFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentHomeBinding
-
+    //private var currentPageNews = 0
+    private var currentPageCurrency = 0
+    //private var timerNews: Timer? = null
+    private var timerCurrency: Timer? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
-
         return binding.root
     }
 
@@ -36,47 +40,139 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.getBusinessNews()
-
         viewModel.newsList.observe(viewLifecycleOwner) {
             binding.topNewsRecyclerView.adapter = NewsAdapter(it.articles, viewModel)
+            //startAutoScrollNews()
+        }
 
-            /*
+        viewModel.getMarketData()
+        viewModel.market.observe(viewLifecycleOwner) {
+            binding.topCurrencyRecyclerView.adapter = TopMarketAdapter(it.data.cryptoCurrencyList, viewModel, requireContext())
+            startAutoScrollCurrency()
+        }
 
-            val itemTouchHelper = ItemTouchHelper(object :
-                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-                override fun onMove(
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    target: RecyclerView.ViewHolder
-                ): Boolean {
-                    return false
+        val adapter = TopLossGainPagerAdapter(this)
+        binding.contentViewPager.adapter = adapter
+    }
+
+    /*private fun startAutoScrollNews() {
+        timerNews = Timer()
+        timerNews?.schedule(object : TimerTask() {
+            override fun run() {
+                activity?.runOnUiThread {
+                    if (currentPageNews == viewModel.newsList.value?.articles?.size) {
+                        currentPageNews = 0
+                    }
+                    binding.topNewsRecyclerView.smoothScrollToPosition(currentPageNews++)
                 }
+            }
+        }, 0, 5000) // Change the interval as needed for news RecyclerView
+    }
 
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                        val position = viewHolder.adapterPosition
-                        binding.topNewsRecyclerView.adapter?.notifyItemRemoved(position)
+     */
 
-                    //viewModel.newsList.value?.articles?.removeAt(position)
-
+    private fun startAutoScrollCurrency() {
+        timerCurrency = Timer()
+        timerCurrency?.schedule(object : TimerTask() {
+            override fun run() {
+                activity?.runOnUiThread {
+                    if (currentPageCurrency == viewModel.market.value?.data?.cryptoCurrencyList?.size ) {
+                        currentPageCurrency = 0
+                    }
+                    binding.topCurrencyRecyclerView.smoothScrollToPosition(currentPageCurrency++)
                 }
-            })
-            itemTouchHelper.attachToRecyclerView(binding.topNewsRecyclerView)
+            }
+        }, 0, 5000) // Change the interval as needed for currency RecyclerView
+    }
 
-             */
+    override fun onDestroyView() {
+        super.onDestroyView()
+        //timerNews?.cancel()
+        timerCurrency?.cancel()
+    }
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+class HomeFragment : Fragment() {
+    private val viewModel: MainViewModel by activityViewModels()
+    private lateinit var binding: FragmentHomeBinding
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.imageView2.setOnClickListener {
+            findNavController().navigate(R.id.profileFragment)
+        }
+        viewModel.getBusinessNews()
+        viewModel.newsList.observe(viewLifecycleOwner) {
+            binding.topNewsRecyclerView.adapter = NewsAdapter(it.articles, viewModel)
             viewModel.getMarketData()
             viewModel.market.observe(viewLifecycleOwner) {
                 binding.topCurrencyRecyclerView.adapter =
                     TopMarketAdapter(it.data.cryptoCurrencyList, viewModel, requireContext())
             }
-
             val adapter = TopLossGainPagerAdapter(this)
             binding.contentViewPager.adapter = adapter
 
         }
-
     }
-}
+
+ */
+
+
 
 
 
