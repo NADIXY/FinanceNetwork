@@ -11,7 +11,7 @@
         android:id="@+id/converterDetailAppbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#170B54"
+        android:background="#120846"
         android:paddingStart="12dp"
         android:paddingTop="8dp"
         android:paddingRight="12dp"
