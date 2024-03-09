@@ -14,7 +14,8 @@ import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter.TopMarketViewHolder
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
-import com.example.abschlussprojektmyapp.databinding.TopCurrencyLayoutBinding
+import com.example.abschlussprojektmyapp.databinding.CryptoCurrencyLayoutBinding
+
 
 /**
 
@@ -33,7 +34,7 @@ class TopMarketAdapter(
      *Eine innere Klasse, die von RecyclerView.ViewHolder erbt und eine Referenz auf die Ansicht hält.
      *@param view Die Ansicht, die in der inneren Klasse gehalten wird.
      */
-    inner class TopMarketViewHolder(val binding: TopCurrencyLayoutBinding) :
+    inner class TopMarketViewHolder(val binding: CryptoCurrencyLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
@@ -42,7 +43,7 @@ class TopMarketAdapter(
         viewType: Int
     ): TopMarketViewHolder {
         val binding =
-            TopCurrencyLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            CryptoCurrencyLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TopMarketViewHolder(binding)
     }
 
@@ -56,14 +57,14 @@ class TopMarketAdapter(
     override fun onBindViewHolder(holder: TopMarketViewHolder, position: Int) {
         val item = list[position] //Holt das Element aus der Liste an der angegebenen Position.
 
-        val hCard = holder.binding.topCurrencyCardView
+        val hCard = holder.binding.cryptoCurrencyCardView
 
         // ScaleY = Stretchen oben unten           AnimationsTyp, Start, Ende
         val animator = ObjectAnimator.ofFloat(hCard, View.SCALE_Y, 0f, 1f)
         animator.duration = 800
         animator.start()
 
-        holder.binding.topCurrencyCardView.setOnClickListener {
+        holder.binding.cryptoCurrencyCardView.setOnClickListener {
 
             // RotationY = object horizontal rotieren                  Start, Ende
             val rotator = ObjectAnimator.ofFloat(hCard, View.ROTATION_Y, 0f, 360f)
@@ -75,12 +76,12 @@ class TopMarketAdapter(
             set.start()
         }
 
-        holder.binding.topCurrencyNameTextView.text =
+        holder.binding.cryptoCurrencyNameTextView.text =
             item.name //Setzt den Text des topCurrencyNameTextView im Binding auf den Namen des Elements.
 
         //Hier setzen wir per Click auf die CardView um ins
         //newsFragment navigieren zu können
-        holder.binding.topCurrencyCardView.setOnClickListener {
+        holder.binding.cryptoCurrencyCardView.setOnClickListener {
             holder.itemView.findNavController().navigate(R.id.top_Gain_LoseFragment)
         }
 
@@ -95,7 +96,7 @@ class TopMarketAdapter(
                 "https://s2.coinmarketcap.com/static/img/coins/64x64/" + item.id + ".png"
             )
             .placeholder(R.drawable.spinner)
-            .into(holder.binding.topCurrencyImageView)
+            .into(holder.binding.cryptoCurrencyImageView)
 
         /**
 
@@ -111,14 +112,14 @@ class TopMarketAdapter(
          Wenn nein, wird der Text des topCurrencyChangeTextView auf das Symbol des Elements gesetzt und die Farbe entsprechend geändert.
          */
         if (item.quotes!![0].percentChange24h > 0) {
-            holder.binding.topCurrencyChangeTextView.setTextColor(context.resources.getColor(R.color.green))
+            holder.binding.cryptoCurrencyChangeTextView.setTextColor(context.resources.getColor(R.color.green))
             // Setze den Text des topCurrencyChangeTextView im Binding auf den Prozentwert der Änderung in den letzten 24 Stunden
-            holder.binding.topCurrencyChangeTextView.text =
+            holder.binding.cryptoCurrencyChangeTextView.text =
                 "+ ${String.format("%.02f", item.quotes[0].percentChange24h)} %"
         } else {
-            holder.binding.topCurrencyChangeTextView.setTextColor(context.resources.getColor(R.color.red))
+            holder.binding.cryptoCurrencyChangeTextView.setTextColor(context.resources.getColor(R.color.red))
             // Setze den Text des topCurrencyChangeTextView im Binding auf den Prozentwert der Änderung in den letzten 24 Stunden
-            holder.binding.topCurrencyChangeTextView.text =
+            holder.binding.cryptoCurrencyChangeTextView.text =
                 "${String.format("%.02f", item.quotes[0].percentChange24h)} %"
         }
 

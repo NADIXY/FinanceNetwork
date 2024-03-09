@@ -57,8 +57,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:layout_width="388dp"
-        android:layout_height="196dp"
+        android:layout_width="397dp"
+        android:layout_height="268dp"
 
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
@@ -74,7 +74,7 @@
         <EditText
             android:id="@+id/amountToConvertEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
@@ -83,30 +83,31 @@
         <Spinner
             android:id="@+id/fromCurrencySpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp" />
 
         <Spinner
             android:id="@+id/toCurrencySpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp" />
 
         <Button
             android:id="@+id/convertButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:backgroundTint="#2196F3"
-            android:text="@string/convert_button_text"
-            android:textColor="#170B54" />
+            android:layout_marginEnd="8dp"
+            android:background="#13102F"
+            android:backgroundTint="#030304"
+            android:text="@string/convert_button_text" />
 
         <TextView
             android:id="@+id/resultTextView"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" />

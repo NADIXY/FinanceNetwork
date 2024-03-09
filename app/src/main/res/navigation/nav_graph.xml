@@ -25,10 +25,10 @@
         android:label="fragment_top_loss_gain"
         tools:layout="@layout/fragment_top_loss_gain" />
     <fragment
-        android:id="@+id/newsFragment2"
-        android:name="com.example.abschlussprojektmyapp.ui.NewsFragment"
+        android:id="@+id/businessNewsFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.BusinessNewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_business_news" />
 
     <fragment
         android:id="@+id/profileFragment"
@@ -36,12 +36,12 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/newsDetailFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.NewsDetailFragment"
+        android:id="@+id/businessNewsDetailFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.BusinessNewsDetailFragment"
         android:label="fragment_news_detail"
-        tools:layout="@layout/fragment_news_detail" />
+        tools:layout="@layout/fragment_business_news_detail" />
     <fragment
-        android:id="@+id/currencyConverterFragment2"
+        android:id="@+id/currencyConverterFragment"
         android:name="com.example.abschlussprojektmyapp.ui.CurrencyConverterFragment"
         android:label="fragment_currency_converter"
         tools:layout="@layout/fragment_currency_converter" />

@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/converterDetailAppbar"
+        android:id="@+id/Appbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="#120846"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/converterTitleLayout"
+            android:id="@+id/TitleLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CRYPTO CURRENCY"
@@ -46,9 +46,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/converterDetailAppbar"
+        app:layout_constraintTop_toBottomOf="@+id/Appbar"
         tools:listitem="@layout/currency_item_layout" />
-
 
     <Button
         android:id="@+id/button3"
@@ -61,17 +60,5 @@
         android:textColor="#170B54"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-
-        android:id="@+id/t2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/converterDetailAppbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
-import com.example.abschlussprojektmyapp.adapter.NewsAdapter
+import com.example.abschlussprojektmyapp.adapter.TopBusinessNewsAdapter
 import com.example.abschlussprojektmyapp.adapter.TopLossGainPagerAdapter
 import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentHomeBinding
@@ -35,13 +35,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.imageView2.setOnClickListener {
+        binding.account.setOnClickListener {
             findNavController().navigate(R.id.profileFragment)
         }
 
         viewModel.getBusinessNews()
         viewModel.newsList.observe(viewLifecycleOwner) {
-            binding.topNewsRecyclerView.adapter = NewsAdapter(it.articles, viewModel)
+            binding.topNewsRecyclerView.adapter = TopBusinessNewsAdapter(it.articles, viewModel)
             //startAutoScrollNews()
         }
 

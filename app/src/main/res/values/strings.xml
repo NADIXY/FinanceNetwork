@@ -1,26 +1,7 @@
 <resources>
     <string name="app_name">AbschlussprojektMyApp</string>
     <!-- <string name="app_name">Lach dich kaputt!</string>-->
-    <string name="reload_jokes">Witze neu laden</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="not_found">Not Found any data</string>
-    <string name="empty_watchlist">Watchlist is empty</string>
-    <string name="search_hint">Search Crypto currency</string>
-    <string name="open_drawer">Open Drawer</string>
-    <string name="close_drawer">Close Drawer</string>
-    <string name="nav_open">Nav Open</string>
-    <string name="nav_close">Nav Close</string>
-    <string name="_15m">15 min</string>
-    <string name="_1h">1 Hour</string>
-    <string name="_4h">4 Hour</string>
-    <string name="_1d">1 Day</string>
-    <string name="_1w">1 Week</string>
-    <string name="_1m">1 Min</string>
     <string name="base_currency">AUD: 1.00</string>
-    <string name="nzd">NZD:</string>
-    <string name="usd">USD:</string>
-    <string name="gbp">GBP:</string>
     <string name="base_currency_hint">Enter base currency1</string>
     <string name="amount_to_convert_hint">Enter base currency</string>
     <string name="convert_button_text">Convert</string>

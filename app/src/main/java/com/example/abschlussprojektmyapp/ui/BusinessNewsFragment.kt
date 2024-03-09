@@ -15,18 +15,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.adapter.BusinessNewsAdapter
-import com.example.abschlussprojektmyapp.databinding.FragmentNewsBinding
+import com.example.abschlussprojektmyapp.databinding.FragmentBusinessNewsBinding
 
-class NewsFragment : Fragment() {
+class BusinessNewsFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var binding: FragmentNewsBinding
+    private lateinit var binding: FragmentBusinessNewsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNewsBinding.inflate(inflater, container, false)
+        binding = FragmentBusinessNewsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,7 +45,7 @@ class NewsFragment : Fragment() {
 
         binding.rvBusinessNews.setOnClickListener {
             viewModel.getBusinessNews()
-            findNavController().navigate(R.id.newsDetailFragment)
+            findNavController().navigate(R.id.businessNewsDetailFragment)
         }
 
         viewModel.newsList.observe(viewLifecycleOwner) {

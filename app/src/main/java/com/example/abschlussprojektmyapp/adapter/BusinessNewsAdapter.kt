@@ -58,10 +58,10 @@ class BusinessNewsAdapter(
         }
 
         if (item.urlToImage != null && item.urlToImage.isNotEmpty()) {
-            holder.binding.imageView4.visibility = View.VISIBLE
-            holder.binding.imageView4.load(item.urlToImage)
+            holder.binding.image.visibility = View.VISIBLE
+            holder.binding.image.load(item.urlToImage)
         } else {
-            holder.binding.imageView4.visibility = View.GONE
+            holder.binding.image.visibility = View.GONE
             val layoutParams = holder.binding.itemNews.layoutParams
             layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             holder.binding.itemNews.layoutParams = layoutParams
@@ -83,7 +83,7 @@ class BusinessNewsAdapter(
         holder.binding.itemNews.setOnClickListener {
             viewModel.getBusinessNews()
             viewModel.setSelectedItem(item)
-            holder.itemView.findNavController().navigate(R.id.newsDetailFragment)
+            holder.itemView.findNavController().navigate(R.id.businessNewsDetailFragment)
         }
 
         if (holder is ItemViewHolder) {

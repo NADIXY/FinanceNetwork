@@ -10,10 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Login"
+        android:layout_marginBottom="16dp"
+        android:text="FINANCE NETWORK"
+        android:textColor="#71480D"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="#2196F3"
+        app:layout_constraintBottom_toTopOf="@+id/appIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -94,4 +96,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerBTN" />
+
+    <ImageView
+        android:id="@+id/appIcon"
+        android:layout_width="167dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/baseline_currency_bitcoin_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

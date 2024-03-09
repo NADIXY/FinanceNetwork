@@ -13,10 +13,10 @@ import com.example.abschlussprojektmyapp.R
 import com.example.abschlussprojektmyapp.data.model.newsapi.Article
 import com.example.abschlussprojektmyapp.databinding.TopNewsLayoutBinding
 
-class NewsAdapter(
+class TopBusinessNewsAdapter(
     private val dataset: List<Article>,
     viewModel: MainViewModel,
-) : RecyclerView.Adapter<NewsAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<TopBusinessNewsAdapter.ItemViewHolder>() {
 
 
      // Der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
@@ -71,7 +71,7 @@ class NewsAdapter(
         //Hier setzen wir per Click auf die CardView um ins
         //newsFragment navigieren zu können
         holder.binding.topNewsCardView.setOnClickListener {
-            holder.itemView.findNavController().navigate(R.id.newsFragment2)
+            holder.itemView.findNavController().navigate(R.id.businessNewsFragment)
         }
     }
 

@@ -9,12 +9,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
-import com.example.abschlussprojektmyapp.databinding.FragmentNewsDetailBinding
+import com.example.abschlussprojektmyapp.databinding.FragmentBusinessNewsDetailBinding
 import java.text.SimpleDateFormat
 
-class NewsDetailFragment : Fragment() {
+class BusinessNewsDetailFragment : Fragment() {
 
-    private lateinit var binding: FragmentNewsDetailBinding
+    private lateinit var binding: FragmentBusinessNewsDetailBinding
     private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -22,7 +22,7 @@ class NewsDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNewsDetailBinding.inflate(layoutInflater)
+        binding = FragmentBusinessNewsDetailBinding.inflate(layoutInflater)
 
         return binding.root
     }
@@ -49,7 +49,7 @@ class NewsDetailFragment : Fragment() {
         }
 
         binding.backStackNewsDetail.setOnClickListener {
-            findNavController().navigate(R.id.newsFragment2)
+            findNavController().navigate(R.id.businessNewsFragment)
         }
 
 

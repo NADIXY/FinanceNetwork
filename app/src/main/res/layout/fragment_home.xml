@@ -36,7 +36,7 @@
             app:layout_constraintVertical_bias="0.432" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -59,8 +59,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeDetailAppbar"
         tools:listitem="@layout/top_news_layout"/>
-
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -93,7 +91,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:listitem="@layout/top_currency_layout" />
+        tools:listitem="@layout/crypto_currency_layout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -104,28 +102,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topCurrencyRecyclerView">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/contentViewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/contentViewPager"
-            app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
@@ -168,16 +144,4 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-<!--
-<androidx.recyclerview.widget.RecyclerView
-android:id="@+id/topNewsRecyclerView"
-android:layout_width="411dp"
-android:layout_height="81dp"
-android:orientation="horizontal"
-app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.0"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@id/homeDetailAppbar"
-tools:listitem="@layout/top_news_layout" />
--->
+

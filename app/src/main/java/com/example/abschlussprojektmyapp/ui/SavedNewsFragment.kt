@@ -48,7 +48,7 @@ class SavedNewsFragment : Fragment() {
         }
 
         binding.backStackSavedNews.setOnClickListener {
-            findNavController().navigate(R.id.newsFragment2)
+            findNavController().navigate(R.id.businessNewsFragment)
         }
 
         // Der SnapHelper sorgt dafür, dass die RecyclerView immer auf das aktuelle List Item springt
