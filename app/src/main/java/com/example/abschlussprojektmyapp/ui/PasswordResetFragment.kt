@@ -40,9 +40,9 @@ class PasswordResetFragment: Fragment() {
 
         }
 
-        // Button um zurück zum LoginFragment zu navigieren
+        // Button um zurück zum SignInFragment zu navigieren
         binding.btBackToLogin.setOnClickListener {
-            findNavController().navigate(R.id.loginFragment)
+            findNavController().navigate(R.id.signInFragment)
         }
 
     }

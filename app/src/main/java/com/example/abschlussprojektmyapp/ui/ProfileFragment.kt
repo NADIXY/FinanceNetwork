@@ -82,10 +82,10 @@ class ProfileFragment : Fragment() {
         }
 
         // User LiveData aus dem ViewModel wird beobachtet
-        // Wenn User gleich null (also der User nicht mehr eingeloggt ist) wird zum LoginFragment navigiert
+        // Wenn User gleich null (also der User nicht mehr eingeloggt ist) wird zum SignInFragment navigiert
         viewModel.user.observe(viewLifecycleOwner) {
             if (it == null) {
-                findNavController().navigate(R.id.loginFragment)
+                findNavController().navigate(R.id.signInFragment)
             }
         }
 

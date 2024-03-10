@@ -106,7 +106,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 // Überprüfung, ob User bereits Email verifiziert hat
                 if (auth.currentUser!!.isEmailVerified) {
                     // Wenn Email verifiziert, wird LiveData mit dem eingeloggten User befüllt
-                    // Das triggert dann die Navigation im LoginFragment
+                    // Das triggert dann die Navigation im SignInFragment
 
                     // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                     profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
@@ -137,7 +137,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
         // Danach wird der Wert der currentUser LiveData auf den aktuellen Wert des Firebase-CurrentUser gesetzt
         // Nach Logout ist dieser Wert null, also ist auch in der LiveData danach der Wert null gespeichert
-        // Dies triggert die Navigation aus dem HomeFragment zurück zum LoginFragment
+        // Dies triggert die Navigation aus dem HomeFragment zurück zum SignInFragment
         _user.value = auth.currentUser
     }
 

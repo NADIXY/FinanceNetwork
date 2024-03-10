@@ -9,17 +9,17 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
-import com.example.abschlussprojektmyapp.databinding.FragmentLoginBinding
+import com.example.abschlussprojektmyapp.databinding.FragmentSignInBinding
 
-class LoginFragment : Fragment() {
+class SignInFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentSignInBinding
     private var isLoggedIn = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
 

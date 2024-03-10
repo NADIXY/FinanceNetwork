@@ -29,9 +29,9 @@ class RegisterFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Button um zurück zum LoginFragment zu navigieren
+        // Button um zurück zum SignInFragment zu navigieren
         binding.backBt.setOnClickListener {
-            findNavController().navigate(R.id.loginFragment)
+            findNavController().navigate(R.id.signInFragment)
         }
 
         // Button um User zu registrieren

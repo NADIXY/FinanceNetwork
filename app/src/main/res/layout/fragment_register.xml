@@ -6,6 +6,20 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/infoTextView2"
+        android:layout_width="311dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="You will receive an email with instructions for how to confirm your email address in a few minutes."
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/back_Bt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_Bt" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,13 +86,13 @@
 
     <TextView
         android:id="@+id/back_Bt"
-        android:layout_width="wrap_content"
+        android:layout_width="31dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Back"
         android:textColor="#2196F3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Bt" />
+        app:layout_constraintTop_toBottomOf="@+id/infoTextView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

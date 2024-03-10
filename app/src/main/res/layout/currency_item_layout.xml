@@ -75,15 +75,6 @@
             app:layout_constraintTop_toTopOf="@+id/currencyNameTextView"
             tools:text="123.35353" />
 
-        <ImageView
-            android:id="@+id/currencyChangeImageView"
-            android:layout_width="19dp"
-            android:layout_height="21dp"
-            app:layout_constraintBottom_toBottomOf="@+id/currencyChangeTextView"
-            app:layout_constraintEnd_toStartOf="@+id/currencyChangeTextView"
-            app:layout_constraintTop_toTopOf="@+id/currencyChangeTextView"
-            tools:srcCompat="@drawable/ic_caret_up" />
-
         <TextView
             android:id="@+id/currencyChangeTextView"
             android:layout_width="wrap_content"
