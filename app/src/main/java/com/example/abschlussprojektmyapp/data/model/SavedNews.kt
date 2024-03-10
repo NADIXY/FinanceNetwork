@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class SavedNews(
-
     @PrimaryKey(autoGenerate = true)
     val id: Int?,
     val publishedAt: String,

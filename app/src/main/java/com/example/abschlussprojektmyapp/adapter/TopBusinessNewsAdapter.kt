@@ -57,7 +57,9 @@ class TopBusinessNewsAdapter(
 
         if (item.urlToImage != null && item.urlToImage.isNotEmpty()) {
             holder.binding.topNewsImageView.visibility = View.VISIBLE
-            holder.binding.topNewsImageView.load(item.urlToImage)
+            holder.binding.topNewsImageView.load(item.urlToImage){
+                error(R.drawable.spinner)
+            }
         } else {
             holder.binding.topNewsImageView.visibility = View.GONE
             val layoutParams = holder.binding.topNewsCardView.layoutParams

@@ -8,8 +8,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.abschlussprojektmyapp.data.model.SavedNews
 
-
-
 // Data Access Object für die Datenbank.
 @Dao
 interface BusinessNewsDatabaseDao {

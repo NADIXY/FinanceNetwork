@@ -106,7 +106,9 @@ class MarketAdapter(
 
             holder.binding.currencyImageView.load("https://s2.coinmarketcap.com/static/img/coins/64x64/" + item.id + ".png")
 
-            holder.binding.currencyChartImageView.load("https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/" + item.id + ".png")
+            holder.binding.currencyChartImageView.load("https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/" + item.id + ".png"){
+                error(R.drawable.spinner)
+            }
 
             holder.binding.currencyCardView.setOnClickListener {
                 showSavedAlertDialog(item, holder.itemView.context)

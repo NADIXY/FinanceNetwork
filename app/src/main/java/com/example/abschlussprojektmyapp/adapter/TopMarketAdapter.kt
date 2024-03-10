@@ -122,7 +122,6 @@ class TopMarketAdapter(
             holder.binding.cryptoCurrencyChangeTextView.text =
                 "${String.format("%.02f", item.quotes[0].percentChange24h)} %"
         }
-
     }
 
     /**

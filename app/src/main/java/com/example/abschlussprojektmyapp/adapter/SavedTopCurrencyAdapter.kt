@@ -23,7 +23,8 @@ class SavedTopCurrencyAdapter(
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SavedTopCurrencyViewHolder {
-        val binding = ItemSavedTopCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemSavedTopCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SavedTopCurrencyViewHolder(binding)
     }
 
@@ -38,7 +39,7 @@ class SavedTopCurrencyAdapter(
         holder.binding.savedCurrencyChartImageView.load("https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/" + item.id + ".png")
 
         holder.binding.cvSavedTopCurrency.setOnClickListener {
-            showDeleteAlertDialog(item,holder.itemView.context )
+            showDeleteAlertDialog(item, holder.itemView.context)
 
         }
 
@@ -50,7 +51,7 @@ class SavedTopCurrencyAdapter(
         animator.start()
 
         holder.binding.cvSavedTopCurrency.setOnClickListener {
-            showDeleteAlertDialog(item,holder.itemView.context )
+            showDeleteAlertDialog(item, holder.itemView.context)
 
             // RotationY = object horizontal rotieren                  Start, Ende
             val rotator = ObjectAnimator.ofFloat(hCard, View.ROTATION_Y, 0f, 360f)

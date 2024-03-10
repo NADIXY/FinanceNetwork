@@ -59,7 +59,9 @@ class BusinessNewsAdapter(
 
         if (item.urlToImage != null && item.urlToImage.isNotEmpty()) {
             holder.binding.image.visibility = View.VISIBLE
-            holder.binding.image.load(item.urlToImage)
+            holder.binding.image.load(item.urlToImage){
+                error(R.drawable.spinner)
+            }
         } else {
             holder.binding.image.visibility = View.GONE
             val layoutParams = holder.binding.itemNews.layoutParams

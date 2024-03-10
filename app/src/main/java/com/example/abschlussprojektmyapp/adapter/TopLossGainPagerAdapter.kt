@@ -12,14 +12,6 @@ Ein PagerAdapter für die TopLossGainFragmente.
 class TopLossGainPagerAdapter( fragment: Fragment ) : FragmentStateAdapter( fragment ) {
 
     /**
-    Gibt die Anzahl der Fragmente zurück, die im Pager angezeigt werden sollen.
-    *@return Die Anzahl der Fragmente (immer 2).
-     */
-    override fun getItemCount(): Int {
-        return 1
-    }
-
-    /**
     Erstellt ein neues TopLossGainFragment basierend auf der Position im Pager.
     *@param position Die Position des Fragments im Pager.
     *@return Das erstellte TopLossGainFragment.
@@ -27,6 +19,14 @@ class TopLossGainPagerAdapter( fragment: Fragment ) : FragmentStateAdapter( frag
     override fun createFragment(position: Int): Fragment {
         val fragment = TopLossGainFragment()
         return fragment
+    }
+
+    /**
+    Gibt die Anzahl der Fragmente zurück, die im Pager angezeigt werden sollen.
+     *@return Die Anzahl der Fragmente.
+     */
+    override fun getItemCount(): Int {
+        return 1
     }
 }
 
