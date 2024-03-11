@@ -42,6 +42,7 @@ class CurrencyConverterFragment : Fragment() {
             true
         }
 
+
         val currencies = arrayOf(
             "USD", "EUR", "GBP",
             "AED", "AFN", "ALL",

@@ -46,6 +46,17 @@ class BusinessNewsDetailFragment : Fragment() {
             binding.detailNewsDate.text = date2
             binding.detailNewsDescription.text = it.description
 
+            if (it.author != null && it.author.isNotEmpty()) {
+                binding.detailNewsAuthor.visibility = View.VISIBLE
+                binding.detailNewsAuthor.text = it.author
+
+            } else {
+                binding.detailNewsAuthor.visibility = View.GONE
+                val layoutParams = binding.newsDetailsCv.layoutParams
+                layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                binding.newsDetailsCv.layoutParams = layoutParams
+            }
+
         }
 
         binding.backStackNewsDetail.setOnClickListener {
