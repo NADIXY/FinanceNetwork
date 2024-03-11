@@ -25,13 +25,10 @@ class CurrencyConverterFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.backStackCurrencyConverter.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)
         }
-
         binding.close.setOnClickListener {
-
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Close")
             builder.setMessage("Do you really want to close?")
@@ -42,7 +39,6 @@ class CurrencyConverterFragment : Fragment() {
             builder.setNegativeButton("Cancel") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
             dialog.show()
-
             true
         }
 
@@ -103,24 +99,19 @@ class CurrencyConverterFragment : Fragment() {
             "XOF", "XPF", "YER",
             "ZAR", "ZMW", "ZWL"
         )
-
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, currencies)
         binding.fromCurrencySpinner.adapter = adapter
         binding.toCurrencySpinner.adapter = adapter
-
         binding.convertButton.setOnClickListener {
             val fromCurrency = binding.fromCurrencySpinner.selectedItem.toString()
             val toCurrency = binding.toCurrencySpinner.selectedItem.toString()
             val amountToConvert = binding.amountToConvertEditText.text.toString().toDouble()
-
             viewModel.getExchangeRates()
-
             viewModel.exchangeRates.observe(viewLifecycleOwner) { exchangeRates ->
                 val fromRate = exchangeRates.conversion_rates!![fromCurrency] ?: 1.0
                 val toRate = exchangeRates.conversion_rates!![toCurrency] ?: 1.0
                 val convertedAmount = amountToConvert * (toRate / fromRate)
-
                 updateUIWithConvertedAmount(
                     amountToConvert,
                     fromCurrency,
