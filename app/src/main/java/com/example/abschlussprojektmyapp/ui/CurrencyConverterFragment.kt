@@ -42,7 +42,6 @@ class CurrencyConverterFragment : Fragment() {
             true
         }
 
-
         val currencies = arrayOf(
             "USD", "EUR", "GBP",
             "AED", "AFN", "ALL",
@@ -100,39 +99,66 @@ class CurrencyConverterFragment : Fragment() {
             "XOF", "XPF", "YER",
             "ZAR", "ZMW", "ZWL"
         )
+
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, currencies)
+
         binding.fromCurrencySpinner.adapter = adapter
         binding.toCurrencySpinner.adapter = adapter
+
         binding.convertButton.setOnClickListener {
-            val fromCurrency = binding.fromCurrencySpinner.selectedItem.toString()
-            val toCurrency = binding.toCurrencySpinner.selectedItem.toString()
-            val amountToConvert = binding.amountToConvertEditText.text.toString().toDouble()
-            viewModel.getExchangeRates()
-            viewModel.exchangeRates.observe(viewLifecycleOwner) { exchangeRates ->
-                val fromRate = exchangeRates.conversion_rates!![fromCurrency] ?: 1.0
-                val toRate = exchangeRates.conversion_rates!![toCurrency] ?: 1.0
-                val convertedAmount = amountToConvert * (toRate / fromRate)
-                updateUIWithConvertedAmount(
-                    amountToConvert,
-                    fromCurrency,
-                    convertedAmount,//.roundToInt(),
-                    toCurrency
-                )
+            try {
+                val fromCurrency = binding.fromCurrencySpinner.selectedItem.toString()
+                val toCurrency = binding.toCurrencySpinner.selectedItem.toString()
+                val amountToConvert = binding.amountToConvertEditText.text.toString().toDouble()
+
+                if (fromCurrency.isNotEmpty() && toCurrency.isNotEmpty()) {
+                    viewModel.getExchangeRates()
+                    viewModel.exchangeRates.observe(viewLifecycleOwner) { exchangeRates ->
+                        val fromRate = exchangeRates.conversion_rates!![fromCurrency] ?: 1.0
+                        val toRate = exchangeRates.conversion_rates!![toCurrency] ?: 1.0
+                        val convertedAmount = amountToConvert * (toRate / fromRate)
+                        updateUIWithConvertedAmount(
+                            amountToConvert,
+                            fromCurrency,
+                            convertedAmount,
+                            toCurrency
+                        )
+                    }
+                } else {
+                    // Handle case where fromCurrency or toCurrency is empty
+                    val errorMessage = "Please select both 'From' and 'To' currencies"
+                    Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                // Handle any exceptions that may occur during conversion
+                val errorMessage = "An error occurred during conversion: ${e.message}"
+                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
             }
+
         }
+
     }
+
+    //Funktion die Doubles auf zwei Dezimalstellen rundet
+    private fun roundToTwoDecimalPlaces(value: Double): Double {
+        return String.format("%.2f", value).toDouble()
+    }
+
     private fun updateUIWithConvertedAmount(
         amountToConvert: Double,
         fromCurrency: String,
         convertedAmount: Double,
         toCurrency: String
-    ) {
-        val resultText = "$amountToConvert $fromCurrency is $convertedAmount $toCurrency"
+    ) { //um das Ergebnis der Wertkonvertierung auf zwei Dezimalstellen zu runden, bevor es angezeigt wird.
+        val roundedConvertedAmount = roundToTwoDecimalPlaces(convertedAmount)
+        val resultText = "$amountToConvert $fromCurrency is $roundedConvertedAmount $toCurrency"
         binding.resultTextView.text = resultText
         Toast.makeText(requireContext(), resultText, Toast.LENGTH_SHORT).show()
     }
 }
+
+
 
 
 

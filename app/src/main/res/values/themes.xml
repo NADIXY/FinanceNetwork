@@ -2,27 +2,17 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.AbschlussprojektMyApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!--<item name="colorPrimary">@color/black</item> -->
+        <!-- Primary brand color. -->
         <item name="colorPrimary">#2196F3</item>
         <item name="colorPrimaryVariant">#673AB7</item>
-        <item name="android:statusBarColor">#120846</item>
-    </style>
-    <style name="Theme.AbschlussprojektMyApp" parent="Base.Theme.AbschlussprojektMyApp" />
-
-    <style name="Theme.FunAppVorlage" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/SI_DeepPurple</item>
-        <item name="colorPrimaryVariant">@color/backgroundD1</item>
-        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/SI_DeepPurple</item>
         <item name="colorSecondaryVariant">@color/SI_Purple</item>
         <item name="colorOnSecondary">@color/SI_Grey</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">#120846</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <style name="Theme.AbschlussprojektMyApp" parent="Base.Theme.AbschlussprojektMyApp" />
 </resources>

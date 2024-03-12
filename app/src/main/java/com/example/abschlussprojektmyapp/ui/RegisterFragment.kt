@@ -41,8 +41,16 @@ class RegisterFragment: Fragment() {
             val email = binding.emailRegister.text.toString()
             val password = binding.passwordRegister.text.toString()
 
-            if (email != "" && password != "") {
+            if (email != "" && password.length >= 8) {
                 viewModel.register(email, password)
+            } else {
+                // Password must contain at least 8 characters
+                if (password.length < 8) {
+                    // Fehlermeldung anzeigen
+                    binding.passwordRegister.error = "Password must contain at least 8 characters"
+                }
+                // Vorgang abbrechen
+                return@setOnClickListener
             }
         }
 
