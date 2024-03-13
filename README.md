@@ -40,4 +40,11 @@ wie z.B. Euro in Dollar oder Kronen in Euro. In der App gibt es auch die neueste
   <img width="250" height="500" src="Screenshot_20240313_171628.png"> 
 </p>
 
+### Home | Business News | Currency Converter
+
+<p align = "left" >
+  <img width="250" height="500" src="Screenshot_20240313_171847.png">
+  <img width="250" height="500" src="Screenshot_20240313_172637.png"> 
+  <img width="250" height="500" src="Screenshot_20240313_172724.png"> 
+</p>
 
