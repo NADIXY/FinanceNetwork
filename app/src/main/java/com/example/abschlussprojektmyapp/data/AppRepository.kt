@@ -7,7 +7,6 @@ import com.example.abschlussprojektmyapp.data.local.BusinessNewsDatabase
 import com.example.abschlussprojektmyapp.data.local.TopCurrencyDatabase
 import com.example.abschlussprojektmyapp.data.model.SavedNews
 import com.example.abschlussprojektmyapp.data.model.SavedTopCurrency
-import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.MarketModel
 import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRatesX
 import com.example.abschlussprojektmyapp.data.model.newsapi.News

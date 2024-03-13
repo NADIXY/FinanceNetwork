@@ -82,12 +82,10 @@ class CurrencyConverterFragment : Fragment() {
                         )
                     }
                 } else {
-                    // Handle case where fromCurrency or toCurrency is empty
                     val errorMessage = "Please select both 'From' and 'To' currencies"
                     Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                // Handle any exceptions that may occur during conversion
                 val errorMessage = "An error occurred during conversion: ${e.message}"
                 Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
             }

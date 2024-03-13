@@ -39,7 +39,7 @@ class SavedNewsFragment : Fragment() {
          * @param binding Das Binding-Objekt für die RecyclerView
          * @param rvSavedNews Die RecyclerView, die die SavedNews anzeigt
          * @param SavedNewsAdapter Der Adapter für die RecyclerView
-         * @param it Die Liste der aktualisierten Notizen
+         * @param it Die Liste der aktualisierten SavedNews
          * @param viewModel Das ViewModel, das die SavedNews verwaltet
          */
 

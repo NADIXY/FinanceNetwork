@@ -63,6 +63,5 @@ class BusinessNewsDetailFragment : Fragment() {
             findNavController().navigate(R.id.businessNewsFragment)
         }
 
-
     }
 }
