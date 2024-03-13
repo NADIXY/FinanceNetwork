@@ -29,3 +29,13 @@ wie z.B. Euro in Dollar oder Kronen in Euro. In der App gibt es auch die neueste
 ### **Live Data**
 
 ## 
+
+## Screenshots
+
+### Start | Login | Create Account
+
+<p align = "left" >
+  <img width="250" height="500" src="Screenshot_20240313_171457.png">
+
+</p>
+
