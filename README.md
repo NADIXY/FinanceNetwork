@@ -35,7 +35,9 @@ wie z.B. Euro in Dollar oder Kronen in Euro. In der App gibt es auch die neueste
 ### Start | Login | Create Account
 
 <p align = "left" >
-  <img width="250" height="500" src="Screenshot_20240313_171457.png">
-
+  <img width="250" height="500" src="Screenshot_20240313_171426.png">
+  <img width="250" height="500" src="Screenshot_20240313_171457.png"> 
+  <img width="250" height="500" src="Screenshot_20240313_171628.png"> 
 </p>
+
 
