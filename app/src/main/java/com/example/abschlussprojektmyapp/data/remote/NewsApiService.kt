@@ -1,6 +1,5 @@
 package com.example.abschlussprojektmyapp.data.remote
 
-import android.util.Log
 import com.example.abschlussprojektmyapp.data.model.newsapi.News
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -48,8 +47,5 @@ interface Service {
 }
 
 object NewsApi {
-    val retrofitService: Service by lazy { retrofit3.create(Service::class.java) }.apply {
-        Log.d("Api_Call_Test2", "Making API call to getBusinessNews")
-
-    }
+    val retrofitService: Service by lazy { retrofit3.create(Service::class.java) }
 }

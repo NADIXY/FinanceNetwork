@@ -35,4 +35,3 @@ fun getDatabase(context: Context): BusinessNewsDatabase {
 
     }
 }
-

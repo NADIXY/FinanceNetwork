@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.adapter.MarketAdapter
-import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentTopLossGainBinding
 
 class TopLossGainFragment : Fragment() {
@@ -30,9 +29,6 @@ class TopLossGainFragment : Fragment() {
         viewModel.market.observe(viewLifecycleOwner) {
 
             binding.topGainLoseRecyclerView.adapter =
-                TopMarketAdapter(it.data.cryptoCurrencyList,viewModel, requireContext())
-
-            binding.topGainLoseRecyclerView.adapter =
                 MarketAdapter(it.data.cryptoCurrencyList,viewModel, requireContext())
 
             binding.button3.setOnClickListener {
@@ -41,19 +37,3 @@ class TopLossGainFragment : Fragment() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,11 +18,9 @@ class TopBusinessNewsAdapter(
     viewModel: MainViewModel,
 ) : RecyclerView.Adapter<TopBusinessNewsAdapter.ItemViewHolder>() {
 
-
      // Der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
     inner class ItemViewHolder(val binding: TopNewsLayoutBinding ) :
         RecyclerView.ViewHolder(binding.root)
-
 
      // Hier werden neue ViewHolder erstellt
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {

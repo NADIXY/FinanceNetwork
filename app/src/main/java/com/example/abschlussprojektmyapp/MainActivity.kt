@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
      */
     private lateinit var binding: ActivityMainBinding
 
-
     /**
 
     Überschreibt die Methode onCreate des Elternobjekts.
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         @param binding.root Die Wurzelansicht des Binding-Objekts.
          */
         setContentView(binding.root)
-
 
         val navHost =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment

@@ -37,7 +37,6 @@ class PasswordResetFragment: Fragment() {
             if (email != "") {
                 viewModel.sendPasswordReset(email)
             }
-
         }
 
         // Button um zurück zum SignInFragment zu navigieren

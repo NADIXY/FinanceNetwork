@@ -1,16 +1,20 @@
 package com.example.abschlussprojektmyapp.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.abschlussprojektmyapp.MainViewModel
 import com.example.abschlussprojektmyapp.R
+import com.example.abschlussprojektmyapp.adapter.MarketAdapter
 import com.example.abschlussprojektmyapp.adapter.TopBusinessNewsAdapter
-import com.example.abschlussprojektmyapp.adapter.TopLossGainPagerAdapter
 import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter
 import com.example.abschlussprojektmyapp.databinding.FragmentHomeBinding
 import java.util.Timer
@@ -19,9 +23,7 @@ import java.util.TimerTask
 class HomeFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentHomeBinding
-    //private var currentPageNews = 0
     private var currentPageCurrency = 0
-    //private var timerNews: Timer? = null
     private var timerCurrency: Timer? = null
 
     override fun onCreateView(
@@ -42,41 +44,36 @@ class HomeFragment : Fragment() {
         viewModel.getBusinessNews()
         viewModel.newsList.observe(viewLifecycleOwner) {
             binding.topNewsRecyclerView.adapter = TopBusinessNewsAdapter(it.articles, viewModel)
-            //startAutoScrollNews()
         }
 
         viewModel.getMarketData()
         viewModel.market.observe(viewLifecycleOwner) {
-            binding.topCurrencyRecyclerView.adapter = TopMarketAdapter(it.data.cryptoCurrencyList, viewModel, requireContext())
+
+            binding.topCurrencyRecyclerView.adapter =
+                TopMarketAdapter(it.data.cryptoCurrencyList, viewModel, requireContext())
             startAutoScrollCurrency()
+
+            binding.topGainLoseRecyclerView.adapter =
+                MarketAdapter(it.data.cryptoCurrencyList, viewModel, requireContext())
+
+            binding.button3.setOnClickListener {
+                viewModel.getMarketData()
+            }
+
         }
 
-        val adapter = TopLossGainPagerAdapter(this)
-        binding.contentViewPager.adapter = adapter
-    }
+        binding.menu.setOnClickListener {
+            showPopupMenu(it)
+        }
 
-    /*private fun startAutoScrollNews() {
-        timerNews = Timer()
-        timerNews?.schedule(object : TimerTask() {
-            override fun run() {
-                activity?.runOnUiThread {
-                    if (currentPageNews == viewModel.newsList.value?.articles?.size) {
-                        currentPageNews = 0
-                    }
-                    binding.topNewsRecyclerView.smoothScrollToPosition(currentPageNews++)
-                }
-            }
-        }, 0, 5000) // Change the interval as needed for news RecyclerView
     }
-
-     */
 
     private fun startAutoScrollCurrency() {
         timerCurrency = Timer()
         timerCurrency?.schedule(object : TimerTask() {
             override fun run() {
                 activity?.runOnUiThread {
-                    if (currentPageCurrency == viewModel.market.value?.data?.cryptoCurrencyList?.size ) {
+                    if (currentPageCurrency == viewModel.market.value?.data?.cryptoCurrencyList?.size) {
                         currentPageCurrency = 0
                     }
                     binding.topCurrencyRecyclerView.smoothScrollToPosition(currentPageCurrency++)
@@ -87,80 +84,40 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        //timerNews?.cancel()
         timerCurrency?.cancel()
     }
+
+    private fun showPopupMenu(view: View) {
+        val popup = PopupMenu(requireContext(), view)
+        val inflater: MenuInflater = popup.menuInflater
+        inflater.inflate(
+            R.menu.home_menu,
+            popup.menu
+        )
+        popup.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.impressum -> {
+                    findNavController().navigate(R.id.impressumFragment)
+                    true
+
+                }
+                R.id.close -> {
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.setTitle("Close")
+                    builder.setMessage("Do you really want to close?")
+                    builder.setPositiveButton("Yes") { dialog, which ->
+                        activity?.finish()
+                        Toast.makeText(requireContext(), "closed", Toast.LENGTH_SHORT).show()
+                    }
+                    builder.setNegativeButton("Cancel") { dialog, which -> }
+                    val dialog: AlertDialog = builder.create()
+                    dialog.show()
+
+                    true
+                }
+                else -> true
+            }
+        }
+        popup.show()
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

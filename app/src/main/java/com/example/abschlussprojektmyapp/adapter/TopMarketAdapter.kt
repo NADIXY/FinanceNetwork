@@ -16,7 +16,6 @@ import com.example.abschlussprojektmyapp.adapter.TopMarketAdapter.TopMarketViewH
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.CryptoCurrency
 import com.example.abschlussprojektmyapp.databinding.CryptoCurrencyLayoutBinding
 
-
 /**
 
  *Diese Klasse stellt einen Adapter für die Top-Marktliste dar.
@@ -36,7 +35,6 @@ class TopMarketAdapter(
      */
     inner class TopMarketViewHolder(val binding: CryptoCurrencyLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -133,5 +131,3 @@ class TopMarketAdapter(
         return list.size
     }
 }
-
-

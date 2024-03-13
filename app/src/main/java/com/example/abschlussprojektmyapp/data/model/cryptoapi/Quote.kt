@@ -41,4 +41,3 @@ data class Quote(
     val ytdPriceChangePercentage: Double,
     val percentChange1y: Double
 )
-

@@ -13,7 +13,7 @@
         android:layout_marginBottom="16dp"
         android:text="FINANCE NETWORK"
         android:textColor="#71480D"
-        android:textSize="30dp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/appIcon"
         app:layout_constraintEnd_toEndOf="parent"

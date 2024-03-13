@@ -12,4 +12,3 @@ data class SavedTopCurrency(
     val name: String
 
 )
-

@@ -37,4 +37,3 @@ interface BusinessNewsDatabaseDao {
     suspend fun deleteSavedNews(savedNews: SavedNews)
 
 }
-

@@ -28,12 +28,7 @@ class AppRepository(
     private val apiCurrency: CurrencyApi,
     private val database: BusinessNewsDatabase,
     private val topCurrencyDatabase: TopCurrencyDatabase,
-
     ) {
-
-    private val _crypto = MutableLiveData<List<CryptoCurrency>>()
-    val crypto: LiveData<List<CryptoCurrency>>
-        get() = _crypto
 
     private val _market =
         MutableLiveData<MarketModel>() //Private Variable, die eine Liste von MarketModel als MutableLiveData hält
@@ -98,32 +93,3 @@ class AppRepository(
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

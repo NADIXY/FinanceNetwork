@@ -10,7 +10,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.abschlussprojektmyapp.data.AppRepository
 import com.example.abschlussprojektmyapp.data.local.getDatabase
 import com.example.abschlussprojektmyapp.data.local.getTopCurrencyDatabase
-import com.example.abschlussprojektmyapp.data.model.Chat
 import com.example.abschlussprojektmyapp.data.model.SavedNews
 import com.example.abschlussprojektmyapp.data.model.Profile
 import com.example.abschlussprojektmyapp.data.model.SavedTopCurrency
@@ -22,7 +21,6 @@ import com.example.abschlussprojektmyapp.data.remote.NewsApi
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
-import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
@@ -165,34 +163,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
-    val chatsRef = firestore.collection("chats")
-
-    fun createChat(userId: String) {
-
-        val chat = Chat(
-            listOf(
-                userId,
-                auth.currentUser!!.uid
-            )
-        )
-        firestore.collection("chats").add(chat)
-    }
-
-    fun addMessageToChat(message: String, chatId: String) {
-        /*
-        val message = Message(
-            content = message,
-            senderId = auth.currentUser!!.uid
-        )
-        firestore.collection("chats").document(chatId).collection("messages").add(message)
-         */
-    }
-
-    fun getMessageRef(chatId: String): CollectionReference {
-        return firestore.collection("chats").document(chatId).collection("messages")
-    }
-
-
     private val appRepository =
         AppRepository(
             Api,
@@ -203,17 +173,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         )
 
     val market =
-        appRepository.market //Variable, die das market-Objekt aus der Repository-Klasse holt.
-    val crypto =
-        appRepository.crypto
+        appRepository.market
+
+    //Variable, die das market-Objekt aus der Repository-Klasse holt.
     val newsList =
         appRepository.newsList
 
     val exchangeRates =
         appRepository.exchangeRates
 
+    //Variable, die die savedNews-Objekte aus der Repository-Klasse holt.
     val savedNews =
-        appRepository.savedNews //Variable, die die savedNews-Objekte aus der Repository-Klasse holt.
+        appRepository.savedNews
 
     val savedTopCurrency =
         appRepository.savedTopCurrency
@@ -259,6 +230,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             appRepository.deleteSavedNews(savedNews)
         }
     }
+
     fun saveTopCurrency(cryptoCurrency: CryptoCurrency) {
         val newSavedTopCurrency = SavedTopCurrency(cryptoCurrency.id,cryptoCurrency.name
         )
@@ -268,6 +240,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     }
+
     fun deleteTopCurrency(savedTopCurrency: SavedTopCurrency) {
         viewModelScope.launch(Dispatchers.IO) {
             appRepository.deleteTopCurrency(savedTopCurrency)
@@ -276,23 +249,3 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

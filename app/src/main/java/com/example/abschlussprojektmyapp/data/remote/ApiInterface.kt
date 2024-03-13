@@ -1,6 +1,5 @@
 package com.example.abschlussprojektmyapp.data.remote
 
-import android.util.Log
 import com.example.abschlussprojektmyapp.data.model.cryptoapi.MarketModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -35,24 +34,5 @@ interface ApiInterface {
 
 object Api { //Singleton-Objekt, das die API-Schnittstelle für die Apiüberprüfung bereitstellt.
     //Lazy initialisierter Retrofit-Service für die Kommunikation mit der API.
-    val retrofitService: ApiInterface by lazy { retrofit2.create(ApiInterface::class.java) }.apply {
-        Log.d("Api_Call_Test", "Making API call to getMarketData")
-    }
+    val retrofitService: ApiInterface by lazy { retrofit2.create(ApiInterface::class.java) }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

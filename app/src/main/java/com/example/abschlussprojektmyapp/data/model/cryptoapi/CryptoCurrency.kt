@@ -42,4 +42,3 @@ data class CryptoCurrency(
     val tags: List<String>,
     val totalSupply: Double,
 )
-

@@ -1,6 +1,5 @@
 package com.example.abschlussprojektmyapp.data.remote
 
-import android.util.Log
 import com.example.abschlussprojektmyapp.data.model.currencyapi.ExchangeRatesX
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -35,17 +34,5 @@ interface ApiService {
 }
 
 object CurrencyApi {
-    val retrofitService: ApiService by lazy { retrofit4.create(ApiService::class.java) }.apply {
-        Log.d("Api_Call_Test4", "Making API call to getExchangeRates() ")
-    }
+    val retrofitService: ApiService by lazy { retrofit4.create(ApiService::class.java) }
 }
-
-
-
-
-
-
-
-
-
-

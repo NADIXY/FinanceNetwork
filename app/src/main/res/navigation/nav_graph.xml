@@ -55,24 +55,6 @@
         android:name="com.example.abschlussprojektmyapp.ui.RegisterFragment"
         android:label="RegisterFragment" />
     <fragment
-        android:id="@+id/chatListFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.ChatListFragment"
-        android:label="fragment_chat_list"
-        tools:layout="@layout/fragment_chat_list" >
-        <action
-            android:id="@+id/action_chatListFragment_to_chatDetailFragment"
-            app:destination="@id/chatDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/chatDetailFragment"
-        android:name="com.example.abschlussprojektmyapp.ui.ChatDetailFragment"
-        android:label="fragment_chat_detail"
-        tools:layout="@layout/fragment_chat_detail" >
-        <argument
-            android:name="chatId"
-            app:argType="string" />
-    </fragment>
-    <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.example.abschlussprojektmyapp.ui.SavedNewsFragment"
         android:label="SavedNewsFragment" />
@@ -80,6 +62,10 @@
         android:id="@+id/savedTopCurrencyFragment"
         android:name="com.example.abschlussprojektmyapp.ui.SavedTopCurrencyFragment"
         android:label="SavedTopCurrencyFragment" />
-
+    <fragment
+        android:id="@+id/impressumFragment"
+        android:name="com.example.abschlussprojektmyapp.ui.ImpressumFragment"
+        android:label="fragment_impressum"
+        tools:layout="@layout/fragment_impressum" />
 
 </navigation>

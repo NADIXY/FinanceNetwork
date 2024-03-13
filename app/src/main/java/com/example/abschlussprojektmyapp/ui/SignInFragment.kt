@@ -60,9 +60,3 @@ class SignInFragment : Fragment() {
     }
 
 }
-
-
-
-
-
-
