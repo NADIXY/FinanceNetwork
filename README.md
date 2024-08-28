@@ -56,7 +56,7 @@ Model-View-ViewModel (MVVM)
 
 #### Local DB
 * **ROOM**
-* **DAO**/**CRUD**-Function(Create/Insert, Read/Get, Delete)
+* **DAO**/**CRUD** Function(Create/Insert, Read/Get, Delete)
 
 #### Image
 * Coil
