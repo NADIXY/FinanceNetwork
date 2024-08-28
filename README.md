@@ -69,17 +69,14 @@ Model-View-ViewModel (MVVM)
 
 ## Features
 
-**START:** LOGIN/CREAT ACCOUNT/PASSWORD RESET
+**START:** LOGIN * CREAT ACCOUNT * PASSWORD RESET
 
-**CRYPTO CURRENCY:** List of CRYPTO CURRENCY, refresh list, save and decline CRYPTO CURRENCY 
+**CRYPTO CURRENCY:** List of "CRYPTO CURRENCY", refresh list, save and decline "CRYPTO CURRENCY "
 
-**BUSINESS NEWS:** The latest BUSINESS NEWS, save and decline NEWS
+**BUSINESS NEWS:** The latest "BUSINESS NEWS", save and decline "NEWS"
 
-**CURRENCY CONVERTER:** CURRENCY CONVERTER calculator to quickly convert between different foreign currencies
+**CURRENCY CONVERTER:** "CURRENCY CONVERTER" calculator to quickly convert between different foreign currencies
 
 **Profile:** Add/change Picture, save and change Name/Number
 
 **General:** Auto login, bottom navigation, toast messages, animation
-
-
-
