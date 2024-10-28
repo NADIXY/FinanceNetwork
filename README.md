@@ -5,7 +5,9 @@ The app offers a current cryptocurrency list display,
 a currency converter to quickly convert between different foreign currencies,
 e.g. euros in US dollars or crowns in euros.
 The app also offers the latest business news from the financial world.
-## 
+##
+
+<!--
 
 ## Screenshots
 
@@ -80,3 +82,6 @@ Model-View-ViewModel (MVVM)
 **Profile:** Add/change Picture, save and change Name/Number
 
 **General:** Auto login, bottom navigation, toast messages, animation
+
+
+-->
